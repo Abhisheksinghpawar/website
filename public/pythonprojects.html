@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abhishek Singh Pawar</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.6.0/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+    body {
+	font-family: 'Poppins',sans-serif;
+    }
+	img{
+		float: left;
+		padding: 50px;
+	}
+	.navbar{
+	padding: .8rem;
+position: relative;
+width: 100%;	
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+.carousel-indicators .active{
+	background-color: #3255e3;
+}
+.footerbg
+{
+background-color:#002966
+}
+.card{
+box-shadow:10px 10px 10px;
+}
+</style>
+</head>
+<body>
+<!-- Navigation <img src="img/logo.png"> </a>-->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;"><b>Abhishek Singh Pawar</b></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target="#navbar-Responsive">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar-Responsive">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="slide.html">Technologies</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="sports.html">Sports</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="LiveTiles.html">Live Wall</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="Login.html">Feedback</a>
+			</li>
+		</ul>
+	</div>	
+
+
+</div>
+</nav>	
+
+<!--- Image Slider -->
+<div id="slides" class="carousel slide" data-ride="carousel" data-interval="2000" style="width:100%;height: 250px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="python.html"><img src="img/python-logo.png" alt="Los Angeles" style="width:50%;height: 250px;"></a>
+        <a href="bootstrap.html"><img src="img/b4.png" alt="Chicago" style="width:50%;height: 250px;"></a>
+      </div>
+	<div class="carousel-item">
+	    <a href="r.html"><img src="img/R_logo-1.png" alt="Chicago" style="width:50%;height: 250px;"></a>
+        <a href="tableau.html"><img src="img/Tableau.jpg" alt="Chicago" style="width:50%;height: 250px;"></a>
+      </div>
+	<div class="carousel-item">
+		<a href="html5.html"><img src="img/html5.png" alt="Chicago" style="width:50%;height: 250px;"></a>
+        <a href="firebase.html"><img src="img/firebase.png" alt="Chicago" style="width:50%;height: 250px;"></a>
+      </div> 
+    <div class="carousel-item" align="center">
+        <a href="c.html"><img src="img/downloadc.png" alt="New york" style="width:50%;height: 250px;"></a>
+        <a href="https://www.w3schools.com/css/"><img src="img/css.jpg" alt="New york" style="width:50%;height: 250px;"></a>
+      </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background: transparent;color: #3255e3;">
+      <span class="glyphicon glyphicon-chevron-left" ></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background: transparent;color: #3255e3;">
+      <span class="glyphicon glyphicon-chevron-right" ></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+ <hr style="border: 2px solid#5b9aa0;" />
+</br>
+<h1 align="center"><i class="fab fa-python" style="color:navy;"></i> Python - Projects</h1>
+<p style="font-size:25px;text-align:center;padding:50px">
+Learning any programming language is a tedious task. The advantage with Python is that you can start making real projects within no time
+</br>
+Here are some very fundamental yet powerful pieces of mode which look simple but are extremely effective and use various python packages
+</p>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12"><h2 class="card-title mt-2" style="color:green;text-align:center;"><i class="fas fa-glass-whiskey" color = "blue"></i> Drink Water Notification</h2></div></div></div></div>
+</br>
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-6">
+<pre style="color:black;padding-left:15px;font-size:16px"></br>
+import time
+from plyer import notification
+
+while True:
+    notification.notify(
+        title = "Please Drink Water",
+        message = "Keep yourself hydrated",
+        #app_icon = "Your Path\Glass-Water.ico",
+        timeout = 2
+        )
+    time.sleep(10)
+		</pre>
+</div>
+<div class="col-md-6">
+</br></br>
+<h2 align="left">Program Description</h2></br>
+		<ul>
+		<li>This simple program will give you notification to drink water</li>
+		<li>It makes use of Python plyer module to give notification</li>
+		<li>Duration of the notification before it goes off can be set</li>
+		<li>Frequency of the notification can be modified using sleep</li>
+		</ul>
+</div>
+</div>
+</div>
+</div>
+</br></br></br></br></br>
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12"><h2 class="card-title mt-2" style="color:red;text-align:center;"><i class="fas fa-gamepad" color="orange"></i> Guessing Game</h2></div></div></div></div>
+</br>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-6">
+<pre style="color:black;padding-left:15px;font-size:13px"></br>
+import random
+random_number = random.randint(1,10)
+your_guess = 0
+credit = 10
+level = 1
+
+#Rules
+print('''* Guess a number between 1-10
+         * You have a credit of 10
+         * Exact answer will fetch you +5
+         * If answer is +- 3 range it will give you +3 
+	   Otherwise -5''')
+
+while credit > 0:
+    print("You are on level",level,"credit score is",credit)
+    your_guess = int(input("Enter your Guess "))
+    if your_guess == random_number:
+        credit+=3
+        level = level + 1
+        print("You guessed it right !!,number changed")
+        random_number = random.randint(1,10)
+    elif (random_number-3) < your_guess < (random_number+3):
+        print("You are close but not exact, Try harder")
+        credit+=1
+        level+=1
+    else:
+        print("You are not even close to the number :-( ")
+        credit-=5
+        if credit <= 0:
+            print("Correct guess was",random_number)
+	    print("You reached level",level)
+		</pre>
+</div>
+<div class="col-md-6">
+</br></br></br></br></br>
+<h2 align="left">Program Description</h2></br>
+		<ul>
+		<li>This Program makes use of Python loops in a very intresting way</li>
+		<li>Random module generates a random number which is updated as per rules</li>
+		<li>Player also has a score which is calculated as per the rules</li>
+		<li>Program ends when the user credit finishes and tells you which level you could reach</li>
+		<li>This simple program teaches data types, loops, random module and comparison</li>
+		</ul>
+</div>
+</div>
+</div>
+</div>
+
+</br></br></br></br></br>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12"><h2 class="card-title mt-2" style="color:#0047b3;text-align:center;"><i class="fab fa-whatsapp" color="green"></i> Send Whatsapp Message</h2></div></div></div></div>
+</br>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-6">
+</br></br>
+<pre style="color:black;padding-left:15px;font-size:17px"></br>
+import pywhatkit 
+    pywhatkit.sendwhatmsg("+91xxxxxxxxxx",  
+                        "Hello from Sender",  
+                        22,28)
+		</pre>
+</div>
+<div class="col-md-6">
+</br></br>
+<h2 align="left">Program Description</h2></br>
+		<ul>
+		<li>This program will send a whastapp message to the number specified in your program</li>
+		<li>After the program is executed, whatsapp web will open in a new window</li>
+		<li>Pywhatkit is the Python module used in this program</li>
+		<li>This program may look very simple but imagine if you put this on an infinite loop :-p</li>
+		</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+</br></br></br></br></br>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12"><h2 class="card-title mt-2" style="color:purple;text-align:center;"><i class="fas fa-envelope" color="red"></i> Send Emails</h2></div></div></div></div>
+</br>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-6">
+</br>
+<pre style="color:black;padding-left:15px;font-size:17px"></br>
+import smtplib
+
+server = smtplib.SMTP_SSL("smtp.gmail.com",465)
+server.login("sender@gmail.com","password")
+server.sendemail("sender@gmail.com","to@gmail.com",
+                 "message to be sent")
+server.quit()		</pre>
+</div>
+<div class="col-md-6">
+</br></br>
+<h2 align="left">Program Description</h2></br>
+		<ul>
+		<li>This program will send an email to the address specified in your program</li>
+		<li>smtplib is the Python module used in this program</li>
+		<li>Similar to whatsapp program if you put this on a loop, will create a havoc in the receiver's mailbox</li>
+		</ul>
+</div>
+</div>
+</div>
+</div>
+
+</br>
+</br>
+</br>
+<div class="footerbg">
+<footer height="20px" background-color="#0047b3"><br><br>
+<center>
+<p style="color:white;">&copy; Abhishek Singh Pawar</p>
+<p style="color:white;">All Rights Reserved</p> 
+<pre><a href="mailto:abhisheksinghpawar17@gmail.com"><i class="fas fa-flag fa-envelope" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://github.com/Abhisheksinghpawar"><i class="fab fa-github" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://www.linkedin.com/in/abhishek-singh-pawar"><i class="fab fa-linkedin-in" style="font-size:20px;color:white"></i></a>  <a href="https://twitter.com/abhishek1994pa1"><i class="fab fa-twitter" style="font-size:20px;color:white;border-radius:50%"></i></a></pre>
+<br></footer>
+</div>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</html>

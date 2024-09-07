@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abhishek Singh Pawar</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.8.0/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html,body{
+height: 100%;
+width: 100%;
+font-family: 'Poppins',sans-serif;
+color: #222;
+scroll-behavior: smooth;
+}
+.card-text
+{
+font-family: "Lucida Console", "Courier New", monospace;
+}
+.card-body
+{
+box-shadow:10px 10px 10px;
+}
+.navbar{
+	padding: .8rem;
+position: relative;
+width: 100%;	
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+.carousel-inner img{
+	width: 100%;
+	height: 400px;
+}
+.carousel-inner1 img{
+	width: 100%;
+	height: 300px;
+position: relative;
+}
+.carousel-inner2 img{
+	width: 100%;
+	height: 300px;
+}
+.carousel-caption{
+ position: absolute;
+top: 50%;
+transform: translateY(-50%);
+}
+.round{
+border-radius:15%;
+border: 2px solid #555;
+}
+.card1 {
+  box-shadow:10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  background-color: lightgrey;
+  width:330px;
+  height:250px;
+  border-radius:5%;
+  margin:auto;
+}
+.card1:hover{
+opacity:0.6;
+color:white;
+background-color:#808080;
+}
+h5 {
+   width: 90%; 
+   border-bottom: 2px solid #000;
+   line-height: 0.2em;
+   margin: 10px 0 20px;
+font-size:25px; 
+} 
+
+h5 span { 
+    background:#fff; 
+    padding:0px 15px; 
+}
+/*---Media Queries --*/
+@media (max-width: 414px) {
+h5{ font-size:18px;
+}
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+}
+
+.jumbotron{
+color: #000000;
+background-color:white;
+height: 0.5px;
+}
+.jumbotron2{
+color: #000000;
+background-color:gray;
+height: 70px;
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+.fa-envelope:hover{
+   opacity:0.7;
+}
+.fa-github:hover{
+   opacity:0.7;
+}
+.fa-twitter:hover{
+   opacity:0.7;
+}
+.fa-linkedin-in:hover{
+   opacity:0.7;
+}
+.footerbg
+{
+background-color:#002966
+}
+.ababab {
+  border: 2px solid #555;
+  border-radius: 15%;
+}
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+</style>
+</head>
+<body id ="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;"><b>Abhishek Singh Pawar</b></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target="#navbar-Responsive">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar-Responsive">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="slide.html">Technologies</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="sports.html">Sports</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="LiveTiles.html">Interests</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="Login.html">Feedback</a>
+			</li>
+		</ul>
+	</div>	
+</div>
+</nav>
+
+<!--- Image Slider -->
+
+<div id="slides" class="carousel slide" data-ride="carousel">
+<ul class="carousel-indicators">
+	<li data-target="#slides" data-slide-to="0" class="active"></li>
+	<li data-target="#slides" data-slide-to="1" class="active"></li>
+	<li data-target="#slides" data-slide-to="2" class="active"></li>
+	<li data-target="#slides" data-slide-to="3" class="active"></li>
+</ul>
+<div class="carousel-inner">	
+	<div class="carousel-item active">
+		<img src="img/background4.jpg">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">"Outstanding student award 2022 winner for MSIS at The University of Cincinnati"</h4>	
+		</div>
+	</div>
+	<div class="carousel-item">
+		<img src="img/bg2.jpg">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">"You are continuing in supporting all the critical PTaaS programs since long as and when needed with great spirit and commitment. Always reachable and never heard NO for any ask. Much appreciated" - Practice Head</h4>	
+		</div>
+	</div>
+	<div class="carousel-item">
+		<img src="img/background.png">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;">"It's an excellent and valuable work to build assurance and confidence" - Client</h4>
+		</div>	
+	</div>
+	<div class="carousel-item">
+		<img src="img/bg6.gif" height="500px">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;">"Always ready to work in the favour of the project/release" - Tech Lead</h4>
+		</div>
+	</div>
+</div>		
+</div>
+
+
+<!--- Jumbotron -->
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto;vertical-align:center;">
+	<center><h5><span><b>Here's my story so far</b></span></h5></center></div>
+</div></div>
+
+<p style="font-size:25px;text-align:center;padding:30px;color:red;">
+JOINED UNIVERSITY OF CINCINNATI MASTER'S IN INFORMATION SYSTEMS (FALL 2021)
+</br></p>	
+
+<div class="container-fluid padding">
+<div class="row padding	" align="center" style="font-family:Arial Black, Gadget, sans-serif;font-size:20px;">
+<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+</br>
+<div class="card" style="width:auto;">
+  <img class="card-img-top" src="img/Cincinnati_Bearcats_1920_x_1080.jpg" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">UC</p>
+  </div>
+</div>
+</br>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+</br>
+<div class="card" style="width:auto;">
+  <img class="card-img-top" src="img/Bearcat-Statue-Desktop-1920x1080.jpg" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">BEARCAT</p>
+  </div>
+</div>
+</br>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+</br>
+<div class="card" style="width:auto;">
+  <img class="card-img-top" src="img/MainStreet-Desktop-1920x1080.jpg" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">UC Main street</p>
+  </div>
+</div>
+</br>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+</br>
+<div class="card" style="width:auto;">
+  <img class="card-img-top" src="img/DesktopImage_Tullips.jpg" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">SPRING @ UC</p>
+  </div>
+</div>
+</br>
+</div>
+</div>
+</div>
+</br>
+<hr style="width:80%">
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center style="font-size:30px"><b style="color:darkblue;">Professional Experience</b></center></div>
+</div></div>
+
+</br>
+</br>
+<!--- Welcome Section -->
+	<div class="container-fluid padding">
+	<div class="row padding">
+	
+		<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
+		<img height="190px" width="300px" class="round" src="img/nice_systems_logo.jpg" hspace="20px">
+		</div></div>
+		<div class="col-lg-4" align="Justify">
+		<div class="col-md-12 col-sm-12 col-12" align="left">
+		<h2>NICE Systems</h2><p>After my graduating from The University of Cincinnati, I started working for NICE systems as a Senior Performance Engineer. </p></div></div>
+
+	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
+	<img height="190px" width="300px" class="round" src="img/massmutual.jpg" hspace="20px">
+	</div></div>
+	<div class="col-lg-4" align="Justify">
+	<div class="col-md-12 col-sm-12 col-12" align="left">
+	<h2>MassMutual</h2><p>Joined MassMutual in Sept 2020 as "Associate, Quality Assurance" in Performance Testing domain. Major tools used are LRE (LoadRunner Enterprise) and Grafana for monitoring</p></div></div>
+	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
+	<img  class="ababab" height="190px" width="300px" class="round" src="img/wipro.jpg" hspace="20px">
+	</div></div>
+	<div class="col-lg-4" align="Justify">
+	<div class="col-md-12 col-sm-12 col-12">
+	<h2>Wipro</h2><p>Working for Wipro Technologies from the past 3 years. Successfully completed multiple projects and received awards for my performance</p></div></div>
+	<!-- College -->
+	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
+	<img height="190px" width="300px" class="round" src="img/jnct.jpg" hspace="20px">
+	</div></div>
+	<div class="col-lg-4" align="Justify">
+	<div class="col-md-12 col-sm-12 col-12">
+	<h2>JNCT</h2><p>Completed Bachelors of engineering from JNCT Bhopal in 2016. Got campus selected in Wipro and Cognizant. Served as organizer in tech fest. Participated in many college events and programs</p></div></div>
+	<!-- Schooling -->
+	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
+	<img height="190px" width="300px" class="round" src="img/carmel.jpg" hspace="20px">
+	</div></div>
+	<div class="col-lg-4" align="Justify">
+	<div class="col-md-12 col-sm-12 col-12">
+	<h2>Carmel</h2><p>Did my schooling from Carmel Ratanpur. Won many awards for Karate representing my school. Completed Black Belt Dan - 1 in 11th standard</p></div></div></div></div>
+<!--- Two Column Section -->
+<hr style="width:80%">
+<!--- Three Column Section -->
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center style="font-size:30px"><b style="color:darkblue;">Recognitions in MassMutual</b></center></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			<img height="220px" width="330px" class="round" src="img/Hackathon-page-001.jpg" hspace="20px">
+			</br></br><center style="font-size:30px"><b>HACKATHON</b></center>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			<img height="220px" width="330px" class="round" src="img/EOM-page-001.jpg" hspace="20px">
+			</br></br><center style="font-size:30px"><b>EMPLOYEE OF THE MONTH</b></center>
+	</div>
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center style="font-size:30px"><b style="color:darkblue;">Recognitions in Wipro</b></center></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+		<div class="card1">
+			<a href="#" style="color:inherit">
+			<br><br>
+			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
+			<h7><b>Victory League</b></h7>
+			<p>Won this award twice for my project work</p></center></a>	
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+		<div class="card1">
+			<a href="#" style="color:inherit">
+			<br><br>
+			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
+			<h7><b>Round Of Applause</b></h7>
+			<p>Project manager gave this appreciation for my inputs in the project</p></center></a>	
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+		<div class="card1">
+			<a href="#" style="color:inherit">
+			<br><br>
+			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
+			<h7><b>BU Award</b></h7>
+			<p>Got this award from practice for my efforts and contribution</p></center></a>	
+		</div>
+
+	</div>
+</div>
+</div>
+
+<!--- Fixed background -->
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center><h5><span><b>This Website</b></span></h5></center></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row padding	" align="center">
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fab fa-bootstrap fa-4x" style="color:Purple;"></i>
+		</br></br>
+		<h6>BOOTSTRAP</h6>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fab fa-node-js fa-4x" style="color:Green;"></i>
+		</br></br>
+		<h6>NODE JS</h6>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fas fa-fire-alt fa-4x" style="color:#ffff00;"></i>
+		</br></br>
+		<h6>FIREBASE</h6>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fab fa-html5 fa-4x"  style="color:red;"></i>
+		</br></br>
+		<h6>HTML 5</h6>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fab fa-css3 fa-4x"  style="color:blue;"></i>
+		</br></br>
+		<h6>CSS</h6>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+		<i class="fab fa-js-square fa-4x"  style="color:orange;"></i>
+		</br></br>
+		<h6>JAVASCRIPT</h6>
+		</div>
+</div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center><h5><span><b>Download The App</b></span></h5></center></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<center><a href="https://gonative.io/share/rqolaz"><img src="img/android.png" height="50px"></a></center><br>	
+		</div>
+	</div>
+	</div>
+
+</br>
+<div class="footerbg">
+<footer height="20px" background-color="#0047b3"><br><br>
+<center>
+<p style="color:white;">&copy; Abhishek Singh Pawar</p>
+<p style="color:white;">All Rights Reserved</p> 
+<pre><a href="mailto:abhisheksinghpawar17@gmail.com"><i class="fas fa-flag fa-envelope" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://github.com/Abhisheksinghpawar"><i class="fab fa-github" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://www.linkedin.com/in/abhishek-singh-pawar"><i class="fab fa-linkedin-in" style="font-size:20px;color:white"></i></a>  <a href="https://twitter.com/abhishek1994pa1"><i class="fab fa-twitter" style="font-size:20px;color:white;border-radius:50%"></i></a></pre>
+<br></footer>
+</div>
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</html>

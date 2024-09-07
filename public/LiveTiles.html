@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Timeline</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.8.0/js/all.js"></script>
+	<script type="module">
+  import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+
+  const swiper = new Swiper(...)
+</script>
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html,body
+{
+	font-family: 'Poppins',sans-serif;
+}
+.navbar{
+	padding: .8rem;
+position: relative;
+width: 100%;
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+.tales {
+  width: 90%;
+  height: 149px;
+}
+.tales2
+{
+  width: 90%;
+  height: 250px;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+.bck
+{
+	position: relative;
+	background: #00fdff url(img/33249-NZCLGV.JPG);
+	height: 90vh;
+	background-size: cover;
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	animation: animate 15s linear infinite;
+}
+.box
+{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: calc(1536px/6);
+	height: 256px;
+	background: url(img/spritestrip.PNG);
+	animation: animate 1s steps(6) infinite;
+}
+.gif
+{
+max-width: 100%;
+}
+.neon
+{
+font-size: 4em;
+color: red;
+text-shadow: 0 0 20px #ff005b;
+}
+.footerbg
+{
+background-color:#002966
+}	
+
+#plx
+{
+background:url(img/france.jpg);
+background-attachment:fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.atitle
+{
+padding: 150px 20px;
+}
+#plx2
+{
+background:url(img/books.jpg);
+background-attachment:fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.btitle
+{
+padding: 150px 20px;
+}
+.card{
+box-shadow:10px 10px 10px;
+}
+.abhi{
+box-shadow:10px 10px 10px;
+}
+.carousel-inner img{
+	width: 100%;
+	height: 200px;
+}
+.jumbotron{
+color: #000000;
+background-color:white;
+height: 0.5px;
+}
+h5 {
+   width: 90%; 
+   border-bottom: 2px solid #000;
+   line-height: 0.2em;
+   margin: 10px 0 20px;
+font-size:25px; 
+} 
+
+h5 span { 
+    background:#fff; 
+    padding:0px 15px; 
+}
+	</style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;"><b>Abhishek Singh Pawar</b></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target="#navbar-Responsive">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar-Responsive">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="slide.html">Technologies</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="sports.html">Sports</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="LiveTiles.html">Interests</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="Login.html">Feedback</a>
+			</li>
+		</ul>
+	</div>	
+</div>
+</nav>
+</br>
+<div class="container-fluid padding">
+<div class="row padding	" align="center">
+<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+<img class="tales" style="width:50px;height:50px;" src="img/gif/idea.gif" alt="Facebook"></br></br>
+<table border="2" class="abhi"><tr><td align="center">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="tales" src="img/quote1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/quote2.jpg" alt="Second slide">
+    </div>
+	<div class="carousel-item">
+      <img class="tales" src="img/quote3.jpg" alt="Second slide">
+    </div>
+	<div class="carousel-item">
+      <img class="tales" src="img/quote4.jpg" alt="Second slide">
+    </div>
+	<div class="carousel-item">
+      <img class="tales" src="img/quote5.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/quote6.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+</td></tr></table>
+</br>
+<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Quotes that I try to follow in my life</h6>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+<img class="tales" style="width:50px;height:50px;" src="img/gif/books.gif" alt="Facebook"></br></br>
+<table border="2" class="abhi"><tr><td align="center">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="tales" src="img/book1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/book2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/book3.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+</td></tr></table>
+</br>
+<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Books that I loved reading</h6>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+<img class="tales" style="width:50px;height:50px;" src="img/gif/cities.gif" alt="Facebook"></br></br>
+<table border="2" class="abhi"><tr><td align="center">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="tales" src="img/bhopal.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/bangalore.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/hyderabad.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+</td></tr></table>
+</br>
+<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Places I lived for education,work or Travel</h6>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+<img class="tales" style="width:50px;height:50px;" src="img/gif/food.gif" alt="Facebook"></br></br>
+<table border="2" class="abhi"><tr align="center"><td>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2700">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="tales" src="img/tandoorichicken.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/biryani.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="tales" src="img/pizza.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+</td></tr></table>
+</br>
+<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Food I love eating</h6>
+</div>
+</div>
+</div>
+</br>
+<h2 class="display-5" align="center"><img class="tales" style="width:60px;height:60px;" src="img/gif/smiley.gif" alt="Smiley"> Follow me on</h2>
+<div align="center">
+<a href="https://www.facebook.com/abhishek.pawar.94"><img class="tales" style="width:100px;height:100px;" src="img/gif/fb.gif" alt="Facebook"></a>
+<a href="https://www.instagram.com/abhisheksingh_pawar/"><img class="tales" style="width:170px;height:170px;" src="img/gif/insta.gif" alt="Instagram"></a>
+</div>
+
+</br>
+<section id="plx">
+<div class="container">
+<div class="atitle text-center">
+<p style="color:white;font-size:50px;">"oui !! je parle aussi français"</p>
+</br>
+<p style="color:white;font-size:20px;text-align:right">"Yes !! I speak french too"</p>
+</div>
+</div>
+</section>
+
+<p style="font-size:25px;text-align:center;padding:50px"></br>
+Completed A1 level of French course from Alliance Bhopal, in 2015. I always had this curiosity of learning different languages. It was a great experience in learning not only the language but also the culture that is followed by the native speakers.
+</br></p>
+
+<section id="plx2">
+<div class="container">
+<div class="btitle text-center">
+<p style="color:white;font-size:50px;">I enjoy writing and listening poetry, specially Urdu poets</p>
+</div>
+</div>
+</section>
+
+<p style="font-size:25px;text-align:center;padding:50px"></br>
+Taking the love for languages ahead, I started writing short stories in English at a very young age. I continued my writing work till college and wrote 3 short stories and endless poems which even I don't remember
+</br></p>
+
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-4">
+<img src="img/akhtar.jpg" class="img-fluid" style="padding-left:25px";">
+</div>
+<div class="col-md-8">
+<h2 class="card-title mt-2" style="color:#0047b3;">Javed Akhtar</h2></br>
+<p align="center" style="font-family:Apple Chancery, cursive;font-size:18px;color:black;">Gin gin ke sikke haath mera khurdura hua, Jaati rahi wo lams ki narmi, bura hua</p>
+<p align="center" style="font-family:Apple Chancery, cursive;font-size:20px;color:black;">Un chiraagon mein tel hi kam tha, kyun gila fir hum hawa se rahe</p>
+</div>
+</div>
+</div>
+</div>
+</br></br>
+<div class="container mt-3">
+<div class="card">
+<div class="row">
+<div class="col-md-8" style="padding-left:35px;">
+<h2 class="card-title mt-2" style="color:#0047b3;">Harsha Bhogle</h2>
+<p align="center" style="font-family:Apple Chancery, cursive;font-size:20px;color:black;"></br>Ask Dravid to walk on water and he'll say "How many kilometers ?"</p>
+<p align="center" style="font-family:Apple Chancery, cursive;font-size:18px;color:black;">We have a surgeon at one end and a butcher at the other</p>
+</div>
+<div class="col-md-4">
+<img src="img/harsha.jpg" class="img-fluid">
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<center><h5><span><b>Daily Websites</b></span></h5></center></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0 col-0">	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\ht.png" height="70px"></h7>	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\youtube.png" height="70px"></h7>	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\hindu.jpg" height="70px"></h7>	
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0 col-0">	
+		</div>
+	</div>
+</div>
+
+</br></br>
+
+
+
+
+
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+  </div>
+ </div>
+  
+  
+  
+  
+
+<div class="footerbg">
+<footer height="20px" background-color="#0047b3"><br><br>
+<center>
+<p style="color:white;">&copy; Abhishek Singh Pawar</p>
+<p style="color:white;">All Rights Reserved</p> 
+<pre><a href="mailto:abhisheksinghpawar17@gmail.com"><i class="fas fa-flag fa-envelope" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://github.com/Abhisheksinghpawar"><i class="fab fa-github" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://www.linkedin.com/in/abhishek-singh-pawar"><i class="fab fa-linkedin-in" style="font-size:20px;color:white"></i></a>  <a href="https://twitter.com/abhishek1994pa1"><i class="fab fa-twitter" style="font-size:20px;color:white;border-radius:50%"></i></a></pre>
+<br></footer>
+</div>
+  </body>
+  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+</html>
