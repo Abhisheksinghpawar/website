@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.8.0/js/all.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
 	<script type="module">
   import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
 
@@ -203,6 +203,63 @@ h5 span {
 </div>
 </nav>
 </br>
+
+<div align="center">
+  <div id="api-response" style="width:50%;">Loading...</div>
+  <br>
+<div style="font-size: x-small;"> <i class="fa-solid fa-user-ninja"></i> Powered by <a href="https://api-ninjas.com/">API Ninjas</a></div>
+</div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        // Define the category
+        var category = 'happiness';
+
+        // Function to fetch and display data
+        function fetchAndDisplayData() {
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+                headers: { 'X-Api-Key': 'tW/0ZrhGUfy68npIggfjHA==OgnYI6awvCrr74eG' },
+                contentType: 'application/json',
+                success: function(result) {
+                    // Check if result is an array and has at least one element
+                    if (Array.isArray(result) && result.length > 0) {
+                        // Assuming result is an array of quote objects
+                        var quote = result[0]; // Get the first quote
+                        var responseElement = $('#api-response');
+                        responseElement.html(`
+                            <div class="card">
+  <div class="card-header">
+    <h3 class="display-6" align="center"><i class="fa-solid fa-quote-left fa-1x"  style="color:gray;"></i> Quote of the Day</h3>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>${quote.quote}</p>
+      <footer class="blockquote-footer">${quote.author}</cite></footer>
+    </blockquote>
+  </div>
+</div>
+                        `);
+                    } else {
+                        $('#api-response').html('No quotes found.');
+                    }
+                },
+                error: function(jqXHR) {
+                    $('#api-response').html('Error: ' + jqXHR.responseText);
+                }
+            });
+        }
+
+        // Call the function when the page loads
+        $(document).ready(fetchAndDisplayData);
+    </script>
+    <br>
+<hr width="80%">
+
+</br>
 <div class="container-fluid padding">
 <div class="row padding	" align="center">
 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
@@ -385,25 +442,8 @@ Taking the love for languages ahead, I started writing short stories in English 
 	</div>
 </div>
 
-</br></br>
-
-
-
-
-
-<div class="swiper">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    <!-- Slides -->
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-  </div>
- </div>
-  
-  
-  
-  
+</br>
+</br>
 
 <div class="footerbg">
 <footer height="20px" background-color="#0047b3"><br><br>
