@@ -60,7 +60,7 @@ top: 50%;
 transform: translateY(-50%);
 }
 .round{
-border-radius:5%;
+border-radius:3%;
 border: 2px solid #555;
 }
 .card1 {
@@ -268,16 +268,40 @@ Extra (xl) large devices (large desktops, 1200px and up)
 	
 </div>
 
-<!--- Jumbotron -->
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="vertical-align:center;">
-	<center><h5><span><b>Here's my story so far</b></span></h5></center></div>
-</div></div>
+<div class="col-12">
+	<p>
+	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Here's my story so far</b></span></h5></center>
+	</p>
+</div>
 
-<p style="font-size:25px;text-align:center;padding:30px;color:red;">
+<p style="font-size:25px;text-align:center;padding:30px;color:red;font-family:Georgia, 'Times New Roman', Times, serif;">
 	GRADUATED FROM THE UNIVERSITY OF CINCINNATI -  MASTER'S IN INFORMATION SYSTEMS (2022)
-</br></p>	
+</br></p>
+
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-lg-3 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-6 col-md-10 col-sm-10 col-xs-10">
+		<p style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;text-align:center;" id="TypingEffect"></p>
+		</div>
+		<div class="col-lg-3 col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+</div>
+
+<script>
+var i = 0;
+var txt = 'I commenced my Master’s program in the autumn of 2021 at the University of Cincinnati. My curriculum encompassed topics such as data visualization and data analytics methodologies. The coursework presented significant challenges while simultaneously fostering a high level of engagement. I volunteered for the student committee, which was tasked with disseminating articles for prospective graduate students and organizing various events. At the conclusion of my academic year, I was honored with the title of Best Student for the Master of Science in Information Systems program. Additionally, I secured the second place in a consulting competition hosted by Concentrix.';
+var speed = 30;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("TypingEffect").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter()
+</script>
 
 <div class="container-fluid padding">
 <div class="row padding	" align="center" style="font-family:Arial Black, Gadget, sans-serif;font-size:20px;">
@@ -322,16 +346,15 @@ Extra (xl) large devices (large desktops, 1200px and up)
 </div>
 </div>
 </div>
-</br>
+
 <hr style="width:80%">
 
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="height:auto">
+	<div class="col-12">
+	<p>
 	<center style="font-size:40px"><b style="color:darkblue;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Professional Experience</b></center></div>
-</div></div>
+	</p>
+	</div>
 
-</br>
 <!--- Welcome Section -->
 	<div class="container-fluid padding">
 	<div class="row padding">
@@ -373,11 +396,11 @@ Extra (xl) large devices (large desktops, 1200px and up)
 <hr style="width:80%">
 <!--- Three Column Section -->
 
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="height:fit-content;">
-	<center style="font-size:30px"><b style="color:darkblue;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Recognitions in MassMutual</b></center></div>
-</div></div>
+	<div class="col-12">
+	<p>
+	<center style="font-size:30px"><b style="color:darkblue;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Recognitions in Massmutual</b></center></div>
+	</p>
+	</div>
 
 <div class="container-fluid padding">
 <div class="row text-center padding">
@@ -391,12 +414,11 @@ Extra (xl) large devices (large desktops, 1200px and up)
 	</div>
 	</div>
 </div>
-
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="height:auto">
+	<div class="col-12">
+	<p>
 	<center style="font-size:30px"><b style="color:darkblue;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Recognitions in Wipro</b></center></div>
-</div></div>
+	</p>
+	</div>
 
 <div class="container-fluid padding">
 <div class="row text-center padding">
@@ -432,12 +454,12 @@ Extra (xl) large devices (large desktops, 1200px and up)
 </div>
 
 <!--- Fixed background -->
-
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="height:auto">
-	<center><h5><span><b>This Website</b></span></h5></center></div>
-</div></div>
+<br>
+<div class="col-12">
+	<p>
+	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Tech behind this website</b></span></h5></center>
+	</p>
+</div>
 
 <div class="container-fluid padding">
 <div class="row padding	" align="center">
@@ -473,10 +495,11 @@ Extra (xl) large devices (large desktops, 1200px and up)
 		</div>
 </div>
 </div>
-
-<div class="container-fluid padding">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-	<center><h5><span><b>Get the App or source code</b></span></h5></center></div>
+<br>
+<div class="col-12">
+	<p>
+	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Get the App or source code</b></span></h5></center>
+	</p>
 </div>
 
 <div class="container-fluid padding">
