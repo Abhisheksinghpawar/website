@@ -525,7 +525,22 @@ typeWriter()
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	</div>
-	</div>
+	
+	<p><center style="font-size:15px;font-family:'Times New Roman', Times, serif">Latest Update: <span id="currentDate"></span> </center></p>
+	<script>
+		// Get the current date
+		const currentDate = new Date();
+		const formattedDate = currentDate.toLocaleDateString('en-US', {
+		  year: 'numeric',
+		  month: 'long',
+		  day: 'numeric',
+		});
+	  
+		// Insert the date into the span with id "currentDate"
+		document.getElementById('currentDate').textContent = formattedDate;
+	  </script>	
+
+</div>
 	
 <div class="footerbg">
 <footer height="20px" background-color="#0047b3"><br><br>
