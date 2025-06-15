@@ -223,14 +223,11 @@ h5 span {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        // Define the category
-        var category = 'happiness';
-
         // Function to fetch and display data
         function fetchAndDisplayData() {
             $.ajax({
                 method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+                url: 'https://api.api-ninjas.com/v1/quotes?',
                 headers: { 'X-Api-Key': 'tW/0ZrhGUfy68npIggfjHA==OgnYI6awvCrr74eG' },
                 contentType: 'application/json',
                 success: function(result) {
