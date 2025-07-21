@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abhishek Singh Pawar</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+    body {
+	font-family: 'Poppins',sans-serif;
+    }
+	img{
+		float: left;
+		padding: 50px;
+	}
+	.navbar{
+	padding: .8rem;
+	position: relative;
+	width: 100%;
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+.carousel-indicators .active{
+	background-color: #3255e3;
+}
+.footerbg
+{
+background-color:#002966
+}
+.card{
+padding: 1px 1px 1px 1px;
+background:#e6f7ff;
+box-shadow:10px 10px 10px;
+}
+.card-footer
+{
+background:#b3e7ff;
+}
+.swiper {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+  }
+
+  .swiper-slide img {
+	display: block;
+	width: 100%;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navigation <img src="img/logo.png"> </a>-->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;"><b>Abhishek Singh Pawar</b></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target="#navbarResponsive">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="slide.html">TechStack</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="LiveTiles.html">Afterwork</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="Login.html">Feedback</a>
+			</li>
+		</ul>
+	</div>	
+</div>
+</nav>  
+</br></br>
+<p style="height: 600px;">Creating this page to track all my AI learning</p>
+
+<div class="footerbg">
+<footer height="20px" background-color="#0047b3"><br><br>
+<center>
+	<pre><a href="https://www.linkedin.com/in/abhishek-singh-pawar"><i class="fab fa-linkedin-in" style="font-size:20px;color:white"></i></a>  <a href="mailto:abhisheksinghpawar17@gmail.com"><i class="fas fa-flag fa-envelope" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://github.com/Abhisheksinghpawar"><i class="fab fa-github" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://www.hackerrank.com/profile/abhishek1994paw1"><i class="fa-brands fa-hackerrank" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://medium.com/@abhisheksinghpawar17"><i class="fa-solid fa-m" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://twitter.com/abhishek1994pa1"><i class="fab fa-twitter" style="font-size:20px;color:white;border-radius:50%"></i></a></pre>
+<br>
+	<p style="color:white;">&copy; Abhishek Singh Pawar</p>
+<p style="color:white;">All Rights Reserved</p> 
+<br></footer>
+</div>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</html>
