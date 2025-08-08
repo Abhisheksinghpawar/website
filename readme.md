@@ -1,6 +1,6 @@
 # 🌐 Abhishek Singh Pawar — Personal Website
 
-Welcome to [abhisheksinghpawar.com](https://abhisheksinghpawar.com/index.html) — the digital home of a passionate Python developer, network performance analyst, and creative toolsmith. This site is a curated showcase of my work, ideas, and ongoing journey in building intelligent, user-friendly software that solves real-world problems.
+Welcome to [abhisheksinghpawar.com](https://abhisheksinghpawar.com/index.html) — the digital home of a passionate Performance Engineer, Python enthusiast, and creative toolsmith. This site is a curated showcase of my work, ideas, and ongoing journey in building intelligent, user-friendly software that solves real-world problems.
 
 ## 🚀 About Me
 
