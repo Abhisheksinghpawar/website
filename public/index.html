@@ -538,7 +538,65 @@ typeWriter()
 	  </script>	
 
 </div>
+
+<style>
+
+	/* Popup styling */
+.popup {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color:rgb(198, 198, 198);
+	padding: 15px 15px 0px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	z-index: 1000;
+	cursor: pointer;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .popup:hover {
+	transform: scale(1.05);
+  }
+  
+  /* Animation for popup */
+  .popup {
+	animation: slideIn 0.5s ease-out;
+  }
+  
+  @keyframes slideIn {
+	from {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+
+</style>
+
+<script>
+	// Automatically hide the popup after 10 seconds
+	setTimeout(() => {
+	  const popup = document.getElementById('popup');
+	  if (popup) {
+		popup.style.opacity = '0';
+		setTimeout(() => popup.remove(), 300); // Remove after fade-out
+	  }
+	}, 10000);
+  </script>
+
+<a href="https://github.com/Abhisheksinghpawar/Deltaperf-AI" style="display: block; text-decoration: none; color: inherit;">
+<div id="popup" class="popup" style="color: #000;">
+	<p><i class="fas fa-check-circle" style="color:rgb(0, 219, 0); font-size:15px;"></i> Check out my New project!<br><i class="fas fa-rocket" style="font-size: 15px; color:brown"></i> DeltaPerf AI</p>
 	
+  </div>
+</a>
 <div class="footerbg">
 <footer height="20px" background-color="#0047b3"><br><br>
 <center>
