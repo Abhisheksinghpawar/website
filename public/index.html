@@ -540,63 +540,118 @@ typeWriter()
 </div>
 
 <style>
-
 	/* Popup styling */
-.popup {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	background-color:rgb(198, 198, 198);
-	padding: 15px 15px 0px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	font-size: 16px;
-	font-family: 'Poppins', sans-serif;
-	z-index: 1000;
-	cursor: pointer;
-	transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  /* Hover effect */
-  .popup:hover {
-	transform: scale(1.05);
-  }
-  
-  /* Animation for popup */
-  .popup {
-	animation: slideIn 0.5s ease-out;
-  }
-  
-  @keyframes slideIn {
-	from {
-	  transform: translateX(100%);
-	  opacity: 0;
+	.card_popup {
+	  position: fixed;
+	  bottom: 20px;
+	  right: 20px;
+	  width: 240px;
+	  background-color: rgba(255, 255, 255, 0.6); /* More translucent */
+	  backdrop-filter: blur(10px);
+	  -webkit-backdrop-filter: blur(10px); /* Safari support */
+	  border: 1px solid #ddd;
+	  border-radius: 10px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	  font-size: 16px;
+	  font-family: 'Poppins', sans-serif;
+	  z-index: 1000;
+	  cursor: pointer;
+	  transition: transform 0.3s ease, opacity 0.5s ease;
+	  animation: slideIn 0.5s ease-out;
 	}
-	to {
-	  transform: translateX(0);
-	  opacity: 1;
+  
+	.card_popup:hover {
+	  transform: scale(1.05);
 	}
-  }
-
-</style>
-
-<script>
+  
+	.card_popup a {
+	  display: block;
+	  text-decoration: none;
+	  color: inherit;
+	}
+  
+	.card-header {
+	  background-color: #007bff;
+	  color: white;
+	  font-weight: bold;
+	  font-size: 15px;
+	  padding: 10px;
+	  border-top-left-radius: 10px;
+	  border-top-right-radius: 10px;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 6px;
+	}
+  
+	.rocket-animate {
+	  display: inline-block;
+	  animation: bounceRocket 1.2s infinite;
+	}
+  
+	@keyframes bounceRocket {
+	  0%, 100% {
+		transform: translateY(0);
+	  }
+	  50% {
+		transform: translateY(-4px);
+	  }
+	}
+  
+	.card-body {
+	  padding: 15px;
+	}
+  
+	.card-text {
+	  font-size: 14px;
+	  color: #333;
+	}
+  
+	/* Slide-in animation */
+	@keyframes slideIn {
+	  from {
+		transform: translateX(100%);
+		opacity: 0;
+	  }
+	  to {
+		transform: translateX(0);
+		opacity: 1;
+	  }
+	}
+  
+	/* Slide-out animation */
+	@keyframes slideOut {
+	  to {
+		transform: translateX(100%);
+		opacity: 0;
+	  }
+	}
+  </style>
+  
+  <script>
 	// Automatically hide the popup after 10 seconds
 	setTimeout(() => {
-	  const popup = document.getElementById('popup');
-	  if (popup) {
-		popup.style.opacity = '0';
-		setTimeout(() => popup.remove(), 300); // Remove after fade-out
+	  const card_popup = document.getElementById('card_popup');
+	  if (card_popup) {
+		card_popup.style.animation = 'slideOut 0.5s forwards';
+		setTimeout(() => card_popup.remove(), 500);
 	  }
 	}, 10000);
   </script>
-
-<a href="https://github.com/Abhisheksinghpawar/Deltaperf-AI" style="display: block; text-decoration: none; color: inherit;">
-<div id="popup" class="popup" style="color: #000;">
-	<p><i class="fas fa-check-circle" style="color:rgb(0, 219, 0); font-size:15px;"></i> Check out my New project!<br><i class="fas fa-rocket" style="font-size: 15px; color:brown"></i> DeltaPerf AI</p>
-	
+  
+  <div class="card_popup" id="card_popup">
+	<a href="https://github.com/Abhisheksinghpawar/DeltaPerf-AI">
+	  <div class="card-header text-center">
+		See what I’ve been building!
+	  </div>
+	  <div class="card-body">
+		<p class="card-text" style="text-align: center; font-size: large;">
+			<span class="rocket-animate">🚀</span>  DeltaPerf-AI
+		</p>
+	  </div>
+	</a>
   </div>
-</a>
+
 <div class="footerbg">
 <footer height="20px" background-color="#0047b3"><br><br>
 <center>
