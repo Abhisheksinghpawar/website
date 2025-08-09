@@ -605,8 +605,13 @@ typeWriter()
 	.card-text {
 	  font-size: 14px;
 	  color: #333;
+	  line-height: 1.5;
 	}
-  
+	.card-text strong {
+		display: block;
+		margin-top: 4px;
+	  }
+	  
 	/* Slide-in animation */
 	@keyframes slideIn {
 	  from {
@@ -645,9 +650,11 @@ typeWriter()
 		See what I’ve been building!
 	  </div>
 	  <div class="card-body">
-		<p class="card-text" style="text-align: center; font-size: large;">
-			<span class="rocket-animate">🚀</span>  DeltaPerf-AI
-		</p>
+		<div class="card-text" style="text-align: center; font-size: 14px;">
+			<span style="font-size: large;" class="rocket-animate">🚀</span>
+			<span style="font-weight: bold; margin-left: 4px;font-size:large">DeltaPerf-AI</span>
+			<br>Wireshark | Ollama AI | Python
+		  </div>
 	  </div>
 	</a>
   </div>
