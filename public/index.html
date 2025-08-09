@@ -584,10 +584,16 @@ typeWriter()
 	  gap: 6px;
 	}
   
-	.rocket-animate {
-	  display: inline-block;
-	  animation: bounceRocket 1.2s infinite;
-	}
+	.gear-animate {
+		display: inline-block;
+		animation: spinGear 1.5s linear infinite;
+	  }
+	  
+	  @keyframes spinGear {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	  }
+	  
   
 	@keyframes bounceRocket {
 	  0%, 100% {
@@ -651,7 +657,7 @@ typeWriter()
 	  </div>
 	  <div class="card-body">
 		<div class="card-text" style="text-align: center; font-size: 14px;">
-			<span style="font-size: large;" class="rocket-animate">🚀</span>
+			<span style="font-size: large;" class="gear-animate">⚙️</span>
 			<span style="font-weight: bold; margin-left: 4px;font-size:large">DeltaPerf-AI</span>
 			<br>Wireshark | Ollama AI | Python
 		  </div>
