@@ -510,6 +510,124 @@ typeWriter()
 </div>
 </div>
 <br>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+    h2.PerfHeading {
+      text-align: center;
+      font-size: 2rem;
+      margin: 3rem 0 2rem;
+      color: #0078D7;
+    }
+    section {
+      max-width: 90%;
+      margin: 0 auto 4rem;
+      padding: 2rem;
+      background: linear-gradient(to right, #eef2f3, #cae0f2);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .metric-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .metric-card h3 {
+      margin: 0;
+      color: #0078D7;
+    }
+    .metric-card p {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+    .metric-card span {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    @media (max-width: 600px) {
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</br>
+  <section class="metrics">
+    <h2 class="PerfHeading">Performance Metrics</h2>
+    <div class="metrics-grid" id="metrics-grid"></div>
+  </section>
+  <script>
+    const metrics = [];
+
+    window.addEventListener("load", () => {
+      metrics.push({
+        title: "Page Load Time",
+        value: performance.now() >= 1000 ? `${(performance.now() / 1000).toFixed(2)} s` : `${Math.round(performance.now())} ms`,
+        note: "From navigation to load event"
+      });
+
+      const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+      if (conn) {
+        metrics.push({
+          title: "Connection Type",
+          value: conn.effectiveType || "Unknown",
+          note: "Reported by browser"
+        });
+        metrics.push({
+          title: "Estimated Bandwidth",
+          value: `${conn.downlink} Mbps`,
+          note: "Browser estimate"
+        });
+      }
+
+      const pingStart = performance.now();
+      const img = new Image();
+      img.src = "https://www.google.com/favicon.ico?" + Date.now();
+      img.onload = () => {
+        metrics.push({
+          title: "Host Ping",
+          value: (performance.now() - pingStart) >= 1000 ? `${((performance.now() - pingStart)/1000).toFixed(2)} s` : `${Math.round(performance.now() - pingStart)} ms`,
+          note: "Simulated via favicon fetch"
+        });
+        renderMetrics();
+      };
+      img.onerror = () => {
+        metrics.push({
+          title: "Host Ping",
+          value: "N/A",
+          note: "Ping failed"
+        });
+        renderMetrics();
+      };
+    });
+
+    function renderMetrics() {
+      const grid = document.getElementById("metrics-grid");
+      grid.innerHTML = "";
+      metrics.forEach(m => {
+        grid.innerHTML += `
+          <div class="metric-card">
+            <h3>${m.title}</h3>
+            <p><strong>${m.value}</strong></p>
+            <span>${m.note}</span>
+          </div>
+        `;
+      });
+    }
+  </script>
+
 <div class="col-12">
 	<p>
 	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Get the App or source code</b></span></h5></center>
