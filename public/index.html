@@ -178,6 +178,22 @@ background-color:#002966
   border: 2px solid #555;
   border-radius: 15%;
 }
+.card-text {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+.card-img-top {
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+	border-radius: 4px;
+  }
+  
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap
@@ -214,7 +230,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
 		  <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
 			<ul class="navbar-nav mb-2 mb-md-0">
 			  <li class="nav-item">
-				<a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+				<a class="nav-link active" href="index.html"><i class="fas fa-microchip me-1"></i> Journey</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="slide.html"><i class="fas fa-code me-1"></i> TechStack</a>
@@ -310,49 +326,51 @@ function typeWriter() {
 typeWriter()
 </script>
 
-<div class="container-fluid padding">
-<div class="row padding	" align="center" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:15px;">
-<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-</br>
-<div class="card" style="width:auto;">
-  <img class="card-img-top" src="img/UCLCOB.jpg" alt="Card image cap" style="height: 250px;">
-  <div class="card-body">
-    <p class="card-text">Outstanding Student Award for MSIS 2022</p>
+<div class="container-fluid py-5" id="achievements_card">
+	<div class="row text-center g-4">
+	  
+	  <!-- Card 1 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/UCLCOB.jpg" class="card-img-top" alt="Outstanding Student Award" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🏆 Outstanding Student Award for MSIS 2022</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 2 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/centric.jpg" class="card-img-top" alt="Centric Case Competition" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🥈 2nd Place @Centric Case Competition</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 3 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/teamwork.jpg" class="card-img-top" alt="MSIS Ambassador Lead" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🤝 MSIS Ambassador Lead</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 4 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/UCCCM.jpg" class="card-img-top" alt="UC Music Club" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🎶 Member of UC Music Club</p>
+		  </div>
+		</div>
+	  </div>
+  
+	</div>
   </div>
-</div>
-</br>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-</br>
-<div class="card" style="width:auto;">
-  <img class="card-img-top" src="img/centric.jpg" alt="Card image cap" style="height: 250px;">
-  <div class="card-body">
-    <p class="card-text">2nd Place @Centric case competition</p>
-  </div>
-</div>
-</br>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-</br>
-<div class="card" style="width:auto;">
-  <img class="card-img-top" src="img/teamwork.jpg" alt="Card image cap" style="height: 250px;">
-  <div class="card-body">
-    <p class="card-text">MSIS Ambassador Lead</p>
-  </div>
-</div>
-</br>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-</br>
-<div class="card" style="width:auto;">
-  <img class="card-img-top" src="img/UCCCM.jpg" alt="Card image cap" style="height: 250px;">
-  <div class="card-body">
-    <p class="card-text">Member of UC music club</p>
-  </div>
-</div>
-</div>
-</div>
-</div>
 
 </br>
 <div class="container-fluid padding">
