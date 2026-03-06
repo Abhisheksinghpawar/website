@@ -624,16 +624,10 @@ typeWriter()
   
   <script>
     const metrics = [];
-		// Replace with your Gemini API key. For production, move this to a backend endpoint.
-			const GEMINI_API_KEY = "AIzaSyAIbpsy56pCgUQPr8fe7iYesDr6nDOmgmg";
-			const GEMINI_MODEL = "gemini-2.5-flash-lite";
-			const GEMINI_FALLBACK_MODEL = "gemini-2.5-flash";
-
-			// Populate model label in the UI when DOM is ready
-			document.addEventListener('DOMContentLoaded', () => {
-				const modelEl = document.getElementById('ai-model-name');
-				if (modelEl) modelEl.textContent = `(${GEMINI_MODEL})`;
-			});
+		// Gemini API key placeholder (do not expose real key in frontend).
+			const GEMINI_API_KEY = "PASTE_YOUR_GEMINI_API_KEY_HERE";
+			const GEMINI_MODEL = "gemini-2.5-flash";
+			const GEMINI_FALLBACK_MODEL = "gemini-1.5-flash";
 
     window.addEventListener("load", () => {
       metrics.push({
