@@ -615,9 +615,9 @@ typeWriter()
 		<div class="ai-analysis" id="ai-analysis-card">
 			<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
 				<h3 style="margin:0;">AI Performance Snapshot |</h3>
-				<span style="font-size: small; color:#4f6f8f;"></i> Powered by <img src="img/google-ai-studio-icon.png" style="width: 16px; height: 16px; vertical-align: middle;" alt="Google AI Studio Icon"><a href="https://aistudio.google.com/"> Google AI Studio</a></span>
+				<span style="font-size: small; color:#4f6f8f;"> Powered by <img src="img/google-ai-studio-icon.png" style="width: 16px; height: 16px; vertical-align: middle;" alt="Google AI Studio Icon"> <a href="https://aistudio.google.com/">Google AI Studio</a><span id="ai-model-name" style="font-weight:600; margin-left:8px;"></span></span>
 			</div>
-			<br
+			<br>
 			<p id="ai-analysis-text">Collecting metrics and preparing a detailed performance summary...</p>
 		</div>
   </section>
@@ -625,9 +625,15 @@ typeWriter()
   <script>
     const metrics = [];
 		// Replace with your Gemini API key. For production, move this to a backend endpoint.
-		const GEMINI_API_KEY = "AIzaSyAIbpsy56pCgUQPr8fe7iYesDr6nDOmgmg";
-		const GEMINI_MODEL = "gemini-3.1-flash-lite";
-		const GEMINI_FALLBACK_MODEL = "gemini-1.5-flash";
+			const GEMINI_API_KEY = "AIzaSyAIbpsy56pCgUQPr8fe7iYesDr6nDOmgmg";
+			const GEMINI_MODEL = "gemini-2.5-flash-lite";
+			const GEMINI_FALLBACK_MODEL = "gemini-2.5-flash";
+
+			// Populate model label in the UI when DOM is ready
+			document.addEventListener('DOMContentLoaded', () => {
+				const modelEl = document.getElementById('ai-model-name');
+				if (modelEl) modelEl.textContent = `(${GEMINI_MODEL})`;
+			});
 
     window.addEventListener("load", () => {
       metrics.push({
