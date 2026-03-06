@@ -1,5 +1,5 @@
 name: Generate repo summary (Hugging Face)
-
+# Re-trigger workflow registration
 on:
   push:
     branches: [ main ]
