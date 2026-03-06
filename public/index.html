@@ -18,6 +18,7 @@
 
 	<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
 
 html,body{
 height: 100%;
@@ -427,62 +428,83 @@ typeWriter()
 <hr style="width:80%">
 <!--- Three Column Section -->
 
-	<div class="col-12">
-	<p>
-	<center style="font-size:35px"><b style="color:darkblue;font-family:'Roboto', sans-serif">Recognitions in Massmutual</b></center>
-	</p>
-	</div>
 
-<div class="container-fluid padding">
-<div class="row text-center padding">
-	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-			<img height="220px" width="330px" class="round" src="img/Hackathon-page-001.jpg" hspace="20px">
-			</br></br><center style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:x-large">HACKATHON</center>
-	</div>
-	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-			<img height="220px" width="330px" class="round" src="img/EOM-page-001.jpg" hspace="20px">
-			</br></br><center style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:x-large">EMPLOYEE OF THE MONTH</center>
-	</div>
-	</div>
-</div>
-	<div class="col-12">
-	<p>
-	<center style="font-size:35px"><b style="color:darkblue;font-family:'Roboto', sans-serif">Recognitions in Wipro</b></center>
-	</p>
-	</div>
+<section id="recognitions" class="container-fluid py-4">
+	<div class="container">
+		<h2 class="recognitions-title text-center">Recognitions</h2>
 
-<div class="container-fluid padding">
-<div class="row text-center padding">
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-		<div class="card1">
-			<a href="#" style="color:inherit">
-			<br><br>
-			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
-			<h7><b>Victory League</b></h7>
-			<p>Won this award twice for my project work</p></center></a>	
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-		<div class="card1">
-			<a href="#" style="color:inherit">
-			<br><br>
-			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
-			<h7><b>Round Of Applause</b></h7>
-			<p>Project manager gave this appreciation for my inputs in the project</p></center></a>	
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-		<div class="card1">
-			<a href="#" style="color:inherit">
-			<br><br>
-			<center><i class="fas fa-trophy" style="font-size:30px"></i><br>
-			<h7><b>BU Award</b></h7>
-			<p>Got this award from praktice for my efforts and contribution</p></center></a>	
+		<div class="row align-items-center gy-4 mt-3">
+			<div class="col-md-6">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Hackathon details" style="color:inherit; text-decoration:none;">
+						<img src="img/Hackathon-page-001.jpg" alt="Hackathon recognition" class="recognition-img round">
+						<h4 style="margin-top:8px; margin-bottom:6px;">HACKATHON</h4>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Employee of the Month details" style="color:inherit; text-decoration:none;">
+						<img src="img/EOM-page-001.jpg" alt="Employee of the Month" class="recognition-img round">
+						<h4 style="margin-top:8px; margin-bottom:6px;">EMPLOYEE OF THE MONTH</h4>
+					</a>
+				</div>
+			</div>
 		</div>
 
+		<h3 class="recognitions-subtitle text-center mt-5">Recognitions in Wipro</h3>
+		<div class="row gy-4 mt-3">
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Victory League details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">Victory League</h4>
+						<p style="margin:0;">Won this award twice for my project work</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Round Of Applause details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">Round Of Applause</h4>
+						<p style="margin:0;">Project manager gave this appreciation for my inputs in the project</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="BU Award details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">BU Award</h4>
+						<p style="margin:0;">Got this award from praktice for my efforts and contribution</p>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-</div>
+</section>
+
+<style>
+	/* Keep recognitions visually plain (override global section background) */
+	#recognitions { background: transparent; box-shadow: none; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0; }
+	.recognitions-title { font-size: 35px; color: darkblue; font-family: 'Roboto', sans-serif; margin-bottom: 0.5rem; }
+	.recognitions-subtitle { font-size: 1.35rem; color: darkblue; font-family: 'Roboto', sans-serif; }
+	.recognition-figure { text-align: center; margin: 0; }
+	/* Slightly smaller images so they match surrounding content */
+	.recognition-img { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; border-radius: 6px; border: 2px solid #555; }
+	.recognition-caption { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.15rem; margin-top: 0.5rem; }
+	/* Use subtle card styling and a pleasant hover for recognition cards */
+	.recognition-card { padding: 18px; background-color: #f8fafc; border-radius: 8px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 6px 14px rgba(0,0,0,0.06); transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease; border: 1px solid #d1d5db; color: #0b2545; }
+	.recognition-card a { color: inherit; }
+	/* Hover: lift + softer tint, but keep text color high-contrast */
+	.recognition-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); background-color: #eef6ff; color: #0b2545; }
+	/* Override global .card1 hover which sets text to white; keep recognitions readable */
+	.recognition-card.card1:hover { color: inherit; }
+	.recognition-card h4 { margin: 8px 0 6px; font-size: 1.05rem; }
+	.recognition-card p { margin: 0; color: #333; font-size: 0.95rem; }
+	@media (max-width: 576px) { .recognition-img { max-width: 100%; } .recognition-card { padding: 12px; } }
+</style>
 
 <!--- Fixed background -->
 <br>
@@ -493,38 +515,65 @@ typeWriter()
 </div>
 
 <div class="container-fluid padding">
-<div class="row padding	" align="center">
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fas fa-fire-alt fa-4x" style="color:#ffff00;"></i>
-		</br></br>
-		<h6>FIREBASE</h6>
-		</div>	
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fa-brands fa-bootstrap fa-4x" style="color:Purple;"></i>
-		</br></br>
-		<h6>BOOTSTRAP</h6>
+	<div class="row text-center align-items-center g-3 justify-content-center tech-grid" role="list" aria-label="Technologies used">
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fas fa-fire-alt fa-3x tech-icon tech-icon--firebase" aria-hidden="true"></i>
+				<div class="tech-label">Firebase</div>
+			</div>
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fa-solid fa-chart-line fa-4x"  style="color:orange;"></i>
-		</br></br>
-		<h6>GOOGLE ANALYTICS</h6>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fa-brands fa-bootstrap fa-3x tech-icon tech-icon--bootstrap" aria-hidden="true"></i>
+				<div class="tech-label">Bootstrap</div>
+			</div>
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fab fa-node-js fa-4x" style="color:Green;"></i>
-		</br></br>
-		<h6>NODE JS</h6>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fa-solid fa-chart-line fa-3x tech-icon tech-icon--analytics" aria-hidden="true"></i>
+				<div class="tech-label">Google Analytics</div>
+			</div>
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fab fa-html5 fa-4x"  style="color:red;"></i>
-		</br></br>
-		<h6>HTML 5</h6>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fab fa-node-js fa-3x tech-icon tech-icon--node" aria-hidden="true"></i>
+				<div class="tech-label">Node.js</div>
+			</div>
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-6 col-6">
-		<i class="fab fa-js-square fa-4x"  style="color:orange;"></i>
-		</br></br>
-		<h6>JAVASCRIPT</h6>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fab fa-html5 fa-3x tech-icon tech-icon--html5" aria-hidden="true"></i>
+				<div class="tech-label">HTML5</div>
+			</div>
 		</div>
-</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fab fa-js-square fa-3x tech-icon tech-icon--js" aria-hidden="true"></i>
+				<div class="tech-label">JavaScript</div>
+			</div>
+		</div>
+
+		<!-- New: Google AI Studio -->
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/google-ai-studio-icon.png" alt="" class="tech-icon tech-icon--gai" aria-hidden="true" style="width:48px;height:48px;">
+				<div class="tech-label">Google AI Studio</div>
+			</div>
+		</div>
+
+		<!-- New: API Ninjas -->
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<i class="fas fa-user-ninja fa-3x tech-icon tech-icon--apininas" aria-hidden="true"></i>
+				<div class="tech-label">API Ninjas</div>
+			</div>
+		</div>
+	</div>
 </div>
 <br>
 <style>
@@ -607,6 +656,25 @@ typeWriter()
         padding: 1rem;
       }
     }
+		/* Tech grid styles */
+		.tech-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; padding:0.25rem 0.5rem; }
+		.tech-icon { color: inherit; }
+		.tech-label { font-size:0.95rem; font-weight:700; text-transform:uppercase; font-family: 'Roboto', 'Segoe UI', sans-serif; letter-spacing:0.04em; }
+		.tech-grid { gap: 0.75rem; }
+		.tech-item { min-width: 88px; }
+		.tech-icon--firebase { color:#FFCA28; }
+		.tech-icon--bootstrap { color:#7B1FA2; }
+		.tech-icon--analytics { color:orange; }
+		.tech-icon--node { color:#3C873A; }
+		.tech-icon--html5 { color:#E34F26; }
+		.tech-icon--js { color:#F0DB4F; }
+		.tech-icon--docker { color:#2496ED; }
+		.tech-icon--apininas { color:#00A6D6; }
+		.tech-icon--gai { filter: none; }
+		@media (max-width: 576px) {
+			.tech-icon { width:40px; height:40px; }
+			.tech-label { font-size:0.85rem; }
+		}
   </style>
   
   <section class="metrics">
