@@ -213,6 +213,21 @@ background:#b3e7ff;
     });
   </script>
 
+	<script>
+		// Ensure Swiper autoplay starts on first load (some browsers delay autoplay until a user gesture)
+		window.addEventListener('load', function() {
+			try {
+				if (typeof swiper !== 'undefined' && swiper && swiper.autoplay) {
+					swiper.autoplay.start();
+					// extra attempt after a short delay in case the first call was blocked
+					setTimeout(function() { try { swiper.autoplay.start(); } catch(e) {} }, 300);
+				}
+			} catch (e) {
+				// silently ignore
+			}
+		});
+	</script>
+
   <hr style="width:80%">
 
 </br>
