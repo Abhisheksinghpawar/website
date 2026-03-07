@@ -68,6 +68,13 @@ background:#b3e7ff;
 	display: block;
 	width: 100%;
   }
+  
+	/* Add LiveTiles-like card-media and equal-height row styles */
+	.card-media{width:100%; height:160px; background-size:cover; background-position:center;}
+	.equal-cards-row > [class*="col-"] .card { height:100%; display:flex; flex-direction:column; }
+	.equal-cards-row > [class*="col-"] .card .card-body { flex:1 1 auto; }
+	.equal-cards-row > [class*="col-"] .card .card-sub { max-height:4.5rem; overflow:hidden; }
+	@media (max-width:767px){ .equal-cards-row > [class*="col-"] .card .card-sub { max-height:none; } }
   </style>
 </head>
 <body>
@@ -277,64 +284,61 @@ Being part of the Performance Engineering teams, where my main focus isn’t on 
 
 </br>
 
+
 <div class="container-fluid padding">
-<div class="row text-center padding" style="padding:30px 30px 30px 30px;">
+<div class="row text-center padding equal-cards-row" style="padding:30px 30px 30px 30px;">
 	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-		<div class="card">
-    <img src="img/jmeter.png" class="card-img-top" alt="jmeterLogo" style="height:250px;">
-    <div class="card-body">
-      <h3 class="card-title">Jmeter</h3>
-      <p class="card-text">Experience in scripting in this open source tool and completed company challenges and short term projects for scripting</br></p>
-	  <p><a href="https://jmeter.apache.org/download_jmeter.cgi">download</a></p>
-	</div>
-    <div class="card-footer">
-      <small class="text-muted">Hands on experience with version 5.4</small>
-    </div>
-  </div>
-</br>
-	</div>
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-		<div class="card">
-    <img src="img\loadrunner.png" class="card-img-top" alt="loadrunnerLogo" style="height:250px;object-fit: cover;">
-    <div class="card-body">
-      <h3 class="card-title">LoadRunner</h3>
-      <p class="card-text">Completed multiple project scripting using Vugen and execution using Stormrunner, Controller and Performance Center</br></p>
-      <p><a href="https://www.microfocus.com/en-us/products/loadrunner-professional/free-trial">download</a></p>
-	</div>
-    <div class="card-footer">
-      <small class="text-muted">Hands on experience with version 12.53</small>
-    </div>
-  </div>
-</br>
+	  <article class="card">
+	    <div class="card-media" style="background-image:url('img/jmeter.png');"></div>
+	    <div class="card-body">
+	      <h3 class="card-title">JMeter</h3>
+	      <p class="card-sub">Experience in scripting in this open source tool and completed company challenges and short term projects for scripting</p>
+	      <p><a href="https://jmeter.apache.org/download_jmeter.cgi">download</a></p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Hands on experience with version 5.4</small>
+	    </div>
+	  </article>
 	</div>
 	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-		<div class="card">
-    <img src="img\neoload.png" class="card-img-top" alt="neoloadLogo" style="height:250px;">
-    <div class="card-body">
-      <h3 class="card-title">Neoload</h3>
-      <p class="card-text">Over a year experience, completed migration project for a UK client from on prem to cloud servers testing and report analysis</br></p>
-	  <p><a href="https://www.tricentis.com/lp/neoload-performance-load-testing-ppc?utm_source=google&utm_medium=paidsearch&utm_campaign=NeoLoad_Search_Brand_High_AMS_EN&utm_term=download%20neoload&gad_source=1&gclid=Cj0KCQjw8--2BhCHARIsAF_w1gxy6pa3_TYoqz-1YABIPE6CaNDDcIbd-xmdCsPhwCd3bFxwiQK9yNwaAqzOEALw_wcB">download</a></p>
+	  <article class="card">
+	    <div class="card-media" style="background-image:url('img/loadrunner.png');"></div>
+	    <div class="card-body">
+	      <h3 class="card-title">LoadRunner</h3>
+	      <p class="card-sub">Completed multiple project scripting using Vugen and execution using Stormrunner, Controller and Performance Center</p>
+	      <p><a href="https://www.microfocus.com/en-us/products/loadrunner-professional/free-trial">download</a></p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Hands on experience with version 12.53</small>
+	    </div>
+	  </article>
 	</div>
-    <div class="card-footer">
-      <small class="text-muted">Hands on experience with version 6.9,7.0 and 7.4</small>
-    </div>
-  </div>
-</br>
-</div>
-<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-	<div class="card">
-<img src="img\blazemeter-logo-png.png" class="card-img-top" alt="blazemeterLogo" style="height:250px;object-fit: cover;">
-<div class="card-body">
-  <h3 class="card-title">Blazemeter</h3>
-  <p class="card-text">Recorded multiple http/https scripts and converted them to JMX file for load testing in Jmeter</br></p>
-  <p><a href="https://www.blazemeter.com/product/blazemeter">download</a></p>
-</div>
-<div class="card-footer">
-  <small class="text-muted">Hands on experience with version 6.4.0</small>
-</div>
-</div>
-</br>
-</div>
+	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+	  <article class="card">
+	    <div class="card-media" style="background-image:url('img/neoload.png');"></div>
+	    <div class="card-body">
+	      <h3 class="card-title">NeoLoad</h3>
+	      <p class="card-sub">Over a year experience, completed migration project for a UK client from on prem to cloud servers testing and report analysis</p>
+	      <p><a href="https://www.tricentis.com/lp/neoload-performance-load-testing-ppc?utm_source=google&utm_medium=paidsearch&utm_campaign=NeoLoad_Search_Brand_High_AMS_EN&utm_term=download%20neoload&gad_source=1&gclid=Cj0KCQjw8--2BhCHARIsAF_w1gxy6pa3_TYoqz-1YABIPE6CaNDDcIbd-xmdCsPhwCd3bFxwiQK9yNwaAqzOEALw_wcB">download</a></p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Hands on experience with version 6.9,7.0 and 7.4</small>
+	    </div>
+	  </article>
+	</div>
+	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+	  <article class="card">
+	    <div class="card-media" style="background-image:url('img/blazemeter-logo-png.png');"></div>
+	    <div class="card-body">
+	      <h3 class="card-title">Blazemeter</h3>
+	      <p class="card-sub">Recorded multiple http/https scripts and converted them to JMX file for load testing in JMeter</p>
+	      <p><a href="https://www.blazemeter.com/product/blazemeter">download</a></p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Hands on experience with version 6.4.0</small>
+	    </div>
+	  </article>
+	</div>
 
 	</div>
 </div>

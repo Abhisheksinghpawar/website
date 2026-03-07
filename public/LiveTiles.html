@@ -513,11 +513,18 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
   Building upon my passion for languages, I commenced the composition of short narratives in English during my early youth. This writing endeavor persisted throughout my collegiate experience, culminating in the creation of three short stories and a prodigious number of poems, the details of which have largely escaped my recollection.
 </br></p>
 
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12 col-md-6">
+  <style>
+    /* Make the four author/poetry cards equal height and clamp long subtitles */
+    .equal-cards-row > [class*="col-"] .card { height: 100%; display:flex; flex-direction:column; }
+    .equal-cards-row > [class*="col-"] .card .card-body { flex: 1 1 auto; }
+    .equal-cards-row > [class*="col-"] .card .card-sub { max-height:4.5rem; overflow:hidden; }
+    @media (max-width:767px){ .equal-cards-row > [class*="col-"] .card .card-sub { max-height:none; } }
+  </style>
+  <div class="container mt-3">
+  <div class="row equal-cards-row">
+    <div class="col-12 col-md-6 col-lg-3">
       <article class="card">
-        <div class="card-media" style="background-image:url('img/akhtar.jpg'); height:160px; background-size:cover; background-position:center;"></div>
+        <div class="card-media" style="background-image:url('img/akhtar.jpg'); height:140px; background-size:cover; background-position:center;"></div>
         <div class="card-body">
           <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Javed Akhtar</h3>
           <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Gin gin ke sikke haath mera khurdura hua, Jaati rahi wo lams ki narmi, bura hua</p>
@@ -526,13 +533,35 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
       </article>
     </div>
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 col-lg-3">
       <article class="card">
-        <div class="card-media" style="background-image:url('img/harsha.jpg'); height:160px; background-size:cover; background-position:center;"></div>
+        <div class="card-media" style="background-image:url('img/bruce-lee.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Bruce Lee</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Be water, my friend</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">Real living is living for others</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/harsha.jpg'); height:140px; background-size:cover; background-position:center;"></div>
         <div class="card-body">
           <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Harsha Bhogle</h3>
           <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Ask Dravid to walk on water and he'll say "How many kilometers?"</p>
           <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">We have a surgeon at one end and a butcher at the other</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/Mahatma-Gandhi.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Mahatma Gandhi</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Be the change you wish to see in the world</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">The future depends on what you do today</p>
         </div>
       </article>
     </div>
