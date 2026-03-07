@@ -597,8 +597,7 @@ typeWriter()
 	@media (max-width: 576px) { .recognition-img { max-width: 100%; } .recognition-card { padding: 12px; } }
 </style>
 
-<!--- Fixed background -->
-<br>
+<!--- Fixed background -->s
 <div class="col-12">
 	<p>
 	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Tech behind this website</b></span></h5></center>
@@ -673,16 +672,16 @@ typeWriter()
       font-family: 'Segoe UI', sans-serif;
       color: #333;
     }
-    h2.PerfHeading {
-      text-align: center;
-      font-size: 2rem;
-      margin: 3rem 0 2rem;
-      color: #0078D7;
-    }
-    section {
-      max-width: 90%;
-      margin: 0 auto 4rem;
-      padding: 2rem;
+		h2.PerfHeading {
+			text-align: center;
+			font-size: 2rem;
+			margin: 0.6rem 0 1rem; /* reduced top margin to remove extra space inside section */
+			color: #0078D7;
+		}
+		section {
+			max-width: 90%;
+			margin: 0 auto 4rem;
+			padding: 1rem 2rem; /* reduce top padding so heading sits closer to top */
       background: linear-gradient(to right, #eef2f3, #cae0f2);
       backdrop-filter: blur(8px);
       border-radius: 12px;
