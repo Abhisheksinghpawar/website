@@ -853,8 +853,9 @@ typeWriter()
 				return;
 			}
 
+			// If no external API key is configured, use a local deterministic summarizer
 			if (!GEMINI_API_KEY || GEMINI_API_KEY === "PASTE_YOUR_GEMINI_API_KEY_HERE") {
-				analysisText.textContent = "Add your Gemini API key in the script to enable AI analysis.";
+				analysisText.textContent = summarizeMetricsLocal(metrics);
 				return;
 			}
 
@@ -910,6 +911,68 @@ typeWriter()
 
 			const data = await response.json();
 			return data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+		}
+
+		// Local summarizer (runs entirely in-browser, no keys)
+		function summarizeMetricsLocal(metricsList) {
+			if (!metricsList || metricsList.length === 0) return 'No metrics available.';
+
+			const m = {};
+			metricsList.forEach(it => m[it.title] = String(it.value));
+
+			function parseMs(v) {
+				if (!v) return null;
+				v = String(v).trim();
+				if (v === 'N/A') return null;
+				// examples: "420 ms", "1.23 s", "0.65 s"
+				const msMatch = v.match(/([\d\.]+)\s*ms/i);
+				if (msMatch) return parseFloat(msMatch[1]);
+				const sMatch = v.match(/([\d\.]+)\s*s(ec)?/i);
+				if (sMatch) return parseFloat(sMatch[1]) * 1000;
+				const num = v.match(/([\d\.]+)/);
+				return num ? parseFloat(num[1]) : null;
+			}
+
+			function parseMbps(v) {
+				if (!v) return null;
+				v = String(v).trim();
+				const m = v.match(/([\d\.]+)\s*Mb/i);
+				if (m) return parseFloat(m[1]);
+				const num = v.match(/([\d\.]+)/);
+				return num ? parseFloat(num[1]) : null;
+			}
+
+			const loadMs = parseMs(m['Page Load Time'] || m['Page load time'] || m['Load Time']);
+			const pingMs = parseMs(m['Host Ping'] || m['Host ping'] || m['Ping']);
+			const bandwidth = parseMbps(m['Estimated Bandwidth'] || m['Bandwidth']);
+			const connType = m['Connection Type'] || m['Connection'] || '';
+
+			// Scoring: lower is better for load and ping; higher is better for bandwidth
+			let score = 0, weight = 0;
+			// Lenient scoring: widen "good" ranges so normal networks score better
+			if (loadMs != null) { weight += 3; if (loadMs <= 1500) score += 3; else if (loadMs <= 4000) score += 2; else score += 0; }
+			if (pingMs != null) { weight += 2; if (pingMs <= 200) score += 2; else if (pingMs <= 400) score += 1; }
+			if (bandwidth != null) { weight += 2; if (bandwidth >= 10) score += 2; else if (bandwidth >= 3) score += 1; }
+
+			let overall = 'Unknown';
+			if (weight === 0) overall = 'No sufficient data';
+			else {
+				const pct = (score / (weight * 2));
+				// Make Good easier to achieve and Moderate more forgiving
+				if (pct >= 0.7) overall = 'Good';
+				else if (pct >= 0.35) overall = 'Moderate';
+				else overall = 'Poor';
+			}
+
+			// Build concise sentence
+			const parts = [];
+			if (loadMs != null) parts.push(`loads in ${Math.round(loadMs)} ms`);
+			if (pingMs != null) parts.push(`with ~${Math.round(pingMs)} ms ping`);
+			if (connType) parts.push(`over ${connType}`);
+			if (bandwidth != null) parts.push(`(~${Math.round(bandwidth)} Mbps)`);
+
+			const prefix = parts.length ? `Page ${parts.join(' ')} —` : 'Performance data available —';
+			return `${prefix} overall performance: ${overall}.`;
 		}
 
   </script>
