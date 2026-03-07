@@ -106,6 +106,19 @@ h5{ font-size:18px;
 }
 @media (max-width: 576px) {
   
+
+		/* Keep Performance Metrics using the global `section` styling (restore boxed look) */
+		/* No overrides here so the default section background and shadow remain. */
+
+		/* Remove outer box covering Professional Experience timeline cards */
+		section#experience, section#experience * {
+			background: transparent !important;
+			background-image: none !important;
+			box-shadow: none !important;
+			border: none !important;
+		}
+		section#experience { padding: 0.5rem 0 !important; margin: 0.6rem 0 !important; }
+		section#experience .timeline-content { background: transparent !important; box-shadow: none !important; border: none !important; padding: 0.6rem 0 !important; }
 }
 
 .jumbotron{
@@ -387,43 +400,121 @@ typeWriter()
 	</p>
 	</div>
 
-<!--- Welcome Section -->
-	<div class="container-fluid padding">
-	<div class="row padding">
-	
-		<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
-		<img height="190px" width="300px" class="round" src="img/nice_systems_logo_3.jpg" hspace="20px">
-		</div></div>
-		<div class="col-lg-4" align="Justify">
-		<div class="col-md-12 col-sm-12 col-12" align="left">
-		<h2>NiCE Systems</h2><hr><p>I graduated from The University of Cincinnati not too long ago, and I've dived straight into the world of tech by joining NICE Systems as a Senior Performance Engineer. My main responsibility involves using JMeter as my go-to scripting tool, but I also took the initiative to develop a Python-Flask application for our internal PSR team</p></div></div>
+	<section id="experience" class="container my-4">
+	  <div class="timeline">
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-md-4 text-center d-none d-md-block">
+				<img src="img/nice_systems_logo_3.jpg" alt="NiCE Systems" class="round" style="max-width:100%; height:auto;">
+			  </div>
+			  <div class="col-12 col-md-8">
+				<h3>NiCE Systems</h3>
+				<p class="muted">Senior Performance Engineer</p>
+				<p>I joined NICE Systems as a Senior Performance Engineer where I use JMeter as my primary scripting tool and developed a Python-Flask application for the internal PSR team.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
 
-	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
-	<img height="190px" width="300px" class="round" src="img/massmutual.jpg" hspace="20px">
-	</div></div>
-	<div class="col-lg-4" align="Justify">
-	<div class="col-md-12 col-sm-12 col-12" align="left">
-	<h2>MassMutual</h2><hr><p>MassMutual, where I joined back in September 2020 as an Associate in Quality Assurance, specifically focusing on Performance Testing. It's been quite an enriching experience, utilizing tools like LoadRunner Enterprise and Grafana for monitoring, which I find fascinating.</p></div></div>
-	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
-	<img height="190px" width="300px" class="round" src="img/wipro2.jpg" hspace="20px">
-	</div></div>
-	<div class="col-lg-4" align="Justify">
-	<div class="col-md-12 col-sm-12 col-12">
-	<h2>Wipro</h2><hr><p>I worked at Wipro Technologies from March 2017 until July 2020, where I was fortunate enough to manage several projects that really challenged and developed my skills. Throughout my time there, I was recognized for my contributions and even received a few awards, which was incredibly rewarding.</p></div></div>
-	<!-- College -->
-	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
-	<img height="190px" width="300px" class="round" src="img/jnct.jpg" hspace="20px">
-	</div></div>
-	<div class="col-lg-4" align="Justify">
-	<div class="col-md-12 col-sm-12 col-12">
-	<h2>JNCT</h2><hr><p>I graduated with a Bachelor's degree in Engineering from JNCT Bhopal in 2016. Shortly after, I was fortunate enough to get placed on campus with both Wipro and Cognizant, which was quite an exciting start to my career. During my time in college, I also took on the role of an organizer for our tech fest, which really honed my leadership skills.</p></div></div>
-	<!-- Schooling -->
-	<div class="col-lg-6" align="right"><div class="col-md-12 col-sm-12 col-12">
-	<img height="190px" width="300px" class="round" src="img/carmel.jpg" hspace="20px">
-	</div></div>
-	<div class="col-lg-4" align="Justify">
-	<div class="col-md-12 col-sm-12 col-12">
-	<h2>Carmel</h2><hr><p>I completed my schooling at Carmel Ratanpur. I proudly represented my school in various karate competitions and received several awards for my performances. Additionally, I achieved my Black Belt Dan - 1 while I was in the 11th standard, which was a significant milestone for me and really fueled my passion for the sport.</p></div></div></div></div>
+		<div class="timeline-item timeline-item-right">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-12 col-md-8 order-2 order-md-1">
+				<h3>MassMutual</h3>
+				<p class="muted">Associate - Quality Assurance (Performance Testing)</p>
+				<p>Worked with LoadRunner Enterprise and Grafana for monitoring. Focused on performance testing and improving system observability.</p>
+			  </div>
+			  <div class="col-md-4 text-center order-1 order-md-2 d-none d-md-block">
+				<img src="img/massmutual.jpg" alt="MassMutual" class="round" style="max-width:100%; height:auto;">
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-md-4 text-center d-none d-md-block">
+				<img src="img/wipro2.jpg" alt="Wipro" class="round" style="max-width:100%; height:auto;">
+			  </div>
+			  <div class="col-12 col-md-8">
+				<h3>Wipro</h3>
+				<p class="muted">Software Engineer (2017–2020)</p>
+				<p>Managed several projects, received recognition and awards for contributions and project work.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item timeline-item-right">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-12 col-md-8 order-2 order-md-1">
+				<h3>JNCT</h3>
+				<p class="muted">B.E. (Graduated 2016)</p>
+				<p>Graduated from JNCT Bhopal and began my career after campus placements. Active in organizing the college tech fest, which strengthened leadership skills.</p>
+			  </div>
+			  <div class="col-md-4 text-center order-1 order-md-2 d-none d-md-block">
+				<img src="img/jnct.jpg" alt="JNCT" class="round" style="max-width:100%; height:auto;">
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-md-4 text-center d-none d-md-block">
+				<img src="img/carmel.jpg" alt="Carmel" class="round" style="max-width:100%; height:auto;">
+			  </div>
+			  <div class="col-12 col-md-8">
+				<h3>Carmel</h3>
+				<p class="muted">Schooling</p>
+				<p>Completed schooling at Carmel Ratanpur; represented the school in karate competitions and achieved Black Belt Dan - 1 in 11th standard.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<style>
+	  /* Timeline styles */
+	/* Experience timeline container adjustments */
+	section#experience { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+	.timeline { position: relative; margin: 2rem 0; padding: 1rem 0; }
+	.timeline:before { content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(#dfe9f3, transparent); border-radius:4px; }
+	  .timeline-item { position: relative; width: 100%; padding: 1.2rem 0; }
+	  .timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: #0078D7; border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,120,215,0.08); }
+	/* Card visual: use light gray similar to recognitions (Victory League) for better contrast */
+	.timeline-content { width: calc(50% - 40px); padding: 0.8rem 1rem; background: #f8fafc; border-radius: 6px; box-shadow: 0 8px 20px rgba(11,37,69,0.06); border: 1px solid #d1d5db; }
+
+	/* Ensure images inside timeline use the same corner radius and cover their container nicely */
+	section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
+	section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
+	  .timeline-item .timeline-content { margin-left: 0; }
+	  .timeline-item-right .timeline-content { margin-left: auto; }
+	  .timeline-item .muted { font-size: 0.9rem; color: #4f6f8f; margin-top: -6px; }
+	  @media (min-width: 768px) {
+		.timeline-item { display: flex; align-items: center; }
+		.timeline-item .timeline-content { width: 45%; }
+		.timeline-item:nth-child(odd) .timeline-content { margin-left: 0; }
+		.timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
+		.timeline-dot { left: 50%; }
+	  }
+	  @media (max-width: 767px) {
+		.timeline:before { left: 20px; }
+		.timeline-dot { left: 20px; transform: translateX(0); }
+		.timeline-content { width: 100%; margin-left: 48px; }
+	  }
+	  .round { border-radius: 8px; border: 2px solid #e2e8f0; }
+	</style>
 <!--- Two Column Section -->
 <hr style="width:80%">
 <!--- Three Column Section -->
@@ -656,6 +747,8 @@ typeWriter()
         padding: 1rem;
       }
     }
+
+    
 		/* Tech grid styles */
 		.tech-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; padding:0.25rem 0.5rem; }
 		.tech-icon { color: inherit; }
