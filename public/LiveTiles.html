@@ -19,14 +19,19 @@
 	<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+:root{
+  --fs-base:16px; /* base font-size for rem calculations */
+  --muted:#55607a;
+}
+
+html{ font-size:var(--fs-base); }
 html,body
 {
   height: 100%;
-width: 100%;
-font-family: 'Poppins',sans-serif;
-color: #222;
-scroll-behavior: smooth;
-	font-family: 'Poppins',sans-serif;
+  width: 100%;
+  font-family: 'Poppins',sans-serif;
+  color: #222;
+  scroll-behavior: smooth;
 }
 .navbar{
 	padding: .8rem;
@@ -161,6 +166,9 @@ padding: 150px 20px;
 }
 .card{
 box-shadow:10px 10px 10px;
+border-radius:6px;
+  box-shadow:10px 10px 10px;
+  border-radius:6px;
 }
 .abhi{
 box-shadow:10px 10px 10px;
@@ -175,17 +183,60 @@ background-color:white;
 height: 0.5px;
 }
 h5 {
-   width: 90%; 
-   border-bottom: 2px solid #000;
-   line-height: 0.2em;
-   margin: 10px 0 20px;
-font-size:25px; 
-} 
+  width: 90%;
+  border-bottom: 2px solid #000;
+  line-height: 0.2em;
+  margin: 10px 0 20px;
+  font-size: 1.2rem; /* reduced and made relative */
+}
 
 h5 span { 
     background:#fff; 
     padding:0px 15px; 
 }
+
+/* Compact mobile adjustments: reduce vertical space and enforce image crop */
+@media (max-width:600px){
+  .carousel-inner img{ height:140px; object-fit:cover; }
+  .tales, .tales2 { height:auto; }
+  .card, .abhi { margin-bottom:0.5rem; }
+  .card .card-body, .card-body { padding:8px !important; }
+  .container-fluid.padding .row.padding > div { padding:0.5rem; }
+  .jumbotron, .atitle, .btitle { padding:40px 10px; }
+  h5 { font-size:20px; }
+}
+
+/* Day cards (Quote / Fact) - shared styling and consistent responsive width */
+.day-wrap{ display:flex; justify-content:center; }
+.day-card{ display:block; width:min(720px,90%); background:#fff; border-radius:8px; box-shadow:0 12px 30px rgba(18,40,80,0.06); text-align:left; margin:0 auto; }
+.day-card .card-body{ padding:14px 18px; }
+.day-card-title{ font-size:1rem; margin:0 0 6px 0; font-weight:700; color:#0f2136; display:flex; gap:8px; align-items:center; }
+.day-card-text{ font-family: 'Playfair Display', serif; font-style:italic; font-size:1.125rem; color:#343a40; margin:6px 0; }
+.day-card-footer{ font-size:0.9rem; color:var(--muted); text-align:right; }
+.day-card-powered{ font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:right; }
+@media (max-width:600px){ .day-card .day-card-text{ font-size:16px; } .day-card{ width:90%; } }
+@media (max-width:600px){
+  .carousel-inner img{ height:140px; object-fit:cover; }
+  .tales, .tales2 { height:auto; }
+  .card, .abhi { margin-bottom:0.5rem; }
+  .card .card-body, .card-body { padding:8px !important; }
+  .container-fluid.padding .row.padding > div { padding:0.5rem; }
+  .jumbotron, .atitle, .btitle { padding:40px 10px; }
+  h5 { font-size:20px; }
+}
+
+/* Global scaling tweaks: make common text sizes relative to root and reduce a few oversized inline styles */
+body{ font-size:1rem; }
+.card-title{ font-size:1rem; }
+.display-5{ font-size:1.6rem; }
+
+/* Override explicit large inline titles (originally 50px) to keep relative sizing */
+#plx3 .atitle p, #plx .atitle p, #plx2 .btitle p{ font-size:2.2rem !important; }
+#plx .atitle p + p, #plx3 .atitle p + p{ font-size:1.15rem !important; }
+
+/* Target paragraphs with inline 25px and reduce them while preserving padding */
+p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !important; }
+
 	</style>
   </head>
   <body>
@@ -227,7 +278,7 @@ h5 span {
 <div align="center">
   <div id="api-response" style="width:75%;">Loading...</div>
   <br>
-<div style="font-size: x-small;"> <i class="fa-solid fa-user-ninja"></i> Powered by <a href="https://api-ninjas.com/">API Ninjas</a></div>
+  <!-- moved into day-card footers -->
 </div>
 
     <!-- Include jQuery -->
@@ -248,17 +299,18 @@ h5 span {
                         var quote = result[0]; // Get the first quote
                         var responseElement = $('#api-response');
                         responseElement.html(`
-                            <div class="card">
-  <div class="card-header">
-    <h3 class="display-9" align="center"><i class="fa-solid fa-quote-left fa-1x"  style="color:gray;"></i> Quote of the Day</h3>
+  <div class="day-wrap">
+  <div class="day-card card" role="region" aria-label="Quote of the Day">
+    <div class="card-body">
+      <div class="day-card-title"><i class="fa-solid fa-quote-left" style="color:gray;"></i> Quote of the Day</div>
+      <div class="day-card-text">${quote.quote}</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div class="day-card-footer">${quote.author || ''}</div>
+        <div class="day-card-powered"><i class="fa-solid fa-user-ninja"></i> <a href="https://api-ninjas.com/">API Ninjas</a></div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: #343a40;">${quote.quote}</p>
-      <footer class="blockquote-footer">${quote.author}</cite></footer>
-    </blockquote>
   </div>
-</div>
                         `);
                     } else {
                         $('#api-response').html('No quotes found.');
@@ -277,160 +329,140 @@ h5 span {
 <hr width="80%">
 
 </br>
+<!-- Compact 4 live-tiles: Books, Places, Food, Music -->
+<section class="personal-tiles" aria-labelledby="tiles-heading">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<div class="container-fluid padding">
-<div class="row padding" align="center">
-<div class="col-lg-3 col-md-3 col-sm-6 col-6" style="width: 250px;">
-<img class="tales" style="width:50px;height:50px;" src="img/gif/idea.gif" alt="Facebook"></br></br>
-<table border="2" class="abhi"><tr><td align="center">
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="tales" src="img/quote1.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/quote2.jpg" alt="Second slide">
-    </div>
-  <div class="carousel-item">
-      <img class="tales" src="img/quote3.jpg" alt="Second slide">
-    </div>
-  <div class="carousel-item">
-      <img class="tales" src="img/quote4.jpg" alt="Second slide">
-    </div>
-  <div class="carousel-item">
-      <img class="tales" src="img/quote5.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/quote6.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-</td></tr></table>
-</br>
-<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Quotes that I try to follow in my life</h6>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-<img class="tales" style="width:50px;height:50px;" src="img/gif/books.gif" alt="Facebook"></br></br>
-<table border="2" class="abhi"><tr><td align="center">
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="tales" src="img/book1.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/book2.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/book3.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-</td></tr></table>
-</br>
-<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Books that I loved reading</h6>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-<img class="tales" style="width:50px;height:50px;" src="img/gif/cities.gif" alt="Facebook"></br></br>
-<table border="2" class="abhi"><tr><td align="center">
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="tales" src="img/bhopal.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/bangalore.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/hyderabad.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-</td></tr></table>
-</br>
-<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Places I lived for education,work or Travel</h6>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-<img class="tales" style="width:50px;height:50px;" src="img/gif/food.gif" alt="Facebook"></br></br>
-<table border="2" class="abhi"><tr align="center"><td>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2700">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="tales" src="img/tandoorichicken.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/biryani.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="tales" src="img/pizza.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-</td></tr></table>
-</br>
-<h6 style="color:darkblue;font-family:Comic Sans MS, Comic Sans, cursive;">Food I love eating</h6>
-</div>
-</div>
-</div>
+  <style>
+    :root{ --bg:#f6f8fb; --card:#ffffff; --muted:#55607a; --accent:#2b6ef6; --radius:12px; --gap:1rem; --card-shadow: 0 10px 30px rgba(18,40,80,0.06); --max-width:1100px; }
+    .personal-tiles{font-family:Inter, Poppins, system-ui; background:var(--bg); padding:24px 12px; display:flex; justify-content:center;}
+    .pt-inner{width:100%; max-width:var(--max-width);} .tiles-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; align-items:start;}
+    .card{ background:var(--card); border-radius:6px; overflow:hidden; box-shadow:var(--card-shadow); transition:transform .22s ease, box-shadow .22s ease; display:flex; flex-direction:column; }
+    .card:hover{ transform:translateY(-6px); }
+    .card-media{width:100%; height:140px; background-size:cover; background-position:center;}
+    .card-body{padding:12px 12px; display:flex; flex-direction:column; gap:6px;}
+    .card-title{font-weight:700; color:#0f2136; margin:0; font-size:1rem}
+    .card-sub{color:var(--muted); font-size:0.9rem; margin:0;}
+    .tiles-sub{color:var(--muted); margin-top:6px; font-size:0.95rem; opacity:0.95}
+    .small-list{margin:6px 0 0; padding:0; list-style:none; color:var(--muted); font-size:0.9rem}
+    .small-list li{margin:3px 0}
+    @media (max-width:900px){ .tiles-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:600px){ .tiles-grid{grid-template-columns:1fr; gap:10px;} .card-media{height:120px;} .personal-tiles{padding:16px 10px} }
+  </style>
 
-<div class="container-fluid padding">
-	<div class="row jumbotron">
-	<div class="col-12" style="height:auto">
-	<center><h5><span><b>Sports</b></span></h5></center></div>
-</div></div>
+  <div class="pt-inner">
+    <style>
+      /* Header accent styling for this section */
+      .tiles-header { display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-bottom:6px; }
+      .tiles-header h2{ margin:0; }
+      .tiles-accent { height:6px; width:72px; border-radius:6px; background:linear-gradient(90deg,var(--accent),#6fa8ff); box-shadow:0 8px 18px rgba(43,110,246,0.08); }
+    </style>
 
-<div class="container-fluid padding">
-  <div class="row padding	" align="center" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:15px;">
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-  </br>
-  <div class="card" style="width:auto;">
-    <img class="card-img-top" src="img/img4.jpg" alt="Card image cap" style="height: 250px;">
-    <div class="card-body">
-      <h6><img src="img\gif\swimming.gif" alt="Los Angeles" style="width:50px;height:25px;"> SWIMMING</h6>
-    <hr>
-      <p class="card-text" style="text-align:justify;">I really enjoy swimming! It all began as a fun summer hobby, and I found it incredibly refreshing and invigorating. Unfortunately, with my busy work schedule, it’s a bit challenging to keep it up regularly. However, I always make an effort to dive in whenever I manage to carve out some free time. It certainly helps me unwind and recharge! </p>
+    <div class="tiles-header">
+      <h2 id="tiles-heading" style="font-size:1.15rem;">Tastes, Journeys & Beats</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
     </div>
-  </div>
-  </br>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-  </br>
-  <div class="card" style="width:auto;">
-    <img class="card-img-top" src="img/img1.jpg" alt="Card image cap" style="height: 250px;">
-    <div class="card-body">
-      <h6><img src="img\gif\formula1.gif" alt="Los Angeles" style="width:30px;height:25px;"> FORMULA 1</h6>
-      <hr>
-      <p class="card-text" style="text-align: justify;">I'm quite fond of Formula 1! It's a thrilling sport that combines strategy and engineering prowess. However, I often find it challenging to connect with someone who shares my passion for discussing the intricacies. By the way, my all-time favorite driver has to be Lewis Hamilton; his skill and determination are truly inspiring. </p>
-    </div>
-  </div>
-  </br>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-  </br>
-  <div class="card" style="width:auto;">
-    <img class="card-img-top" src="img/img2.jpg" alt="Card image cap" style="height: 250px;">
-    <div class="card-body">
-      <h6><img src="img\gif\ball.gif" alt="Los Angeles" style="width:25px;height:25px;"> CRICKET</h6>
-      <hr>
-      <p class="card-text" style="text-align: justify;">I like watching legends like Sachin Tendulkar, who's regarded as the epitome of batting brilliance, Rahul Dravid, known for his steadfast technique and sportsmanship, and Virat Kohli, who brings an electrifying energy to the game. They all inspire not only a love for the sport but also a sense of national pride. </p>
-    </div>
-  </div>
-  </br>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-  </br>
-  <div class="card" style="width:auto;">
-    <img class="card-img-top" src="img/img3.jpg" alt="Card image cap" style="height: 250px;">
-    <div class="card-body">
-      <h6><img src="img\gif\karate.gif" alt="Los Angeles" style="width:25px;height:25px;"> KARATE</h6>
-      <hr>
-      <p class="card-text" style="text-align: justify;">As a Black Belt myself, Karate is more than just a martial art. The discipline required to master the techniques and the mental focus needed really help me find balance and cultivate inner peace. It teaches valuable life skills such as respect, perseverance, and confidence, making it a holistic practice that goes beyond physical fitness </p>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
+    <p class="tiles-sub" style="margin-top:6px;">A curated mix of the flavours I crave, the places I remember, and the songs I replay.</p>
 
-</br>
+    <div class="tiles-grid">
+      <!-- Books -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/book1.jpg');" role="img" aria-label="Books"></div>
+        <div class="card-body">
+          <div class="card-title">Digital Fortress</div>
+          <div class="card-sub">Also enjoy:</div>
+          <ul class="small-list"><li>Atomic Habits</li><li>The Alchemist</li><li>Bhagvat Gita</li></ul>
+        </div>
+      </article>
+
+      <!-- Places -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/dubai.jpg');" role="img" aria-label="Dubai"></div>
+        <div class="card-body">
+          <div class="card-title">Dubai</div>
+          <div class="card-sub">Also visited:</div>
+          <ul class="small-list"><li>New York</li><li>Vegas</li><li>Dallas</li></ul>
+        </div>
+      </article>
+
+      <!-- Food -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/biryani.jpg');" role="img" aria-label="Biryani"></div>
+        <div class="card-body">
+          <div class="card-title">Biryani</div>
+          <div class="card-sub">Also love:</div>
+          <ul class="small-list"><li>Pizza</li><li>Mediterranean</li><li>Chocolates</li></ul>
+        </div>
+      </article>
+
+      <!-- Music -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/music.jpg');" role="img" aria-label="Music"></div>
+        <div class="card-body">
+          <div class="card-title">Eminem</div>
+          <div class="card-sub">Also listen to:</div>
+          <ul class="small-list"><li>KK</li><li>Sunidhi Chauhan</li><li>Linkin Park</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Small JS: pause/resume Bootstrap carousels on hover (if any) -->
+<script>
+  (function(){
+    if (typeof jQuery === 'undefined') return;
+    var $ = jQuery;
+    $(document).on('mouseenter', '.carousel', function(){ try{ $(this).carousel('pause'); }catch(e){} });
+    $(document).on('mouseleave', '.carousel', function(){ try{ $(this).carousel('cycle'); }catch(e){} });
+  })();
+</script>
+
+<!-- Sports: live-tiles style (matches top tiles) -->
+<section class="personal-tiles" aria-labelledby="sports-heading">
+  <div class="pt-inner">
+    <div class="tiles-header">
+      <h2 id="sports-heading" style="font-size:1.15rem; margin:0;">Sports & Passions</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
+    </div>
+    <p class="tiles-sub">Athletics, moments and practices I enjoy.</p>
+
+    <div class="tiles-grid">
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img4.jpg');" role="img" aria-label="Swimming"></div>
+        <div class="card-body">
+          <div class="card-title">Swimming</div>
+          <p class="card-sub">Short laps — reset and refocus.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img1.jpg');" role="img" aria-label="Formula 1"></div>
+        <div class="card-body">
+          <div class="card-title">Formula 1</div>
+          <p class="card-sub">Speed, engineering, and flair.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img2.jpg');" role="img" aria-label="Cricket"></div>
+        <div class="card-body">
+          <div class="card-title">Cricket</div>
+          <p class="card-sub">Classic innings, iconic moments.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img3.jpg');" role="img" aria-label="Karate"></div>
+        <div class="card-body">
+          <div class="card-title">Karate</div>
+          <p class="card-sub">Focus, form, and calm.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <h2 class="display-5" align="center"><img class="tales" style="width:60px;height:60px;" src="img/gif/smiley.gif" alt="Smiley">Connect with me on social media</h2>
 <div align="center">
@@ -482,34 +514,29 @@ h5 span {
 </br></p>
 
 <div class="container mt-3">
-<div class="card">
-<div class="row">
-<div class="col-md-4">
-<img src="img/akhtar.jpg" class="img-fluid" style="padding-left:25px";">
-</div>
-<div class="col-md-8">
-<h2 class="card-title mt-2" style="color:#0047b3;">Javed Akhtar</h2></br>
-<p align="center" style="font-family:Georgia, serif;font-size:18px;color:black;">Gin gin ke sikke haath mera khurdura hua, Jaati rahi wo lams ki narmi, bura hua</p>
-<p align="center" style="font-family:Georgia, serif;font-size:18px;color:black;">Un chiraagon mein tel hi kam tha, kyun gila fir hum hawa se rahe</p>
-</div>
-</div>
-</div>
-</div>
-</br></br>
-<div class="container mt-3">
-<div class="card">
-<div class="row">
-<div class="col-md-8" style="padding-left:35px;">
-<h2 class="card-title mt-2" style="color:#0047b3;">Harsha Bhogle</h2>
-<p align="center" style="font-family:'Georgia', serif;font-size:18px;color:black;"></br>Ask Dravid to walk on water and he'll say "How many kilometers ?"</p>
-<p align="center" style="font-family:'Georgia', serif;font-size:18px;color:black;">We have a surgeon at one end and a butcher at the other</p>
-</div>
-<div class="col-md-4">
-<img src="img/harsha.jpg" class="img-fluid" style="padding-right:25px;">
-</div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/akhtar.jpg'); height:160px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Javed Akhtar</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Gin gin ke sikke haath mera khurdura hua, Jaati rahi wo lams ki narmi, bura hua</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">Un chiraagon mein tel hi kam tha, kyun gila fir hum hawa se rahe</p>
+        </div>
+      </article>
+    </div>
 
-</div>
-</div>
+    <div class="col-12 col-md-6">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/harsha.jpg'); height:160px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Harsha Bhogle</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Ask Dravid to walk on water and he'll say "How many kilometers?"</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">We have a surgeon at one end and a butcher at the other</p>
+        </div>
+      </article>
+    </div>
+  </div>
 </div>
 
 <div class="container-fluid padding">
@@ -543,7 +570,7 @@ h5 span {
 <div align="center">
   <div id="api-response2" style="width:45%;font-size:small">Loading...</div>
   <br>
-<div style="font-size: x-small;"> <i class="fa-solid fa-user-ninja"></i> Powered by <a href="https://api-ninjas.com/">API Ninjas</a></div>
+  <!-- moved into day-card footers -->
 </div>
 
     <!-- Include jQuery -->
@@ -564,14 +591,15 @@ h5 span {
                         var fact = result[0]; // Get the first quote
                         var responseElement = $('#api-response2');
                         responseElement.html(`
-  <div class="card">
-  <div class="card-header">
-    <h3 class="display-9" align="center" style="font-size:18px"><i class="fa-solid fa-quote-left fa-1x"  style="color:gray;"></i> Fact of the Day</h3>
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p style="font-size:18px">${fact.fact}</p>
-    </blockquote>
+  <div class="day-wrap">
+  <div class="day-card card" role="region" aria-label="Fact of the Day">
+    <div class="card-body">
+      <div class="day-card-title"><i class="fa-solid fa-bolt" style="color:gray;"></i> Fact of the Day</div>
+      <div class="day-card-text">${fact.fact}</div>
+      <div style="display:flex; justify-content:flex-end; gap:12px;">
+        <div class="day-card-powered"><i class="fa-solid fa-user-ninja"></i> <a href="https://api-ninjas.com/">API Ninjas</a></div>
+      </div>
+    </div>
   </div>
   </div>
                         `);
