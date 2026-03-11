@@ -66,67 +66,558 @@ background:#b3e7ff;
 	display: block;
 	width: 100%;
   }
+	/* AI Journey styles */
+	.journey-title{color:#07203a}
+	.journey-container .card-project{transition:transform .18s ease,box-shadow .18s ease}
+	.journey-container .card-project:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(9,30,66,0.12)}
+	.project-icon{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#1e90ff22,#6f8cff22);display:flex;align-items:center;justify-content:center;font-size:20px;color:#134;}
+	.flow-svg{margin-top:10px}
+	@media(min-width:900px){.journey-grid{flex-direction:row}.journey-grid > .card-project{flex:1}}
+	/* AI color tokens and badges */
+	:root{--ai-blue:#2563eb;--ai-indigo:#6d28d9;--ai-green:#10b981;--ai-pastel:#f3f7ff}
+	.ai-badge{display:inline-block;background:linear-gradient(90deg,var(--ai-indigo),var(--ai-blue));color:white;padding:3px 8px;border-radius:999px;font-size:11px;margin-left:10px;box-shadow:0 6px 18px rgba(37,99,235,0.12)}
+	.project-icon.icon-logs{background:linear-gradient(135deg,#7dd3fc22,#60a5fa22);color:#0369a1}
+	.project-icon.icon-jvm{background:linear-gradient(135deg,#fed7aa22,#fb923c22);color:#92400e}
+	.project-icon.icon-perf{background:linear-gradient(135deg,#bbf7d022,#34d39922);color:#065f46}
+	.btn-ai{background:linear-gradient(90deg,var(--ai-blue),var(--ai-indigo));border:none;color:#fff}
+	.btn-ai-outline{background:transparent;border:1px solid rgba(37,99,235,0.12);color:var(--ai-blue)}
+	.journey-section{position:relative;overflow:visible}
+	.decor-blob{position:absolute;right:12px;top:-30px;opacity:0.15;transform:rotate(12deg)}
+	/* micro-interactions and tooltip */
+	.card-project{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+	.card-project.visible{opacity:1;transform:translateY(0)}
+	/* explicit spacing to avoid cards touching */
+	.journey-grid > .card-project{margin:0 0 56px 0 !important}
+	.journey-grid > .card-project:last-child{margin-bottom:0 !important}
+	.journey-grid{gap:36px !important;padding-bottom:6px}
+	.card-gif{width:110px;height:78px;border-radius:8px;object-fit:cover;flex:0 0 110px;margin-left:12px;border:1px solid #eef6ff}
+	.card-gif{float:none !important;padding:0 !important}
+	/* sample output */
+	.sample-output{
+	  background:#0714310f;
+	  padding:12px;
+	  border-radius:8px;
+	  border:1px solid rgba(7,20,49,0.06);
+	  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+	  font-size:13px;
+	  color:#07203a;
+	  max-height:220px;
+	  overflow:auto;
+	  margin-top:14px;
+	  box-shadow:0 6px 18px rgba(9,30,66,0.04);
+	}
+	.sample-toggle{
+	  background:linear-gradient(90deg,var(--ai-blue),var(--ai-indigo));
+	  border:none;
+	  color:#fff;
+	  padding:10px 14px;
+	  border-radius:10px;
+	  box-shadow:0 14px 32px rgba(37,99,235,0.18);
+	  transition:transform .12s ease,box-shadow .16s ease,opacity .12s ease;
+	  margin-top:12px;
+	  display:inline-flex;
+	  align-items:center;
+	  gap:8px;
+	  font-weight:600;
+	  font-size:14px;
+	}
+	.sample-toggle:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(37,99,235,0.22);opacity:0.99}
+	.sample-toggle:focus{outline:3px solid rgba(99,102,241,0.18);outline-offset:3px;border-radius:10px}
+	.sample-toggle i{display:inline-block;width:18px;text-align:center}
+	.flow-node{cursor:pointer}
+	.tt{position:fixed;z-index:9999;background:rgba(10,25,47,0.96);color:#fff;padding:8px 10px;border-radius:6px;font-size:13px;pointer-events:none;max-width:260px;box-shadow:0 8px 24px rgba(2,6,23,0.4)}
+	/* subtle divider under More Details */
+	.more-divider{height:2px;border:0;background:linear-gradient(90deg,transparent,rgba(14,78,160,0.12),transparent);margin:10px 0 14px;border-radius:2px}
+	/* theme chips */
+	.theme-chip{background:#eef6ff;padding:6px 12px;border-radius:999px;border:1px solid #dbeeff;color:#1f4b7a;font-weight:600;font-size:13px}
+	.themes{display:flex;flex-direction:column;align-items:center;text-align:center}
+
+	/* ai intro alignment */
+	.ai-intro{display:flex;flex-direction:column;align-items:center}
+	.ai-intro p{max-width:860px;margin:0 auto;text-align:justify;text-justify:inter-word}
+	.ai-intro .mcp-diagram{width:100%;display:flex;justify-content:center}
+
+	/* ── card header / body / footer redesign ── */
+	.card-project{padding:0 !important;overflow:hidden;flex-direction:column !important;display:flex !important;align-items:stretch !important;gap:0 !important;border-radius:12px !important;box-shadow:0 4px 20px rgba(9,30,66,0.10) !important}
+	.card-head{padding:16px 18px 14px;display:flex;gap:14px;align-items:flex-start;position:relative;overflow:hidden;border-radius:12px 12px 0 0}
+	.card-head-logs{background:linear-gradient(135deg,#0e2f6e,#1a56c6)}
+	.card-head-jvm{background:linear-gradient(135deg,#0e2f6e,#1a56c6)}
+	.card-head-perf{background:linear-gradient(135deg,#0e2f6e,#1a56c6)}
+	.card-head-accent{position:absolute;top:0;left:0;right:0;height:4px;border-radius:0}
+	.card-head-logs .card-head-accent{background:linear-gradient(90deg,#6d28d9,#2563eb,#3b82f6)}
+	.card-head-jvm .card-head-accent{background:linear-gradient(90deg,#d97706,#ea580c,#f97316)}
+	.card-head-perf .card-head-accent{background:linear-gradient(90deg,#059669,#10b981,#34d399)}
+	.card-head-title{color:#fff;margin:0 0 4px 0;font-size:17px;font-weight:700;line-height:1.2}
+	.card-head-sub{color:rgba(255,255,255,0.76);margin:0 0 0 0;font-size:13px;line-height:1.3}
+	.card-head .project-icon{background:rgba(255,255,255,0.13) !important;color:#fff !important;flex-shrink:0;margin-top:2px}
+	.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+	.card-tag{background:rgba(255,255,255,0.14);color:#dce9ff;padding:2px 8px;border-radius:999px;font-size:11px;border:1px solid rgba(255,255,255,0.22);font-family:ui-monospace,monospace;letter-spacing:0.01em}
+	.card-body-content{padding:16px 18px 10px;flex:1;background:#ffffff}
+	.card-body-content .flow-svg{margin-top:0}
+	.card-foot{padding:12px 18px;background:linear-gradient(90deg,#f7fbff,#f2f7ff);border-top:1px solid rgba(14,78,160,0.09);border-radius:0 0 12px 12px}
+	.card-foot-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+	/* Normalize footer action button typography and sizing */
+	.card-foot .btn{
+		font-family: 'Poppins', sans-serif !important;
+		font-size:13px !important;
+		font-weight:600 !important;
+		line-height:1 !important;
+		padding:6px 10px !important;
+		border-radius:6px !important;
+		display:inline-flex !important;
+		align-items:center !important;
+		gap:8px !important;
+		text-decoration:none !important;
+	}
+
+	/* Ensure icon sizing inside buttons matches text */
+	.card-foot .btn i{font-size:13px;width:18px;text-align:center}
+
+	/* Make More Details visually consistent with other footer buttons */
+	.card-foot .sample-toggle{background:transparent !important;border:1px solid rgba(37,99,235,0.12) !important;color:var(--ai-blue) !important;box-shadow:none !important;margin-top:0 !important}
   </style>
 </head>
 <body>
 
-<!-- Navigation <img src="img/logo.png"> </a>-->
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-<div class="container-fluid">
-	<a class="navbar-brand" href="index.html" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;"><b>Abhishek Singh Pawar</b></a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse"
-	data-target="#navbarResponsive">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarResponsive">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="index.html">Home</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="slide.html">TechStack</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="LiveTiles.html">Afterwork</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="Login.html">Feedback</a>
-			</li>
-		</ul>
-	</div>	
-</div>
-</nav>  
+<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top shadow-sm" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966);">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold fst-italic" href="index.html" style="font-family:Georgia, serif; font-size:1.5rem;">
+          <i class="fas fa-terminal me-2"></i> Abhishek Singh Pawar
+        </a>
+    
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+          <ul class="navbar-nav mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"><i class="fas fa-microchip me-1"></i> Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="slide.html"><i class="fas fa-code me-1"></i> TechStack</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="LiveTiles.html"><i class="fas fa-mug-hot me-1"></i> Afterwork</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Ai.html"><i class="fas fa-robot me-1"></i> AI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
 </br></br>
 
-<section class="container mt-5">
-	<h2>About Ollama</h2>
-	<p>Ollama is a powerful tool for managing and deploying machine learning models. It simplifies the process of using AI models in applications, making it accessible for developers and businesses alike.</p>
-	<img src="https://ollama.com/public/ollama.png" alt="Ollama" class="img-fluid" />
-	<p>For more information, visit the official <a href="https://ollama.com" target="_blank">Ollama website</a>.</p>
-	<h3>Features</h3>
-	<ul>
-		<li>Easy model deployment</li>
-		<li>Supports various machine learning frameworks</li>
-		<li>Scalable and efficient</li>
-	</ul>
-	<h3>Learn More</h3>
-	<p>Check out the following resources:</p>
-	<ul>
-		<li><a href="https://ollama.com/docs" target="_blank">Documentation</a></li>
-		<li><a href="https://github.com/ollama/ollama" target="_blank">GitHub Repository</a></li>
-		<li><a href="https://ollama.com/community" target="_blank">Community Forum</a></li>
-	</ul>
+
+
+
+
+<!-- My AI Learning Journey -->
+<section id="ai-journey" class="journey-section" style="background:linear-gradient(180deg,#f7fbff,#f3f7fb);padding:56px 18px;color:#07203a;">
+	<div class="container journey-container" style="max-width:1100px;margin:0 auto;">
+		<h2 class="journey-title" style="font-weight:700;margin-bottom:6px;">My AI Learning Journey</h2>
+		<p class="muted" style="margin-bottom:18px;color:#42526e;">From parsing logs to full‑stack observability: practical, production tools built with Python, Streamlit, and deep JVM knowledge—augmented by lightweight AI integrations.</p>
+		<div class="sep" style="height:1px;background:linear-gradient(90deg,#e6eef8,#f6fbff);margin:18px 0;"></div>
+
+		<div class="ai-intro" style="display:block;margin-bottom:14px;padding:12px 14px;border-radius:8px;background:linear-gradient(90deg,#f6f9ff,#f3f8ff);border:1px solid #e8f1ff;color:#27425a;">
+			<strong style="display:block;font-size:15px;margin-bottom:8px;">Why AI matters here</strong>
+			<p style="margin:0;color:#364a5a;font-size:14px;line-height:1.35;max-width:860px;">MCP servers host lightweight training and inference pipelines close to telemetry, enabling continuous fine‑tuning on project data and low‑latency, context‑aware inference. Use them to run anomaly detectors, score and prioritize alerts, synthesize concise RCA summaries, and surface remediation suggestions — all of which reduce manual forensics and speed MTTR.</p>
+			<div class="mcp-diagram" style="margin-top:10px;display:flex;justify-content:center;">
+				<svg width="420" height="64" viewBox="0 0 420 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+				  <defs>
+					<marker id="marr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1f4b7a"/></marker>
+				  </defs>
+				  <rect x="6" y="10" width="120" height="28" rx="6" fill="#eef6ff" stroke="#dbeeff"/>
+				  <text x="66" y="28" font-size="12" fill="#1f4b7a" text-anchor="middle">Telemetry</text>
+				  <line x1="132" y1="24" x2="180" y2="24" stroke="#1f4b7a" stroke-width="2" marker-end="url(#marr)" />
+				  <rect x="180" y="10" width="140" height="28" rx="6" fill="#f7fbff" stroke="#cfe9ff"/>
+				  <text x="250" y="28" font-size="12" fill="#0f3b62" text-anchor="middle">MCP (train & infer)</text>
+				  <line x1="320" y1="24" x2="368" y2="24" stroke="#1f4b7a" stroke-width="2" marker-end="url(#marr)" />
+				  <rect x="368" y="10" width="44" height="28" rx="6" fill="#eef6ff" stroke="#dbeeff"/>
+				  <text x="390" y="28" font-size="11" fill="#1f4b7a" text-anchor="middle">RCA</text>
+				</svg>
+			</div>
+			<div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;color:#5b6b7a;font-size:13px;">
+				<span style="background:#eef6ff;padding:6px 10px;border-radius:999px;border:1px solid #e1efff;">Automates incident triage</span>
+				<span style="background:#fff8ec;padding:6px 10px;border-radius:999px;border:1px solid #f6e8cc;">Detects subtle anomalies</span>
+				<span style="background:#f0fdf4;padding:6px 10px;border-radius:999px;border:1px solid #dff6e6;">Speeds root‑cause explanation</span>
+			</div>
+		</div>
+
+		<div class="journey-grid" style="display:flex;flex-direction:column;gap:28px;">
+
+			<!-- Project A -->
+			<div class="card-project card" role="article" aria-label="AI Powered Apache Logs Analyzer">
+				<!-- Card Header -->
+				<div class="card-head card-head-logs">
+					<div class="card-head-accent"></div>
+					<div class="project-icon icon-logs"><i class="fas fa-file-lines"></i></div>
+					<div style="flex:1">
+						<h3 class="card-head-title">AI‑Powered Apache Logs Analyzer <span class="ai-badge">AI</span></h3>
+						<p class="card-head-sub">Transforms raw Apache logs into structured insights, dashboards, and concise AI summaries.</p>
+						<div class="card-tags">
+							<span class="card-tag">Python 3.10+</span>
+							<span class="card-tag">Streamlit</span>
+							<span class="card-tag">HuggingFace</span>
+							<span class="card-tag">OpenAI</span>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body-content">
+					<div class="flow-svg" aria-hidden="false">
+						<svg width="100%" height="44" viewBox="0 0 520 44" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flow: Raw Logs to Parser to AI Summary">
+							<defs>
+								<marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+									<path d="M0,0 L6,3 L0,6 z" fill="#3b82f6" />
+								</marker>
+							</defs>
+							<rect class="flow-node" data-tooltip="Ingests streaming or rotated Apache logs; supports tailing and batching." data-link="https://github.com/Abhisheksinghpawar/AIPoweredApacheLogsAnalyzer" x="8" y="8" width="120" height="28" rx="6" fill="#eef6ff" stroke="#d7e9ff" />
+							<text x="68" y="26" text-anchor="middle" font-size="12" fill="#164e8b">Raw Logs</text>
+							<line x1="136" y1="22" x2="196" y2="22" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="Parses common log formats into structured events; extracts status, URL, latency." x="196" y="8" width="120" height="28" rx="6" fill="#eef6ff" stroke="#d7e9ff" />
+							<text x="256" y="26" text-anchor="middle" font-size="12" fill="#164e8b">Parser</text>
+							<line x1="316" y1="22" x2="376" y2="22" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="AI produces concise summaries and Q&A from recent entries (Gemini or HF)." x="376" y="8" width="120" height="28" rx="6" fill="#eef6ff" stroke="#d7e9ff" />
+							<text x="436" y="26" text-anchor="middle" font-size="12" fill="#164e8b">AI Summary</text>
+						</svg>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Highlights:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Real‑time stream · AI Q&A (latest 50) · Exports · Neon UI</span>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Problem it solves:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Converts noisy raw Apache logs into actionable insights quickly, reducing time-to-diagnosis for web incidents.</span>
+					</div>
+					<div style="margin-top:8px;color:#3b4250;font-size:14px">
+						<strong>Advantages:</strong>
+						<ul style="margin:6px 0 0 18px;padding:0;color:#5b6b7a;">
+							<li>Fast, real‑time visibility into traffic and errors</li>
+							<li>AI summaries accelerate incident triage</li>
+							<li>Exportable reports for audits and postmortems</li>
+						</ul>
+					</div>
+					</div><!-- /card-body-content -->
+				<!-- Card Footer -->
+				<div class="card-foot">
+					<div class="card-foot-actions">
+						<button class="btn sample-toggle btn-sm" data-target="sample-a" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i> More Details</button>
+						<a class="btn btn-ai-outline btn-sm" href="https://github.com/Abhisheksinghpawar/AIPoweredApacheLogsAnalyzer" target="_blank" rel="noopener" aria-label="View AI Powered Apache Logs Analyzer on GitHub">View Code</a>
+						<a class="btn btn-ai btn-sm" href="https://github.com/Abhisheksinghpawar/AIPoweredApacheLogsAnalyzer/archive/refs/heads/main.zip" target="_blank" rel="noopener" aria-label="Download AI Powered Apache Logs Analyzer">Download</a>
+					</div>
+					<hr class="more-divider" aria-hidden="true">
+					<pre id="sample-a" class="sample-output" style="display:none" aria-hidden="true">AIPoweredApacheLogsAnalyzer/
+├─ app.py
+├─ parsers/
+│  ├─ apache.py
+│  └─ common.py
+├─ ai/
+│  ├─ summarize.py
+│  └─ prompts/
+├─ static/
+├─ templates/
+├─ requirements.txt
+└─ README.md
+
+Dependencies (requirements.txt snippet):
+streamlit==1.24.0
+pandas==2.1.0
+transformers==4.31.0
+openai==0.28.0
+
+Tech: Python 3.10+, Streamlit, HuggingFace/OpenAI integrations, Docker-ready
+
+Quickstart:
+pip install -r requirements.txt
+streamlit run app.py
+</pre>
+				</div>
+			</div>
+			<!-- Project B -->
+			<div class="card-project card" role="article" aria-label="LogsHeapAnalyzer">
+				<!-- Card Header -->
+				<div class="card-head card-head-jvm">
+					<div class="card-head-accent"></div>
+					<div class="project-icon icon-jvm"><i class="fas fa-memory"></i></div>
+					<div style="flex:1">
+						<h3 class="card-head-title">LogsHeapAnalyzer <span class="ai-badge">AI</span></h3>
+						<p class="card-head-sub">Analyze JVM heap dumps and GC logs to detect leaks, GC storms, and retention issues.</p>
+						<div class="card-tags">
+							<span class="card-tag">Python 3.10+</span>
+							<span class="card-tag">JVM / jmap</span>
+							<span class="card-tag">Streamlit</span>
+							<span class="card-tag">Matplotlib</span>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body-content">
+										<div class="flow-svg">
+												<svg width="100%" height="44" viewBox="0 0 520 44" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flow: Heap/GC Logs to Memory Model to AI RCA">
+																<defs>
+																	<marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+																		<path d="M0,0 L6,3 L0,6 z" fill="#fb923c" />
+																	</marker>
+																</defs>
+																<rect x="8" y="8" width="120" height="28" rx="6" fill="#fff7ed" stroke="#ffedd5" />
+							<text x="68" y="26" text-anchor="middle" font-size="12" fill="#7a3e00">Heap/GC Logs</text>
+							<line x1="136" y1="22" x2="196" y2="22" stroke="#fb923c" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="Parses GC logs and heap dumps into timelines and heatmaps." x="196" y="8" width="120" height="28" rx="6" fill="#fff7ed" stroke="#ffedd5" />
+							<text x="256" y="26" text-anchor="middle" font-size="12" fill="#7a3e00">Memory Model</text>
+							<line x1="316" y1="22" x2="376" y2="22" stroke="#fb923c" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="AI synthesizes probable root causes from GC patterns and object growth." x="376" y="8" width="120" height="28" rx="6" fill="#fff7ed" stroke="#ffedd5" />
+							<text x="436" y="26" text-anchor="middle" font-size="12" fill="#7a3e00">AI RCA</text>
+						</svg>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Highlights:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">GC heatmaps · Object timelines · AI root‑cause · Correlation with logs</span>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Problem it solves:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Detects memory leaks and GC pathologies that are hard to reproduce, shortening mean-time-to-resolution for memory issues.</span>
+					</div>
+					<div style="margin-top:8px;color:#3b4250;font-size:14px">
+						<strong>Advantages:</strong>
+						<ul style="margin:6px 0 0 18px;padding:0;color:#5b6b7a;">
+							<li>Visual GC heatmaps make anomalies obvious</li>
+							<li>Object timelines reveal retention sources</li>
+							<li>AI root‑cause reports reduce manual forensics</li>
+						</ul>
+					</div>
+				</div><!-- /card-body-content -->
+				<!-- Card Footer -->
+				<div class="card-foot">
+					<div class="card-foot-actions">
+						<button class="btn sample-toggle btn-sm" data-target="sample-b" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i> More Details</button>
+						<a class="btn btn-ai-outline btn-sm" href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer" target="_blank" rel="noopener" aria-label="View LogsHeapAnalyzer on GitHub">View Code</a>
+						<a class="btn btn-ai btn-sm" href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer/archive/refs/heads/main.zip" target="_blank" rel="noopener" aria-label="Download LogsHeapAnalyzer">Download</a>
+					</div>
+					<hr class="more-divider" aria-hidden="true">
+					<pre id="sample-b" class="sample-output" style="display:none" aria-hidden="true">LogsHeapAnalyzer/
+├─ analyzer.py
+├─ parsers/
+│  ├─ gc_parser.py
+│  └─ heap_parser.py
+├─ ui/
+│  └─ streamlit_app.py
+├─ samples/
+├─ requirements.txt
+└─ README.md
+
+Dependencies (requirements.txt snippet):
+numpy==1.26.0
+pandas==2.1.0
+streamlit==1.24.0
+pyheapy==0.1.0
+
+Tech: Python 3.10+, JVM heap/GC tooling (jmap/jcmd), Streamlit, Matplotlib/Plotly
+
+Quickstart:
+# capture heap using JDK tools (example):
+# jmap -dump:live,format=b,file=heap.hprof <pid>
+pip install -r requirements.txt
+streamlit run ui/streamlit_app.py
+</pre>
+				</div>
+			</div>
+			<!-- Project C -->
+			<div class="card-project card" role="article" aria-label="DeltaPerf AI">
+				<!-- Card Header -->
+				<div class="card-head card-head-perf">
+					<div class="card-head-accent"></div>
+					<div class="project-icon icon-perf"><i class="fas fa-chart-line"></i></div>
+					<div style="flex:1">
+						<h3 class="card-head-title">DeltaPerf‑AI <span class="ai-badge">AI</span></h3>
+						<p class="card-head-sub">Unified performance intelligence combining logs, metrics, and heap analysis for multi‑angle AI insights.</p>
+						<div class="card-tags">
+							<span class="card-tag">Python 3.10+</span>
+							<span class="card-tag">Prometheus</span>
+							<span class="card-tag">scikit-learn</span>
+							<span class="card-tag">Streamlit</span>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body-content">
+										<div class="flow-svg">
+												<svg width="100%" height="44" viewBox="0 0 520 44" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flow: Logs and Metrics to Correlation to AI verdict">
+																<defs>
+																	<marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+																		<path d="M0,0 L6,3 L0,6 z" fill="#10b981" />
+																	</marker>
+																</defs>
+																<rect x="8" y="8" width="140" height="28" rx="6" fill="#eefcf6" stroke="#dff7ea" />
+							<text x="78" y="26" text-anchor="middle" font-size="12" fill="#065f46">Logs + Metrics</text>
+							<line x1="148" y1="22" x2="240" y2="22" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="Correlates time-series and events to find deltas and anomalies." x="240" y="8" width="140" height="28" rx="6" fill="#eefcf6" stroke="#dff7ea" />
+							<text x="310" y="26" text-anchor="middle" font-size="12" fill="#065f46">Correlation</text>
+							<line x1="380" y1="22" x2="452" y2="22" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)" />
+							<rect class="flow-node" data-tooltip="AI summarizes the timeline and issues a concise verdict and suggested fixes." x="452" y="8" width="56" height="28" rx="6" fill="#eefcf6" stroke="#dff7ea" />
+							<text x="480" y="26" text-anchor="middle" font-size="12" fill="#065f46">AI</text>
+						</svg>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Highlights:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Correlation engine · AI timeline narration · Deployment deltas · Dashboards</span>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Problem it solves:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Bridges siloed telemetry (logs, metrics, heap) so teams can quickly understand performance regressions across deployments.</span>
+					</div>
+					<div style="margin-top:8px;color:#3b4250;font-size:14px">
+						<strong>Advantages:</strong>
+						<ul style="margin:6px 0 0 18px;padding:0;color:#5b6b7a;">
+							<li>Cross-source correlation surfaces root causes faster</li>
+							<li>AI‑narrated timelines speed stakeholder communication</li>
+							<li>Designed for production dashboards and regressions tracking</li>
+						</ul>
+					</div>
+</div><!-- /card-body-content -->
+				<!-- Card Footer -->
+				<div class="card-foot">
+					<div class="card-foot-actions">
+						<button class="btn sample-toggle btn-sm" data-target="sample-c" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i> More Details</button>
+						<a class="btn btn-ai-outline btn-sm" href="https://github.com/Abhisheksinghpawar/DeltaPerf-AI" target="_blank" rel="noopener" aria-label="View DeltaPerf-AI on GitHub">View Code</a>
+						<a class="btn btn-ai btn-sm" href="https://github.com/Abhisheksinghpawar/DeltaPerf-AI/archive/refs/heads/main.zip" target="_blank" rel="noopener" aria-label="Download DeltaPerf-AI">Download</a>
+					</div>
+					<hr class="more-divider" aria-hidden="true">
+					<pre id="sample-c" class="sample-output" style="display:none" aria-hidden="true">DeltaPerf-AI/
+├─ services/
+│  ├─ ingest.py
+│  └─ correlator.py
+├─ dashboards/
+├─ model/
+│  └─ drift_detector.py
+├─ requirements.txt
+└─ README.md
+
+Dependencies (requirements.txt snippet):
+pandas==2.1.0
+scikit-learn==1.3.2
+prometheus-client==0.16.0
+streamlit==1.24.0
+sqlalchemy==2.1.0
+
+Tech: Python 3.10+, Prometheus metrics, Streamlit dashboards, Docker, scikit-learn (anomaly scoring)
+
+Quickstart:
+pip install -r requirements.txt
+python services/ingest.py --config config.yml
+</pre>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="sep" style="height:1px;background:linear-gradient(90deg,#e6eef8,#f6fbff);margin:24px 0;"></div>
+
+		<div class="themes" style="margin-top:8px;">
+		  <h4 style="margin:0 0 8px 0;font-size:16px;color:#243b55;font-weight:700">Themes</h4>
+		  <div class="themes-row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;">
+			<span class="theme-chip">Automated incident triage</span>
+			<span class="theme-chip">Cross‑source correlation</span>
+			<span class="theme-chip">AI root‑cause analysis</span>
+			<span class="theme-chip">Production dashboards</span>
+			<span class="theme-chip">JVM heap & GC tooling</span>
+			<span class="theme-chip">Streamlit quickstarts</span>
+			<span class="theme-chip">Open‑source integrations</span>
+		  </div>
+		  <p class="muted" style="margin-top:10px;font-size:14px;color:#4b5b72;text-align:center">Goal: reduce time‑to‑diagnosis, make observability actionable, and ship reproducible developer tools with clear quickstarts, dashboards, and integrations.</p>
+		</div>
+		<!-- decorative blob -->
+		<svg class="decor-blob" width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<linearGradient id="g1" x1="0%" x2="100%">
+					<stop offset="0%" stop-color="#6d28d9" />
+					<stop offset="100%" stop-color="#2563eb" />
+				</linearGradient>
+			</defs>
+			<g transform="translate(20,0)">
+				<path d="M45,10 C110,-10 160,30 190,80 C220,130 170,190 110,200 C50,210 10,160 10,110 C10,60 20,30 45,10Z" fill="url(#g1)" />
+			</g>
+		</svg>
+	</div>
 </section>
 
-<div class="footerbg">
-<footer height="20px" background-color="#0047b3"><br><br>
-<center>
-	<pre><a href="https://www.linkedin.com/in/abhishek-singh-pawar"><i class="fab fa-linkedin-in" style="font-size:20px;color:white"></i></a>  <a href="mailto:abhisheksinghpawar17@gmail.com"><i class="fas fa-flag fa-envelope" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://github.com/Abhisheksinghpawar"><i class="fab fa-github" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://www.hackerrank.com/profile/abhishek1994paw1"><i class="fa-brands fa-hackerrank" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://medium.com/@abhisheksinghpawar17"><i class="fa-solid fa-m" style="font-size:20px;color:white;border-radius:50%"></i></a>  <a href="https://twitter.com/abhishek1994pa1"><i class="fa-brands fa-x-twitter" style="font-size:20px;color:white;border-radius:50%"></i></a></pre>
-<br>
-	<p style="color:white;">&copy; Abhishek Singh Pawar</p>
-<p style="color:white;">All Rights Reserved</p> 
-<br></footer>
-</div>
+<div class="footerbg" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966); padding:20px 0;">
+	<footer style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+	  
+	  <!-- Social Icons -->
+	  <div style="display:flex; gap:20px;">
+		<a href="https://www.linkedin.com/in/abhishek-singh-pawar" target="_blank" aria-label="LinkedIn">
+		  <i class="fab fa-linkedin-in" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="mailto:abhisheksinghpawar17@gmail.com" aria-label="Email">
+		  <i class="fas fa-envelope" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://github.com/Abhisheksinghpawar" target="_blank" aria-label="GitHub">
+		  <i class="fab fa-github" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://www.hackerrank.com/profile/abhishek1994paw1" target="_blank" aria-label="HackerRank">
+		  <i class="fa-brands fa-hackerrank" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://medium.com/@abhisheksinghpawar17" target="_blank" aria-label="Medium">
+		  <i class="fa-solid fa-m" style="font-size:24px; color:white;"></i>
+		</a>
+	  </div>
+  
+	  <!-- Footer Text -->
+	  <div style="text-align:center; color:white; font-size:14px;">
+		<p>&copy; Abhishek Singh Pawar</p>
+		<p>All Rights Reserved</p>
+	  </div>
+	</footer>
+  </div>
+  
+	<div id="tt" class="tt" role="tooltip" aria-hidden="true" style="display:none"></div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			const tt = document.getElementById('tt');
+			function showTip(e, text){
+				if(!text) return; tt.textContent = text; tt.style.display = 'block'; tt.setAttribute('aria-hidden','false');
+				const x = e.clientX + 12; const y = e.clientY + 12; tt.style.left = x + 'px'; tt.style.top = y + 'px';
+			}
+			function moveTip(e){ if(tt.style.display !== 'none'){ const x = e.clientX + 12; const y = e.clientY + 12; tt.style.left = x + 'px'; tt.style.top = y + 'px'; }}
+			function hideTip(){ tt.style.display = 'none'; tt.setAttribute('aria-hidden','true'); }
+
+			document.querySelectorAll('.flow-node').forEach(node => {
+				try{ node.setAttribute('tabindex','0'); }catch(e){}
+				node.addEventListener('mouseenter', (ev)=> showTip(ev, node.dataset.tooltip));
+				node.addEventListener('mousemove', moveTip);
+				node.addEventListener('mouseleave', hideTip);
+				node.addEventListener('focus', (ev)=> showTip(ev, node.dataset.tooltip));
+				node.addEventListener('blur', hideTip);
+				node.addEventListener('click', ()=>{ const url = node.dataset.link; if(url) window.open(url,'_blank'); });
+				node.addEventListener('keydown', (ev)=>{ if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); node.click(); }});
+			});
+
+			// sample output toggles
+			document.querySelectorAll('.sample-toggle').forEach(btn => {
+				const tgt = document.getElementById(btn.dataset.target);
+				btn.addEventListener('click', ()=>{
+					const visible = tgt.style.display !== 'none';
+					if(visible){ tgt.style.display = 'none'; tgt.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }
+					else{ tgt.style.display = 'block'; tgt.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); }
+				});
+			});
+
+			// reveal animation
+			const observer = new IntersectionObserver((entries, obs) =>{
+				entries.forEach((entry, idx)=>{
+					if(entry.isIntersecting){ setTimeout(()=> entry.target.classList.add('visible'), idx*70); obs.unobserve(entry.target); }
+				});
+			}, {threshold:0.12});
+			document.querySelectorAll('.card-project').forEach(el=> observer.observe(el));
+		});
+	</script>
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
