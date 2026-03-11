@@ -170,6 +170,15 @@ border-radius:6px;
   box-shadow:10px 10px 10px;
   border-radius:6px;
 }
+.decor-blob{
+  position:fixed;
+  right:12px;
+  top:90px; /* place below the navbar */
+  opacity:0.12;
+  transform:rotate(12deg);
+  pointer-events:none;
+  z-index:0;
+}
 .abhi{
 box-shadow:10px 10px 10px;
 }
@@ -272,6 +281,19 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
         </div>
       </div>
     </nav>
+
+    <!-- decorative purple blob (matches Ai.html) -->
+    <svg class="decor-blob" width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#6d28d9" />
+          <stop offset="100%" stop-color="#2563eb" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(20,0)">
+        <path d="M45,10 C110,-10 160,30 190,80 C220,130 170,190 110,200 C50,210 10,160 10,110 C10,60 20,30 45,10Z" fill="url(#g1)" />
+      </g>
+    </svg>
 
 </br></br>
 
