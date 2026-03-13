@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Abhishek Singh Pawar</title>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -13,9 +13,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
-	
-
-
 	<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
@@ -70,14 +67,17 @@ border-radius:3%;
 border: 2px solid #555;
 }
 .card1 {
-  box-shadow:10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  text-align: center;
-  background-color: lightgrey;
-  width:330px;
-  height:250px;
-  border-radius:5%;
-  margin:auto;
+	box-shadow:10px 10px 10px rgba(0,0,0,0.08);
+	padding: 10px;
+	text-align: center;
+	background-color: lightgrey;
+	width: 100%;
+	max-width: 330px;
+	height: auto;
+	min-height: 200px;
+	box-sizing: border-box;
+	border-radius:5%;
+	margin:auto;
 }
 .card1:hover{
 opacity:0.6;
@@ -406,9 +406,9 @@ typeWriter()
 		  <div class="timeline-dot"></div>
 		  <div class="timeline-content">
 			<div class="row align-items-center">
-			  <div class="col-md-4 text-center d-none d-md-block">
-				<img src="img/nice_systems_logo_3.jpg" alt="NiCE Systems" class="round" style="max-width:100%; height:auto;">
-			  </div>
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/nice_systems_logo_3.jpg" alt="NiCE Systems" class="round img-fluid">
+							</div>
 			  <div class="col-12 col-md-8">
 				<h3>NiCE Systems</h3>
 				<p class="muted">Senior Performance Engineer</p>
@@ -427,9 +427,9 @@ typeWriter()
 				<p class="muted">Associate - Quality Assurance (Performance Testing)</p>
 				<p>Worked with LoadRunner Enterprise and Grafana for monitoring. Focused on performance testing and improving system observability.</p>
 			  </div>
-			  <div class="col-md-4 text-center order-1 order-md-2 d-none d-md-block">
-				<img src="img/massmutual.jpg" alt="MassMutual" class="round" style="max-width:100%; height:auto;">
-			  </div>
+							<div class="col-12 col-md-4 text-center order-1 order-md-2">
+								<img src="img/massmutual.jpg" alt="MassMutual" class="round img-fluid">
+							</div>
 			</div>
 		  </div>
 		</div>
@@ -438,9 +438,9 @@ typeWriter()
 		  <div class="timeline-dot"></div>
 		  <div class="timeline-content">
 			<div class="row align-items-center">
-			  <div class="col-md-4 text-center d-none d-md-block">
-				<img src="img/wipro2.jpg" alt="Wipro" class="round" style="max-width:100%; height:auto;">
-			  </div>
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/wipro2.jpg" alt="Wipro" class="round img-fluid">
+							</div>
 			  <div class="col-12 col-md-8">
 				<h3>Wipro</h3>
 				<p class="muted">Software Engineer (2017–2020)</p>
@@ -459,9 +459,9 @@ typeWriter()
 				<p class="muted">B.E. (Graduated 2016)</p>
 				<p>Graduated from JNCT Bhopal and began my career after campus placements. Active in organizing the college tech fest, which strengthened leadership skills.</p>
 			  </div>
-			  <div class="col-md-4 text-center order-1 order-md-2 d-none d-md-block">
-				<img src="img/jnct.jpg" alt="JNCT" class="round" style="max-width:100%; height:auto;">
-			  </div>
+							<div class="col-12 col-md-4 text-center order-1 order-md-2">
+								<img src="img/jnct.jpg" alt="JNCT" class="round img-fluid">
+							</div>
 			</div>
 		  </div>
 		</div>
@@ -470,9 +470,9 @@ typeWriter()
 		  <div class="timeline-dot"></div>
 		  <div class="timeline-content">
 			<div class="row align-items-center">
-			  <div class="col-md-4 text-center d-none d-md-block">
-				<img src="img/carmel.jpg" alt="Carmel" class="round" style="max-width:100%; height:auto;">
-			  </div>
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/carmel.jpg" alt="Carmel" class="round img-fluid">
+							</div>
 			  <div class="col-12 col-md-8">
 				<h3>Carmel</h3>
 				<p class="muted">Schooling</p>
@@ -495,9 +495,17 @@ typeWriter()
 	/* Card visual: use light gray similar to recognitions (Victory League) for better contrast */
 	.timeline-content { width: calc(50% - 40px); padding: 0.8rem 1rem; background: #f8fafc; border-radius: 6px; box-shadow: 0 8px 20px rgba(11,37,69,0.06); border: 1px solid #d1d5db; }
 
-	/* Ensure images inside timeline use the same corner radius and cover their container nicely */
-	section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
-	section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
+		/* Ensure images inside timeline use the same corner radius and cover their container nicely */
+		section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
+		/* Default: keep images responsive inside their column */
+		section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
+		/* Constrain logo size so they don't dominate the mobile layout */
+		section#experience .timeline-content img.round.img-fluid { max-width: 180px; margin: 0 auto; }
+		@media (max-width: 576px) {
+			section#experience .timeline-content img.round.img-fluid { max-width: 120px; }
+			/* Slightly increase left margin so content and dot remain visually separated */
+			section#experience .timeline-content { margin-left: 56px; }
+		}
 	  .timeline-item .timeline-content { margin-left: 0; }
 	  .timeline-item-right .timeline-content { margin-left: auto; }
 	  .timeline-item .muted { font-size: 0.9rem; color: #4f6f8f; margin-top: -6px; }
@@ -512,6 +520,10 @@ typeWriter()
 		.timeline:before { left: 20px; }
 		.timeline-dot { left: 20px; transform: translateX(0); }
 		.timeline-content { width: 100%; margin-left: 48px; }
+		/* On small screens, place logos left-aligned above the company text */
+		section#experience .col-12.text-center { text-align: left !important; }
+		section#experience .timeline-content { text-align: left; }
+		section#experience .timeline-content img.round.img-fluid { margin: 0 0 0 0; float: none; display: block; }
 	  }
 	  .round { border-radius: 8px; border: 2px solid #e2e8f0; }
 	</style>
@@ -1112,18 +1124,62 @@ typeWriter()
 		opacity: 0;
 	  }
 	}
+
+	/* Minimized popup toggle (appears after popup auto-hides) */
+	.card_popup_min {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		width: 44px;
+		height: 44px;
+		background: linear-gradient(90deg, #0b4bd6, #6fa8ff);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		box-shadow: 0 6px 16px rgba(11,37,69,0.18);
+		z-index: 1001;
+		cursor: pointer;
+		transition: transform 0.18s ease, opacity 0.18s ease;
+	}
+	.card_popup_min:active { transform: scale(0.96); }
   </style>
   
   <script>
+		// Automatically hide the popup after 10 seconds and show a small toggle
+		function createPopupToggle() {
+			if (document.getElementById('card_popup_toggle')) return;
+			const btn = document.createElement('button');
+			btn.id = 'card_popup_toggle';
+			btn.className = 'card_popup_min';
+			btn.setAttribute('aria-label', 'Show project summary');
+			btn.innerHTML = '<span style="font-size:18px;line-height:1;">⚙️</span>';
+			btn.addEventListener('click', () => {
+				const popup = document.getElementById('card_popup');
+				if (popup) {
+					popup.style.display = 'block';
+					popup.style.animation = 'slideIn 0.4s ease';
+					// remove toggle after restoring popup
+					btn.remove();
+				}
+			});
+			document.body.appendChild(btn);
+		}
 
-	// Automatically hide the popup after 10 seconds
-	setTimeout(() => {
-	  const card_popup = document.getElementById('card_popup');
-	  if (card_popup) {
-		card_popup.style.animation = 'slideOut 0.5s forwards';
-		setTimeout(() => card_popup.remove(), 500);
-	  }
-	}, 10000);
+		function hidePopupButKeepToggle() {
+			const card_popup = document.getElementById('card_popup');
+			if (!card_popup) return;
+			card_popup.style.animation = 'slideOut 0.5s forwards';
+			setTimeout(() => {
+				card_popup.style.display = 'none';
+				// create the small toggle so user can reopen
+				createPopupToggle();
+			}, 500);
+		}
+
+		// Run auto-hide after delay
+		setTimeout(hidePopupButKeepToggle, 10000);
   </script>
 
   <div class="card_popup" id="card_popup">

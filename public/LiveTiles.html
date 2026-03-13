@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Timeline</title>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.jpg" />
+	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -215,15 +215,23 @@ h5 span {
   h5 { font-size:20px; }
 }
 
-/* Day cards (Quote / Fact) - shared styling and consistent responsive width */
+/* Day cards (Quote / Fact) - enhanced typography and responsive layout */
 .day-wrap{ display:flex; justify-content:center; }
-.day-card{ display:block; width:min(720px,90%); background:#fff; border-radius:8px; box-shadow:0 12px 30px rgba(18,40,80,0.06); text-align:left; margin:0 auto; }
-.day-card .card-body{ padding:14px 18px; }
-.day-card-title{ font-size:1rem; margin:0 0 6px 0; font-weight:700; color:#0f2136; display:flex; gap:8px; align-items:center; }
-.day-card-text{ font-family: 'Playfair Display', serif; font-style:italic; font-size:1.125rem; color:#343a40; margin:6px 0; }
-.day-card-footer{ font-size:0.9rem; color:var(--muted); text-align:right; }
+.day-card{ display:block; width:min(720px,90%); background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%); border-radius:12px; box-shadow:0 12px 40px rgba(15,30,60,0.08); text-align:left; margin:0 auto; border-left:4px solid var(--accent); overflow:hidden; }
+.day-card .card-body{ padding:18px 22px; position:relative; }
+.day-card-title{ font-size:1rem; margin:0 0 6px 0; font-weight:700; color:#07203a; display:flex; gap:8px; align-items:center; }
+.day-card-title i{ color:var(--accent); font-size:1.05rem; }
+.day-card-text{ font-family: 'Playfair Display', serif; font-style:italic; font-size:1.25rem; color:#12202b; margin:10px 0; line-height:1.55; position:relative; padding-left:12px; }
+/* decorative large quote mark behind the text */
+.day-card-text::before{ content: '“'; font-family: 'Playfair Display', serif; font-size:3.2rem; position:absolute; left:-6px; top:-10px; color:rgba(43,110,246,0.10); line-height:1; }
+.day-card-footer{ font-size:0.95rem; color:var(--muted); text-align:right; margin-top:8px; font-weight:600; }
 .day-card-powered{ font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:right; }
-@media (max-width:600px){ .day-card .day-card-text{ font-size:16px; } .day-card{ width:90%; } }
+@media (max-width:600px){
+  .day-card .day-card-text{ font-size:1.05rem; }
+  .day-card{ width:94%; }
+  .day-card-text::before{ font-size:2.2rem; left:0; top:-6px; }
+  .day-card-footer{ text-align:left; }
+}
 @media (max-width:600px){
   .carousel-inner img{ height:140px; object-fit:cover; }
   .tales, .tales2 { height:auto; }
@@ -348,7 +356,7 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
         $(document).ready(fetchAndDisplayData);
     </script>
     <br>
-<hr width="80%">
+<hr width="70%">
 
 </br>
 <!-- Compact 4 live-tiles: Books, Places, Food, Music -->
@@ -370,6 +378,51 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
     .small-list li{margin:3px 0}
     @media (max-width:900px){ .tiles-grid{grid-template-columns:repeat(2,1fr);} }
     @media (max-width:600px){ .tiles-grid{grid-template-columns:1fr; gap:10px;} .card-media{height:120px;} .personal-tiles{padding:16px 10px} }
+    /* Make Games cards wider than default tiles: two roomy columns on large screens */
+    section[aria-labelledby="games-heading"] .tiles-grid {
+      grid-template-columns: repeat(2, minmax(360px, 1fr));
+      justify-content: center;
+      gap: 18px;
+    }
+    @media (max-width:1200px) {
+      section[aria-labelledby="games-heading"] .tiles-grid { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+    }
+    @media (max-width:900px) {
+      section[aria-labelledby="games-heading"] .tiles-grid { grid-template-columns: 1fr; }
+    }
+    /* Games cards: horizontal layout (image left, text right) and compact height
+       Ensure the image fills the card top-to-bottom with no internal gaps */
+    section[aria-labelledby="games-heading"] .card {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch; /* make media fill card height */
+      gap: 0; /* remove gap so image touches card edges */
+      min-height: 0; /* allow shorter cards */
+      padding: 0; /* remove inner padding so media reaches edges */
+      overflow: hidden; /* clip media to card corners */
+      border-radius: 6px;
+      background: var(--card);
+    }
+    /* Make the article itself occupy full width of its grid cell without extra spacing */
+    section[aria-labelledby="games-heading"] .tiles-grid > article.card { margin: 0; }
+    section[aria-labelledby="games-heading"] .card-media {
+      width: 160px;
+      height: auto; /* let content determine height reliably */
+      min-height: 120px; /* ensure a visible height for the image */
+      background-size: cover;
+      background-position: center;
+      flex: 0 0 160px;
+      margin: 0;
+      border-radius: 6px 0 0 6px; /* round left corners only so image sits flush top/bottom */
+      display: block;
+      align-self: stretch; /* stretch to match text column height when possible */
+    }
+    section[aria-labelledby="games-heading"] .card-body { padding:12px; }
+    section[aria-labelledby="games-heading"] .card-title { font-size:1.05rem; }
+    @media (max-width:900px) {
+      section[aria-labelledby="games-heading"] .card { flex-direction: column; }
+      section[aria-labelledby="games-heading"] .card-media { width:100%; height:140px; flex: none; border-radius:6px 6px 0 0; }
+    }
   </style>
 
   <div class="pt-inner">
@@ -480,6 +533,43 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
         <div class="card-body">
           <div class="card-title">Karate</div>
           <p class="card-sub">Focus, form, and calm.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Games section: Nintendo & Xbox -->
+<section class="personal-tiles" aria-labelledby="games-heading">
+  <div class="pt-inner">
+    <div class="tiles-header">
+      <h2 id="games-heading" style="font-size:1.15rem; margin:0;">Games I Play</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
+    </div>
+    <p class="tiles-sub">Favorite console titles I enjoy on Nintendo and Xbox.</p>
+
+    <div class="tiles-grid">
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/nintendo.jpg');" role="img" aria-label="Nintendo games"></div>
+        <div class="card-body">
+          <div class="card-title">Nintendo</div>
+          <p class="card-sub">Handheld & console favourites</p>
+          <ul class="small-list" aria-hidden="false" style="margin-top:8px;">
+            <li>Need for Speed (NFS) — Racing</li>
+            <li>Assassin's Creed — Action / Adventure</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/xbox.jpg');" role="img" aria-label="Xbox games"></div>
+        <div class="card-body">
+          <div class="card-title">Xbox</div>
+          <p class="card-sub">Big-screen co-op & classics</p>
+          <ul class="small-list" aria-hidden="false" style="margin-top:8px;">
+            <li>Harry Potter — Adventure</li>
+            <li>Forza Horizon 5 — Racing / Open world</li>
+          </ul>
         </div>
       </article>
     </div>
