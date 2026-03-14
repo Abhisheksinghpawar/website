@@ -485,47 +485,47 @@ typeWriter()
 	</section>
 
 	<style>
-	  /* Timeline styles */
-	/* Experience timeline container adjustments */
-	section#experience { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
-	.timeline { position: relative; margin: 2rem 0; padding: 1rem 0; }
-	.timeline:before { content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(#dfe9f3, transparent); border-radius:4px; }
-	  .timeline-item { position: relative; width: 100%; padding: 1.2rem 0; }
-	  .timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: #0078D7; border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,120,215,0.08); }
-	/* Card visual: use light gray similar to recognitions (Victory League) for better contrast */
-	.timeline-content { width: calc(50% - 40px); padding: 0.8rem 1rem; background: #f8fafc; border-radius: 6px; box-shadow: 0 8px 20px rgba(11,37,69,0.06); border: 1px solid #d1d5db; }
+		/* Timeline styles */
+/* Experience timeline container adjustments */
+section#experience { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+		.timeline { position: relative; margin: 2rem 0; padding: 1rem 0; }
+		.timeline:before { content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(#dfe9f3, transparent); border-radius:4px; }
+			.timeline-item { position: relative; width: 100%; padding: 1.2rem 0; }
+			.timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: #0078D7; border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,120,215,0.08); }
+		/* Card visual: use light gray similar to recognitions (Victory League) for better contrast */
+		.timeline-content { width: calc(50% - 40px); padding: 0.8rem 1rem; background: #f8fafc; border-radius: 6px; box-shadow: 0 8px 20px rgba(11,37,69,0.06); border: 1px solid #d1d5db; }
 
-		/* Ensure images inside timeline use the same corner radius and cover their container nicely */
-		section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
-		/* Default: keep images responsive inside their column */
-		section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
-		/* Constrain logo size so they don't dominate the mobile layout */
-		section#experience .timeline-content img.round.img-fluid { max-width: 180px; margin: 0 auto; }
-		@media (max-width: 576px) {
-			section#experience .timeline-content img.round.img-fluid { max-width: 120px; }
-			/* Slightly increase left margin so content and dot remain visually separated */
-			section#experience .timeline-content { margin-left: 56px; }
-		}
-	  .timeline-item .timeline-content { margin-left: 0; }
-	  .timeline-item-right .timeline-content { margin-left: auto; }
-	  .timeline-item .muted { font-size: 0.9rem; color: #4f6f8f; margin-top: -6px; }
-	  @media (min-width: 768px) {
-		.timeline-item { display: flex; align-items: center; }
-		.timeline-item .timeline-content { width: 45%; }
-		.timeline-item:nth-child(odd) .timeline-content { margin-left: 0; }
-		.timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
-		.timeline-dot { left: 50%; }
-	  }
-	  @media (max-width: 767px) {
-		.timeline:before { left: 20px; }
-		.timeline-dot { left: 20px; transform: translateX(0); }
-		.timeline-content { width: 100%; margin-left: 48px; }
-		/* On small screens, place logos left-aligned above the company text */
-		section#experience .col-12.text-center { text-align: left !important; }
-		section#experience .timeline-content { text-align: left; }
-		section#experience .timeline-content img.round.img-fluid { margin: 0 0 0 0; float: none; display: block; }
-	  }
-	  .round { border-radius: 8px; border: 2px solid #e2e8f0; }
+				/* Ensure images inside timeline use the same corner radius and cover their container nicely */
+				section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
+				/* Default: keep images responsive inside their column */
+				section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
+				/* Constrain logo size so they don't dominate the mobile layout */
+				section#experience .timeline-content img.round.img-fluid { max-width: 180px; margin: 0 auto; }
+				@media (max-width: 576px) {
+						section#experience .timeline-content img.round.img-fluid { max-width: 120px; }
+						/* Slightly increase left margin so content and dot remain visually separated */
+						section#experience .timeline-content { margin-left: 56px; }
+				}
+			.timeline-item .timeline-content { margin-left: 0; }
+			.timeline-item-right .timeline-content { margin-left: auto; }
+			.timeline-item .muted { font-size: 0.9rem; color: #4f6f8f; margin-top: -6px; }
+			@media (min-width: 768px) {
+				.timeline-item { display: flex; align-items: center; }
+				.timeline-item .timeline-content { width: 45%; }
+				.timeline-item:nth-child(odd) .timeline-content { margin-left: 0; }
+				.timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
+				.timeline-dot { left: 50%; }
+			}
+			@media (max-width: 767px) {
+				.timeline:before { left: 20px; }
+				.timeline-dot { left: 20px; transform: translateX(0); }
+				.timeline-content { width: 100%; margin-left: 48px; }
+				/* On small screens, place logos left-aligned above the company text */
+				section#experience .col-12.text-center { text-align: left !important; }
+				section#experience .timeline-content { text-align: left; }
+				section#experience .timeline-content img.round.img-fluid { margin: 0 0 0 0; float: none; display: block; }
+			}
+			.round { border-radius: 8px; border: 2px solid #e2e8f0; }
 	</style>
 <!--- Two Column Section -->
 <hr style="width:80%">
@@ -580,7 +580,7 @@ typeWriter()
 					<a href="#" class="stretched-link" aria-label="BU Award details" style="color:inherit; text-decoration:none;">
 						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
 						<h4 style="margin-top:8px; margin-bottom:6px;">BU Award</h4>
-						<p style="margin:0;">Got this award from praktice for my efforts and contribution</p>
+						<p style="margin:0;">Got this award from practice for my efforts and contribution</p>
 					</a>
 				</div>
 			</div>
@@ -590,7 +590,7 @@ typeWriter()
 
 <style>
 	/* Keep recognitions visually plain (override global section background) */
-	#recognitions { background: transparent; box-shadow: none; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0; }
+	#recognitions { background: transparent; box-shadow: none; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0; margin-bottom: 0.5rem; }
 	.recognitions-title { font-size: 35px; color: darkblue; font-family: 'Roboto', sans-serif; margin-bottom: 0.5rem; }
 	.recognitions-subtitle { font-size: 1.35rem; color: darkblue; font-family: 'Roboto', sans-serif; }
 	.recognition-figure { text-align: center; margin: 0; }
@@ -620,58 +620,72 @@ typeWriter()
 	<div class="row text-center align-items-center g-3 justify-content-center tech-grid" role="list" aria-label="Technologies used">
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fas fa-fire-alt fa-3x tech-icon tech-icon--firebase" aria-hidden="true"></i>
+				<img src="img/icons8-firebase-48.png" alt="Firebase" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">Firebase</div>
 			</div>
 		</div>
 
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fa-brands fa-bootstrap fa-3x tech-icon tech-icon--bootstrap" aria-hidden="true"></i>
+				<img src="img/icons8-nvidia-48.png" alt="Nvidia" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Nvidia</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-bootstrap-48.png" alt="Bootstrap" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">Bootstrap</div>
 			</div>
 		</div>
 
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fa-solid fa-chart-line fa-3x tech-icon tech-icon--analytics" aria-hidden="true"></i>
+				<img src="img/icons8-google-analytics-48.png" alt="Google Analytics" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">Google Analytics</div>
 			</div>
 		</div>
 
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fab fa-node-js fa-3x tech-icon tech-icon--node" aria-hidden="true"></i>
+				<img src="img/icons8-node-js-48.png" alt="Node.js" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">Node.js</div>
 			</div>
 		</div>
 
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fab fa-html5 fa-3x tech-icon tech-icon--html5" aria-hidden="true"></i>
+				<img src="img/icons8-html-5-48.png" alt="HTML5" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">HTML5</div>
 			</div>
 		</div>
 
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fab fa-js-square fa-3x tech-icon tech-icon--js" aria-hidden="true"></i>
+				<img src="img/icons8-javascript-48.png" alt="JavaScript" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">JavaScript</div>
 			</div>
 		</div>
 
-		<!-- New: Google AI Studio -->
+		<!-- Groq -->
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<img src="img/google-ai-studio-icon.png" alt="" class="tech-icon tech-icon--gai" aria-hidden="true" style="width:48px;height:48px;">
-				<div class="tech-label">Google AI Studio</div>
+				<img src="img/groq.jpg" alt="Groq" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Groq</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-cloudflare-48.png" alt="Cloudflare" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Cloudflare</div>
 			</div>
 		</div>
 
 		<!-- New: API Ninjas -->
 		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
 			<div class="tech-item">
-				<i class="fas fa-user-ninja fa-3x tech-icon tech-icon--apininas" aria-hidden="true"></i>
+				<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:50px; width:auto; border-radius:3px;">
 				<div class="tech-label">API Ninjas</div>
 			</div>
 		</div>
@@ -753,13 +767,24 @@ typeWriter()
 			color: #2f2f2f;
 			white-space: pre-line;
 		}
+		.ai-snapshot-row {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+			align-items: stretch;
+			margin-top: 1.5rem;
+		}
+		.ai-snapshot-row .ai-analysis {
+			flex: 1;
+			min-width: 260px;
+			margin-top: 0;
+		}
     @media (max-width: 600px) {
       section {
         padding: 1rem;
       }
     }
 
-    
 		/* Tech grid styles */
 		.tech-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; padding:0.25rem 0.5rem; }
 		.tech-icon { color: inherit; }
@@ -784,22 +809,34 @@ typeWriter()
   <section class="metrics">
     <h2 class="PerfHeading">Performance Metrics</h2>
     <div class="metrics-grid" id="metrics-grid"></div>
-		<div class="ai-analysis" id="ai-analysis-card">
-			<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
-				<h3 style="margin:0;">AI Performance Snapshot |</h3>
-				<span style="font-size: small; color:#4f6f8f;"> Powered by <img src="img/google-ai-studio-icon.png" style="width: 16px; height: 16px; vertical-align: middle;" alt="Google AI Studio Icon"> <a href="https://aistudio.google.com/">Google AI Studio</a><span id="ai-model-name" style="font-weight:600; margin-left:8px;"></span></span>
+		<div class="ai-snapshot-row">
+			<div class="ai-analysis" id="ai-analysis-card">
+				<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+					<img src="img/groq.jpg" alt="Groq" style="height:28px; width:auto; border-radius:3px;">
+					<h3 style="margin:0;">Groq</h3>
+					<span style="font-size:small; color:#999;">(llama-3.1-8b-instant)</span>
+				</div>
+				<br>
+				<p id="ai-analysis-text">Analyzing...</p>
 			</div>
-			<br>
-			<p id="ai-analysis-text">Collecting metrics and preparing a detailed performance summary...</p>
+			<div class="ai-analysis" id="nvidia-analysis-card" style="border-left-color:#76b900;">
+				<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+					<img src="img/icons8-nvidia-48.png" alt="Nvidia" style="height:28px; width:auto; border-radius:3px;">
+					<h3 style="margin:0; color:#4a7a20;">Nvidia NIM</h3>
+					<span style="font-size:small; color:#999;">(nemotron-content-safety-reasoning-4b)</span>
+				</div>
+				<br>
+				<p id="nvidia-analysis-text">Analyzing...</p>
+			</div>
 		</div>
   </section>
   
   <script>
     const metrics = [];
-		// Gemini API key placeholder (do not expose real key in frontend).
-			const GEMINI_API_KEY = "PASTE_YOUR_GEMINI_API_KEY_HERE";
-			const GEMINI_MODEL = "gemini-2.5-flash";
-			const GEMINI_FALLBACK_MODEL = "gemini-1.5-flash";
+		// Cloudflare Worker URL — replace with your Worker URL after deploying workers/analyze/
+		// The Groq API key is stored securely in Cloudflare (never in this file).
+		// See workers/analyze/index.js for setup instructions.
+		const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev"; // e.g. https://groq-perf-proxy.YOUR-SUBDOMAIN.workers.dev
 
     window.addEventListener("load", () => {
       metrics.push({
@@ -832,7 +869,8 @@ typeWriter()
           note: "Simulated via favicon fetch"
         });
 				renderMetrics();
-				renderGeminiAnalysis();
+				renderGroqAnalysis();
+				renderNvidiaAnalysis();
       };
       img.onerror = () => {
         metrics.push({
@@ -841,88 +879,62 @@ typeWriter()
           note: "Ping failed"
         });
 				renderMetrics();
-				renderGeminiAnalysis();
+				renderGroqAnalysis();
+				renderNvidiaAnalysis();
       };
     });
 
-    function renderMetrics() {
-      const grid = document.getElementById("metrics-grid");
-      grid.innerHTML = "";
-      metrics.forEach(m => {
-        grid.innerHTML += `
-          <div class="metric-card">
-            <h3>${m.title}</h3>
-            <p><strong>${m.value}</strong></p>
-            <span>${m.note}</span>
-          </div>
-        `;
-      });
-    }
+		function renderMetrics() {
+			const grid = document.getElementById("metrics-grid");
+			if (!grid) return;
+			let html = "";
+			metrics.forEach(m => {
+				html += `
+					<div class="metric-card">
+						<h3>${m.title}</h3>
+						<p><strong>${m.value}</strong></p>
+						<span>${m.note}</span>
+					</div>
+				`;
+			});
+			grid.innerHTML = html;
+		}
 
-		async function renderGeminiAnalysis() {
-			const analysisText = document.getElementById("ai-analysis-text");
-			if (!analysisText) {
-				return;
-			}
+		// Helper: unified Worker POST + error handling (keeps original semantics)
+		async function callWorker(payload) {
+			const res = await fetch(WORKER_URL, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+			const data = await res.json().catch(() => ({}));
+			if (!res.ok) throw new Error(data?.error || `Worker returned ${res.status}`);
+			return data;
+		}
 
-			// If no external API key is configured, use a local deterministic summarizer
-			if (!GEMINI_API_KEY || GEMINI_API_KEY === "PASTE_YOUR_GEMINI_API_KEY_HERE") {
-				analysisText.textContent = summarizeMetricsLocal(metrics);
-				return;
-			}
-
-			analysisText.textContent = "Analyzing current page metrics...";
-
-			const metricLines = metrics.map(m => `- ${m.title}: ${m.value} (${m.note})`).join("\n");
-			const prompt = `You are a web performance assistant. Based on these metrics, write a single sentence summary of the page performance for a non-technical reader.\n\nMetrics:\n${metricLines}`;
-
+		async function renderGroqAnalysis() {
+			const analysisText = document.getElementById('ai-analysis-text');
+			if (!analysisText) return;
+			analysisText.textContent = 'Analyzing current page metrics with Groq AI...';
 			try {
-				let aiText = await requestGeminiAnalysis(GEMINI_MODEL, prompt);
-				if (!aiText && GEMINI_FALLBACK_MODEL !== GEMINI_MODEL) {
-					aiText = await requestGeminiAnalysis(GEMINI_FALLBACK_MODEL, prompt);
-				}
-				analysisText.textContent = aiText || "No AI analysis returned for these metrics.";
+				const data = await callWorker({ metrics });
+				analysisText.textContent = data.verdict || 'No AI analysis returned.';
 			} catch (error) {
-				analysisText.textContent = `AI unavailable: ${error.message}`;
+				// Graceful fallback — local summarizer runs if Worker is unavailable
+				analysisText.textContent = summarizeMetricsLocal(metrics) + ' (AI unavailable: ' + error.message + ')';
 			}
 		}
 
-		async function requestGeminiAnalysis(model, prompt) {
-			const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					contents: [
-						{
-							parts: [
-								{
-									text: prompt
-								}
-							]
-						}
-					],
-					generationConfig: {
-						temperature: 0.4,
-						maxOutputTokens: 1000
-					}
-				})
-			});
-
-			if (!response.ok) {
-				let details = "";
-				try {
-					const errData = await response.json();
-					details = errData?.error?.message ? `: ${errData.error.message}` : "";
-				} catch (parseErr) {
-					// Keep status-only error when JSON body isn't available.
-				}
-				throw new Error(`Gemini ${model} failed (${response.status})${details}`);
+		async function renderNvidiaAnalysis() {
+			const nvidiaText = document.getElementById('nvidia-analysis-text');
+			if (!nvidiaText) return;
+			nvidiaText.textContent = 'Running deep technical analysis with Nvidia NIM...';
+			try {
+				const data = await callWorker({ metrics, provider: 'nvidia' });
+				nvidiaText.textContent = data.verdict || 'No Nvidia analysis returned.';
+			} catch (error) {
+				nvidiaText.textContent = 'Nvidia AI unavailable: ' + error.message;
 			}
-
-			const data = await response.json();
-			return data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 		}
 
 		// Local summarizer (runs entirely in-browser, no keys)
@@ -1026,176 +1038,248 @@ typeWriter()
 </div>
 
 <style>
-
-	/* Popup styling */
+	/* ── Floating project capsule ── */
 	.card_popup {
-	  position: fixed;
-	  bottom: 20px;
-	  right: 20px;
-	  width: 240px;
-	  background-color: rgba(255, 255, 255, 0.6); /* More translucent */
-	  backdrop-filter: blur(10px);
-	  -webkit-backdrop-filter: blur(10px); /* Safari support */
-	  border: 1px solid #ddd;
-	  border-radius: 10px;
-	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	  font-size: 16px;
-	  font-family: 'Poppins', sans-serif;
-	  z-index: 1000;
-	  cursor: pointer;
-	  transition: transform 0.3s ease, opacity 0.5s ease;
-	  animation: slideIn 0.5s ease-out;
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		width: 270px;
+		background: linear-gradient(145deg, rgba(11,37,69,0.92), rgba(0,41,102,0.88));
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		border: 1px solid rgba(111,168,255,0.22);
+		border-radius: 5px;
+		box-shadow: 0 12px 36px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,255,255,0.04);
+		font-family: 'Poppins', sans-serif;
+		z-index: 1000;
+		overflow: hidden;
+		animation: cpSlideIn 0.45s cubic-bezier(0.22,1,0.36,1);
+		transition: transform 0.28s ease, box-shadow 0.28s ease;
 	}
-  
 	.card_popup:hover {
-	  transform: scale(1.05);
-	}
-  
-	.card_popup a {
-	  display: block;
-	  text-decoration: none;
-	  color: inherit;
-	}
-  
-	.card-header {
-	  background-color: #007bff;
-	  color: white;
-	  font-weight: bold;
-	  font-size: 15px;
-	  padding: 10px;
-	  border-top-left-radius: 10px;
-	  border-top-right-radius: 10px;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  gap: 6px;
-	}
-  
-	.gear-animate {
-		display: inline-block;
-		animation: spinGear 1.5s linear infinite;
-	  }
-	  
-	  @keyframes spinGear {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	  }
-	  
-  
-	@keyframes bounceRocket {
-	  0%, 100% {
-		transform: translateY(0);
-	  }
-	  50% {
 		transform: translateY(-4px);
-	  }
-	}
-  
-	.card-body {
-	  padding: 15px;
-	}
-  
-	.card-text {
-	  font-size: 14px;
-	  color: #333;
-	  line-height: 1.5;
-	}
-	.card-text strong {
-		display: block;
-		margin-top: 4px;
-	  }
-	  
-	/* Slide-in animation */
-	@keyframes slideIn {
-	  from {
-		transform: translateX(100%);
-		opacity: 0;
-	  }
-	  to {
-		transform: translateX(0);
-		opacity: 1;
-	  }
-	}
-  
-	/* Slide-out animation */
-	@keyframes slideOut {
-	  to {
-		transform: translateX(100%);
-		opacity: 0;
-	  }
+		box-shadow: 0 20px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(111,168,255,0.28);
 	}
 
-	/* Minimized popup toggle (appears after popup auto-hides) */
-	.card_popup_min {
-		position: fixed;
-		bottom: 20px;
-		right: 20px;
-		width: 44px;
-		height: 44px;
-		background: linear-gradient(90deg, #0b4bd6, #6fa8ff);
+	/* label strip at top */
+	.cp-label {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 10px 14px 6px;
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(180,210,255,0.7);
+	}
+	.cp-pulse {
+		width: 7px; height: 7px;
+		background: #4ade80;
 		border-radius: 50%;
+		flex-shrink: 0;
+		animation: cpPulse 2s ease-in-out infinite;
+	}
+	@keyframes cpPulse {
+		0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.6); }
+		50%      { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+	}
+
+	/* main content link */
+	.cp-body {
+		display: block;
+		text-decoration: none;
+		padding: 4px 14px 14px;
+		color: inherit;
+	}
+	.cp-title-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+	}
+	.cp-icon {
+		font-size: 22px;
+		display: inline-block;
+		animation: cpSpin 2.4s linear infinite;
+	}
+	@keyframes cpSpin {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(360deg); }
+	}
+	.cp-title {
+		font-size: 15px;
+		font-weight: 700;
+		color: #e8f0fe;
+		line-height: 1.2;
+	}
+	.cp-subtitle {
+		font-size: 11px;
+		color: rgba(180,210,255,0.65);
+		margin-bottom: 10px;
+	}
+
+	/* tech chip badges */
+	.cp-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+	.cp-chip {
+		font-size: 10px;
+		font-weight: 600;
+		padding: 3px 9px;
+		border-radius: 20px;
+		letter-spacing: 0.03em;
+	}
+	.cp-chip--ollama {
+		color: #f0f0f0;
+		background: rgba(80,80,80,0.55);
+		border: 1px solid rgba(200,200,200,0.25);
+	}
+	.cp-chip--streamlit {
+		color: #ff6b6b;
+		background: rgba(255,87,87,0.15);
+		border: 1px solid rgba(255,87,87,0.35);
+	}
+	.cp-chip--python {
+		color: #ffe066;
+		background: rgba(255,214,0,0.12);
+		border: 1px solid rgba(255,214,0,0.3);
+	}
+
+	/* footer row */
+	.cp-footer {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: #fff;
-		box-shadow: 0 6px 16px rgba(11,37,69,0.18);
-		z-index: 1001;
-		cursor: pointer;
-		transition: transform 0.18s ease, opacity 0.18s ease;
+		padding: 8px 14px 12px;
+		border-top: 1px solid rgba(255,255,255,0.06);
+		gap: 5px;
+		font-size: 11px;
 	}
+	.cp-footer a {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		color: rgba(180,210,255,0.7);
+		text-decoration: none;
+		transition: color 0.15s;
+	}
+	.cp-footer a:hover { color: #fff; }
+	.cp-footer i { font-size: 13px; }
+
+	/* close button */
+	.cp-close {
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		background: none;
+		border: none;
+		color: rgba(180,210,255,0.5);
+		font-size: 16px;
+		cursor: pointer;
+		line-height: 1;
+		padding: 2px 4px;
+		border-radius: 4px;
+		transition: color 0.15s, background 0.15s;
+	}
+	.cp-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+	/* slide animations */
+	@keyframes cpSlideIn {
+		from { transform: translateX(110%); opacity: 0; }
+		to   { transform: translateX(0);    opacity: 1; }
+	}
+	@keyframes cpSlideOut {
+		to { transform: translateX(110%); opacity: 0; }
+	}
+
+	/* minimised pill toggle */
+	.card_popup_min {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 8px 16px 8px 12px;
+		background: linear-gradient(135deg, #0b2545, #002966);
+		border: 1px solid rgba(111,168,255,0.25);
+		border-radius: 30px;
+		color: #b4d2ff;
+		font-family: 'Poppins', sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		cursor: pointer;
+		box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+		z-index: 1001;
+		transition: transform 0.18s ease, box-shadow 0.18s ease;
+		animation: cpSlideIn 0.35s cubic-bezier(0.22,1,0.36,1);
+	}
+	.card_popup_min:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.45); }
 	.card_popup_min:active { transform: scale(0.96); }
-  </style>
-  
-  <script>
-		// Automatically hide the popup after 10 seconds and show a small toggle
-		function createPopupToggle() {
-			if (document.getElementById('card_popup_toggle')) return;
-			const btn = document.createElement('button');
-			btn.id = 'card_popup_toggle';
-			btn.className = 'card_popup_min';
-			btn.setAttribute('aria-label', 'Show project summary');
-			btn.innerHTML = '<span style="font-size:18px;line-height:1;">⚙️</span>';
-			btn.addEventListener('click', () => {
-				const popup = document.getElementById('card_popup');
-				if (popup) {
-					popup.style.display = 'block';
-					popup.style.animation = 'slideIn 0.4s ease';
-					// remove toggle after restoring popup
-					btn.remove();
-				}
-			});
-			document.body.appendChild(btn);
-		}
+	.card_popup_min .cp-pulse { width: 6px; height: 6px; }
+</style>
 
-		function hidePopupButKeepToggle() {
-			const card_popup = document.getElementById('card_popup');
-			if (!card_popup) return;
-			card_popup.style.animation = 'slideOut 0.5s forwards';
-			setTimeout(() => {
-				card_popup.style.display = 'none';
-				// create the small toggle so user can reopen
-				createPopupToggle();
-			}, 500);
-		}
+<script>
+	function createPopupToggle() {
+		if (document.getElementById('card_popup_toggle')) return;
+		const btn = document.createElement('button');
+		btn.id = 'card_popup_toggle';
+		btn.className = 'card_popup_min';
+		btn.setAttribute('aria-label', 'Show latest project');
+		btn.innerHTML = '<span class="cp-pulse"></span><span>Latest Project</span>';
+		btn.addEventListener('click', () => {
+			const popup = document.getElementById('card_popup');
+			if (popup) {
+				popup.style.display = '';
+				popup.style.animation = 'cpSlideIn 0.4s cubic-bezier(0.22,1,0.36,1)';
+				btn.remove();
+			}
+		});
+		document.body.appendChild(btn);
+	}
 
-		// Run auto-hide after delay
-		setTimeout(hidePopupButKeepToggle, 10000);
-  </script>
+	function hidePopupButKeepToggle() {
+		const popup = document.getElementById('card_popup');
+		if (!popup) return;
+		popup.style.animation = 'cpSlideOut 0.4s ease forwards';
+		setTimeout(() => {
+			popup.style.display = 'none';
+			createPopupToggle();
+		}, 400);
+	}
 
-  <div class="card_popup" id="card_popup">
-	<a href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer">
-	  <div class="card-header text-center">
-		Explore my latest project!
-	  </div>
-	  <div class="card-body">
-		<div class="card-text" style="text-align: center; font-size: 14px;">
-			<span style="font-size: large;" class="gear-animate">⚙️</span>
-			<span style="font-weight: bold; margin-left: 4px;font-size:large">AI Logs Analyzer</span>
-			<br> Ollama AI | Streamlit | Python
-		  </div>
-	  </div>
+	setTimeout(hidePopupButKeepToggle, 10000);
+</script>
+
+<div class="card_popup" id="card_popup">
+	<button class="cp-close" onclick="hidePopupButKeepToggle()" aria-label="Dismiss">&#x2715;</button>
+	<div class="cp-label">
+		<span class="cp-pulse"></span>
+		Latest Project
+	</div>
+	<a class="cp-body" href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer" target="_blank" rel="noopener">
+		<div class="cp-title-row">
+			<span class="cp-icon">⚙️</span>
+			<div>
+				<div class="cp-title">AI Logs Analyzer</div>
+				<div class="cp-subtitle">LogsHeapAnalyzer</div>
+			</div>
+		</div>
+		<div class="cp-chips">
+			<span class="cp-chip cp-chip--ollama">Ollama AI</span>
+			<span class="cp-chip cp-chip--streamlit">Streamlit</span>
+			<span class="cp-chip cp-chip--python">Python</span>
+		</div>
 	</a>
-  </div>
+	<div class="cp-footer">
+		<a href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer" target="_blank" rel="noopener">
+			<i class="fab fa-github"></i> View on GitHub
+		</a>
+	</div>
+</div>
 
 <div class="footerbg" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966); padding:20px 0;">
 	<footer style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">

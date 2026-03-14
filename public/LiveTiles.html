@@ -315,18 +315,18 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        // Function to fetch and display data
+        const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev";
+
         function fetchAndDisplayData() {
-            $.ajax({
-                method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/quotes?',
-                headers: { 'X-Api-Key': 'tW/0ZrhGUfy68npIggfjHA==OgnYI6awvCrr74eG' },
-                contentType: 'application/json',
-                success: function(result) {
-                    // Check if result is an array and has at least one element
-                    if (Array.isArray(result) && result.length > 0) {
-                        // Assuming result is an array of quote objects
-                        var quote = result[0]; // Get the first quote
+            fetch(WORKER_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: "ninjas", endpoint: "quotes" })
+            })
+            .then(r => r.json())
+            .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        var quote = data[0];
                         var responseElement = $('#api-response');
                         responseElement.html(`
   <div class="day-wrap">
@@ -336,7 +336,7 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
       <div class="day-card-text">${quote.quote}</div>
       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
         <div class="day-card-footer">${quote.author || ''}</div>
-        <div class="day-card-powered"><i class="fa-solid fa-user-ninja"></i> <a href="https://api-ninjas.com/">API Ninjas</a></div>
+        <div class="day-card-powered"><img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a></div>
       </div>
     </div>
   </div>
@@ -345,14 +345,10 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
                     } else {
                         $('#api-response').html('No quotes found.');
                     }
-                },
-                error: function(jqXHR) {
-                    $('#api-response').html('Error: ' + jqXHR.responseText);
-                }
-            });
+            })
+            .catch(err => $('#api-response').html('Error: ' + err.message));
         }
 
-        // Call the function when the page loads
         $(document).ready(fetchAndDisplayData);
     </script>
     <br>
@@ -718,18 +714,16 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        // Function to fetch and display data
         function fetchAndDisplayData2() {
-            $.ajax({
-                method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/facts?',
-                headers: { 'X-Api-Key': 'tW/0ZrhGUfy68npIggfjHA==OgnYI6awvCrr74eG' },
-                contentType: 'application/json',
-                success: function(result) {
-                    // Check if result is an array and has at least one element
-                    if (Array.isArray(result) && result.length > 0) {
-                        // Assuming result is an array of quote objects
-                        var fact = result[0]; // Get the first quote
+            fetch(WORKER_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: "ninjas", endpoint: "facts" })
+            })
+            .then(r => r.json())
+            .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        var fact = data[0];
                         var responseElement = $('#api-response2');
                         responseElement.html(`
   <div class="day-wrap">
@@ -738,23 +732,19 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
       <div class="day-card-title"><i class="fa-solid fa-bolt" style="color:gray;"></i> Fact of the Day</div>
       <div class="day-card-text">${fact.fact}</div>
       <div style="display:flex; justify-content:flex-end; gap:12px;">
-        <div class="day-card-powered"><i class="fa-solid fa-user-ninja"></i> <a href="https://api-ninjas.com/">API Ninjas</a></div>
+        <div class="day-card-powered"><img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a></div>
       </div>
     </div>
   </div>
   </div>
                         `);
                     } else {
-                        $('#api-response2').html('No quotes found.');
+                        $('#api-response2').html('No facts found.');
                     }
-                },
-                error: function(jqXHR) {
-                    $('#api-response2').html('Error: ' + jqXHR.responseText);
-                }
-            });
+            })
+            .catch(err => $('#api-response2').html('Error: ' + err.message));
         }
 
-        // Call the function when the page loads
         $(document).ready(fetchAndDisplayData2);
     </script>
 
