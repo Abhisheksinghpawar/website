@@ -7,15 +7,12 @@
 	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <!-- Bootstrap Bundle with Popper (required for navbar toggler) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
-	<script type="module">
-  import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
-</script>
+
 	<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
@@ -315,41 +312,54 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev";
+      const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev";
 
-        function fetchAndDisplayData() {
-            fetch(WORKER_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ type: "ninjas", endpoint: "quotes" })
-            })
-            .then(r => r.json())
-            .then(data => {
-                    if (Array.isArray(data) && data.length > 0) {
-                        var quote = data[0];
-                        var responseElement = $('#api-response');
-                        responseElement.html(`
-  <div class="day-wrap">
-  <div class="day-card card" role="region" aria-label="Quote of the Day">
+      // Small helper to POST to the Worker and return parsed JSON (preserves original error semantics)
+      async function postToWorker(payload) {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        // parse JSON once and return, caller handles errors similarly to previous code
+        const data = await res.json().catch(() => ({}));
+        return { ok: res.ok, status: res.status, data };
+      }
+
+      function renderDayCard(targetSelector, titleIconHtml, titleText, contentHtml, footerHtml, poweredHtml) {
+        const responseElement = $(targetSelector);
+        responseElement.html(`
+    <div class="day-wrap">
+    <div class="day-card card" role="region">
     <div class="card-body">
-      <div class="day-card-title"><i class="fa-solid fa-quote-left" style="color:gray;"></i> Quote of the Day</div>
-      <div class="day-card-text">${quote.quote}</div>
+      <div class="day-card-title">${titleIconHtml} ${titleText}</div>
+      <div class="day-card-text">${contentHtml}</div>
       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-        <div class="day-card-footer">${quote.author || ''}</div>
-        <div class="day-card-powered"><img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a></div>
+      <div class="day-card-footer">${footerHtml}</div>
+      <div class="day-card-powered">${poweredHtml}</div>
       </div>
     </div>
-  </div>
-  </div>
-                        `);
-                    } else {
-                        $('#api-response').html('No quotes found.');
-                    }
-            })
-            .catch(err => $('#api-response').html('Error: ' + err.message));
-        }
+    </div>
+    </div>
+        `);
+      }
 
-        $(document).ready(fetchAndDisplayData);
+      async function fetchAndDisplayData() {
+        try {
+          const { ok, data } = await postToWorker({ type: 'ninjas', endpoint: 'quotes' });
+          if (!ok) { $('#api-response').html('Quote error: Service unavailable.'); return; }
+          if (Array.isArray(data) && data.length > 0) {
+            const quote = data[0];
+            renderDayCard('#api-response', '<i class="fa-solid fa-quote-left" style="color:gray;"></i>', 'Quote of the Day', quote.quote, quote.author || '', '<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a>');
+          } else {
+            $('#api-response').html('No quotes found.');
+          }
+        } catch (err) {
+          $('#api-response').html('Error: ' + (err && err.message ? err.message : 'Unknown'));
+        }
+      }
+
+      $(document).ready(fetchAndDisplayData);
     </script>
     <br>
 <hr width="70%">
@@ -710,42 +720,23 @@ p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !importan
   <!-- moved into day-card footers -->
 </div>
 
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
     <script>
-        function fetchAndDisplayData2() {
-            fetch(WORKER_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ type: "ninjas", endpoint: "facts" })
-            })
-            .then(r => r.json())
-            .then(data => {
-                    if (Array.isArray(data) && data.length > 0) {
-                        var fact = data[0];
-                        var responseElement = $('#api-response2');
-                        responseElement.html(`
-  <div class="day-wrap">
-  <div class="day-card card" role="region" aria-label="Fact of the Day">
-    <div class="card-body">
-      <div class="day-card-title"><i class="fa-solid fa-bolt" style="color:gray;"></i> Fact of the Day</div>
-      <div class="day-card-text">${fact.fact}</div>
-      <div style="display:flex; justify-content:flex-end; gap:12px;">
-        <div class="day-card-powered"><img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a></div>
-      </div>
-    </div>
-  </div>
-  </div>
-                        `);
-                    } else {
-                        $('#api-response2').html('No facts found.');
-                    }
-            })
-            .catch(err => $('#api-response2').html('Error: ' + err.message));
+      async function fetchAndDisplayData2() {
+        try {
+          const { ok, data } = await postToWorker({ type: 'ninjas', endpoint: 'facts' });
+          if (!ok) { $('#api-response2').html('Fact error: Service unavailable.'); return; }
+          if (Array.isArray(data) && data.length > 0) {
+            const fact = data[0];
+            renderDayCard('#api-response2', '<i class="fa-solid fa-bolt" style="color:gray;"></i>', 'Fact of the Day', fact.fact, '', '<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a>');
+          } else {
+            $('#api-response2').html('No facts found.');
+          }
+        } catch (err) {
+          $('#api-response2').html('Error: ' + (err && err.message ? err.message : 'Unknown'));
         }
+      }
 
-        $(document).ready(fetchAndDisplayData2);
+      $(document).ready(fetchAndDisplayData2);
     </script>
 
 

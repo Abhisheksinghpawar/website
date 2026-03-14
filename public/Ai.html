@@ -580,44 +580,79 @@ python services/ingest.py --config config.yml
   
 	<div id="tt" class="tt" role="tooltip" aria-hidden="true" style="display:none"></div>
 	<script>
-		document.addEventListener('DOMContentLoaded', function(){
-			const tt = document.getElementById('tt');
-			function showTip(e, text){
-				if(!text) return; tt.textContent = text; tt.style.display = 'block'; tt.setAttribute('aria-hidden','false');
-				const x = e.clientX + 12; const y = e.clientY + 12; tt.style.left = x + 'px'; tt.style.top = y + 'px';
-			}
-			function moveTip(e){ if(tt.style.display !== 'none'){ const x = e.clientX + 12; const y = e.clientY + 12; tt.style.left = x + 'px'; tt.style.top = y + 'px'; }}
-			function hideTip(){ tt.style.display = 'none'; tt.setAttribute('aria-hidden','true'); }
+	document.addEventListener('DOMContentLoaded', function(){
+		const tt = document.getElementById('tt');
 
-			document.querySelectorAll('.flow-node').forEach(node => {
-				try{ node.setAttribute('tabindex','0'); }catch(e){}
-				node.addEventListener('mouseenter', (ev)=> showTip(ev, node.dataset.tooltip));
-				node.addEventListener('mousemove', moveTip);
-				node.addEventListener('mouseleave', hideTip);
-				node.addEventListener('focus', (ev)=> showTip(ev, node.dataset.tooltip));
-				node.addEventListener('blur', hideTip);
-				node.addEventListener('click', ()=>{ const url = node.dataset.link; if(url) window.open(url,'_blank'); });
-				node.addEventListener('keydown', (ev)=>{ if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); node.click(); }});
-			});
+		const showTip = (e, text) => {
+			if (!text) return;
+			tt.textContent = text;
+			tt.style.display = 'block';
+			tt.setAttribute('aria-hidden','false');
+			const x = e.clientX + 12, y = e.clientY + 12;
+			tt.style.left = x + 'px'; tt.style.top = y + 'px';
+		};
 
-			// sample output toggles
-			document.querySelectorAll('.sample-toggle').forEach(btn => {
-				const tgt = document.getElementById(btn.dataset.target);
-				btn.addEventListener('click', ()=>{
-					const visible = tgt.style.display !== 'none';
-					if(visible){ tgt.style.display = 'none'; tgt.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }
-					else{ tgt.style.display = 'block'; tgt.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); }
-				});
-			});
+		const moveTip = (e) => {
+			if (tt.style.display === 'none') return;
+			const x = e.clientX + 12, y = e.clientY + 12;
+			tt.style.left = x + 'px'; tt.style.top = y + 'px';
+		};
 
-			// reveal animation
-			const observer = new IntersectionObserver((entries, obs) =>{
-				entries.forEach((entry, idx)=>{
-					if(entry.isIntersecting){ setTimeout(()=> entry.target.classList.add('visible'), idx*70); obs.unobserve(entry.target); }
-				});
-			}, {threshold:0.12});
-			document.querySelectorAll('.card-project').forEach(el=> observer.observe(el));
+		const hideTip = () => { tt.style.display = 'none'; tt.setAttribute('aria-hidden','true'); };
+
+		// cache NodeLists to avoid re-querying the DOM
+		const flowNodes = Array.from(document.querySelectorAll('.flow-node'));
+		flowNodes.forEach(node => {
+			try { node.setAttribute('tabindex','0'); } catch (e) {}
+			const tooltip = node.dataset.tooltip;
+			const link = node.dataset.link;
+
+			const onMouseEnter = (ev) => showTip(ev, tooltip);
+			const onMove = moveTip;
+			const onLeave = hideTip;
+			const onFocus = (ev) => showTip(ev, tooltip);
+			const onClick = () => { if (link) window.open(link,'_blank'); };
+			const onKeyDown = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); node.click(); } };
+
+			node.addEventListener('mouseenter', onMouseEnter);
+			node.addEventListener('mousemove', onMove);
+			node.addEventListener('mouseleave', onLeave);
+			node.addEventListener('focus', onFocus);
+			node.addEventListener('blur', onLeave);
+			node.addEventListener('click', onClick);
+			node.addEventListener('keydown', onKeyDown);
 		});
+
+		// sample output toggles
+		const toggles = Array.from(document.querySelectorAll('.sample-toggle'));
+		toggles.forEach(btn => {
+			const tgt = document.getElementById(btn.dataset.target);
+			btn.addEventListener('click', () => {
+				const visible = tgt.style.display !== 'none';
+				if (visible) {
+					tgt.style.display = 'none';
+					tgt.setAttribute('aria-hidden','true');
+					btn.setAttribute('aria-expanded','false');
+				} else {
+					tgt.style.display = 'block';
+					tgt.setAttribute('aria-hidden','false');
+					btn.setAttribute('aria-expanded','true');
+				}
+			});
+		});
+
+		// reveal animation (preserve original staggered delay)
+		const observer = new IntersectionObserver((entries, obs) => {
+			entries.forEach((entry, idx) => {
+				if (entry.isIntersecting) {
+					setTimeout(() => entry.target.classList.add('visible'), idx * 70);
+					obs.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.12 });
+		const projects = Array.from(document.querySelectorAll('.card-project'));
+		projects.forEach(el => observer.observe(el));
+	});
 	</script>
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -630,7 +665,7 @@ python services/ingest.py --config config.yml
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
+	const firebaseConfig = {
     apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
     authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
     databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",

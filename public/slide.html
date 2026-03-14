@@ -196,42 +196,34 @@ background:#b3e7ff;
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-	  loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-      },
-	  autoplay: {
-		delay: 1000, // Delay in ms (3 seconds)
-		disableOnInteraction: false, // Continue autoplay after user interaction
-	},
-    });
-  </script>
-
 	<script>
-		// Ensure Swiper autoplay starts on first load (some browsers delay autoplay until a user gesture)
+		const swiper = new Swiper(".mySwiper", {
+			effect: "coverflow",
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: "auto",
+			coverflowEffect: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows: true,
+			},
+			loop: true,
+			pagination: { el: ".swiper-pagination" },
+			autoplay: {
+				delay: 1000, // Delay in ms (1 second)
+				disableOnInteraction: false,
+			},
+		});
+
+		// Ensure Swiper autoplay starts on first load (some browsers block autoplay until a user gesture).
+		// Attempt to start immediately, then once more after a short delay — preserves original behavior.
 		window.addEventListener('load', function() {
 			try {
-				if (typeof swiper !== 'undefined' && swiper && swiper.autoplay) {
-					swiper.autoplay.start();
-					// extra attempt after a short delay in case the first call was blocked
-					setTimeout(function() { try { swiper.autoplay.start(); } catch(e) {} }, 300);
-				}
-			} catch (e) {
-				// silently ignore
-			}
+				if (swiper && swiper.autoplay) swiper.autoplay.start();
+			} catch (e) {}
+			setTimeout(function() { try { if (swiper && swiper.autoplay) swiper.autoplay.start(); } catch (e) {} }, 300);
 		});
 	</script>
 
