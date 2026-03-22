@@ -81,6 +81,9 @@ background:#b3e7ff;
 	.project-icon.icon-logs{background:linear-gradient(135deg,#7dd3fc22,#60a5fa22);color:#0369a1}
 	.project-icon.icon-jvm{background:linear-gradient(135deg,#fed7aa22,#fb923c22);color:#92400e}
 	.project-icon.icon-perf{background:linear-gradient(135deg,#bbf7d022,#34d39922);color:#065f46}
+	.project-icon.icon-gemini{background:linear-gradient(135deg,#cffafe22,#06b6d422);color:#0e7490}
+	.card-head-gemini{background:linear-gradient(135deg,#0e2f6e,#1a56c6)}
+	.card-head-gemini .card-head-accent{background:linear-gradient(90deg,#0e7490,#06b6d4,#22d3ee)}
 	.btn-ai{background:linear-gradient(90deg,var(--ai-blue),var(--ai-indigo));border:none;color:#fff}
 	.btn-ai-outline{background:transparent;border:1px solid rgba(37,99,235,0.12);color:var(--ai-blue)}
 	.journey-section{position:relative;overflow:visible}
@@ -304,18 +307,15 @@ background:#b3e7ff;
 						<span style="font-size:13px;color:#5b6b7a;line-height:1.3;">AI pair programmer for IDE code completions.</span>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		
-		
-
 		<div class="sep" style="height:1px;background:linear-gradient(90deg,#e6eef8,#f6fbff);margin:18px 0;"></div>
 
 		<h3 class="journey-title" style="font-weight:700;margin-bottom:6px;">AI in Performance Engineering and Incident Management</h3>
-
-		<p class="muted" style="margin-bottom:18px;color:#42526e;">From parsing logs to full‑stack observability: practical, production tools built with Python, Streamlit, and deep JVM knowledge—augmented by lightweight AI integrations.</p>
 		
+		<p class="muted" style="margin-bottom:18px;color:#42526e;">From parsing logs to full‑stack observability: practical, production tools built with Python, Streamlit, and deep JVM knowledge—augmented by lightweight AI integrations.</p>
+
 		<div class="ai-intro" style="display:block;margin-bottom:14px;padding:12px 14px;border-radius:8px;background:linear-gradient(90deg,#f6f9ff,#f3f8ff);border:1px solid #e8f1ff;color:#27425a;">
 			<strong style="display:block;font-size:15px;margin-bottom:8px;">Why AI belongs in Performance Engineering</strong>
 			<p style="margin:0;color:#364a5a;font-size:14px;line-height:1.35;max-width:860px;">MCP servers host lightweight training and inference pipelines close to telemetry, enabling continuous fine‑tuning on project data and low‑latency, context‑aware inference. Use them to run anomaly detectors, score and prioritize alerts, synthesize concise RCA summaries, and surface remediation suggestions — all of which reduce manual forensics and speed MTTR.</p>
@@ -427,6 +427,89 @@ Tech: Python 3.10+, Streamlit, HuggingFace/OpenAI integrations, Docker-ready
 
 Quickstart:
 pip install -r requirements.txt
+streamlit run app.py
+</pre>
+				</div>
+			</div>
+			<!-- Project A.5 – Agentic AI Gemini Video Summarizer -->
+			<div class="card-project card" role="article" aria-label="AgenticAI Gemini Video Summarizer">
+				<!-- Card Header -->
+				<div class="card-head card-head-gemini">
+					<div class="card-head-accent"></div>
+					<div class="project-icon icon-gemini"><i class="fas fa-film"></i></div>
+					<div style="flex:1">
+						<h3 class="card-head-title">AgenticAI Gemini Video Summarizer <span class="ai-badge">AI</span></h3>
+						<p class="card-head-sub">Upload any video and receive an instant AI-generated summary powered by Google Gemini's multimodal API.</p>
+						<div class="card-tags">
+							<span class="card-tag">Python</span>
+							<span class="card-tag">Gemini API</span>
+							<span class="card-tag">Agentic AI</span>
+							<span class="card-tag">Streamlit</span>
+						</div>
+					</div>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body-content">
+					<div class="flow-svg">
+						<svg width="100%" height="44" viewBox="0 0 520 44" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flow: Video Input to Gemini API to AI Summary">
+							<defs>
+								<marker id="arrow-gem" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#06b6d4" /></marker>
+							</defs>
+							<rect class="flow-node" data-tooltip="Accepts video file uploads for multimodal AI processing." x="8" y="8" width="120" height="28" rx="6" fill="#ecfeff" stroke="#cffafe" />
+							<text x="68" y="26" text-anchor="middle" font-size="12" fill="#164e63">Video Input</text>
+							<line x1="136" y1="22" x2="196" y2="22" stroke="#06b6d4" stroke-width="2" marker-end="url(#arrow-gem)" />
+							<rect class="flow-node" data-tooltip="Sends video frames and audio to Gemini multimodal API for deep comprehension." x="196" y="8" width="120" height="28" rx="6" fill="#ecfeff" stroke="#cffafe" />
+							<text x="256" y="26" text-anchor="middle" font-size="12" fill="#164e63">Gemini API</text>
+							<line x1="316" y1="22" x2="376" y2="22" stroke="#06b6d4" stroke-width="2" marker-end="url(#arrow-gem)" />
+							<rect class="flow-node" data-tooltip="Outputs a structured, concise summary with key topics and insights." x="376" y="8" width="120" height="28" rx="6" fill="#ecfeff" stroke="#cffafe" />
+							<text x="436" y="26" text-anchor="middle" font-size="12" fill="#164e63">AI Summary</text>
+						</svg>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Highlights:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Multimodal video understanding · Gemini API · Agentic pipeline · Instant summaries</span>
+					</div>
+					<div style="margin-top:10px;color:#3b4250;font-size:14px">
+						<strong>Problem it solves:</strong>
+						<span style="display:inline-block;margin-left:8px;color:#5b6b7a">Eliminates the need to watch hours of video content — Gemini's multimodal API extracts key insights in seconds.</span>
+					</div>
+					<div style="margin-top:8px;color:#3b4250;font-size:14px">
+						<strong>Advantages:</strong>
+						<ul style="margin:6px 0 0 18px;padding:0;color:#5b6b7a;">
+							<li>Leverages Gemini's native video understanding for high-accuracy summaries</li>
+							<li>Agentic design enables multi-step reasoning over video content</li>
+							<li>Simple Streamlit UI — no complex setup required</li>
+						</ul>
+					</div>
+				</div><!-- /card-body-content -->
+				<!-- Card Footer -->
+				<div class="card-foot">
+					<div class="card-foot-actions">
+						<button class="btn sample-toggle btn-sm" data-target="sample-d" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i> More Details</button>
+						<a class="btn btn-ai-outline btn-sm" href="https://github.com/Abhisheksinghpawar/AgenticAI-GeminiAPI-VideoSummarizer" target="_blank" rel="noopener" aria-label="View AgenticAI Gemini Video Summarizer on GitHub">View Code</a>
+						<a class="btn btn-ai btn-sm" href="https://github.com/Abhisheksinghpawar/AgenticAI-GeminiAPI-VideoSummarizer/archive/refs/heads/main.zip" target="_blank" rel="noopener" aria-label="Download AgenticAI Gemini Video Summarizer">Download</a>
+					</div>
+					<hr class="more-divider" aria-hidden="true">
+					<pre id="sample-d" class="sample-output" style="display:none" aria-hidden="true">AgenticAI-GeminiAPI-VideoSummarizer/
+├─ app.py
+├─ agent/
+│  ├─ video_agent.py
+│  └─ prompts.py
+├─ utils/
+│  └─ gemini_client.py
+├─ requirements.txt
+└─ README.md
+
+Dependencies (requirements.txt snippet):
+streamlit
+google-generativeai
+python-dotenv
+
+Tech: Python, Google Gemini API (multimodal), Streamlit, Agentic AI pipeline
+
+Quickstart:
+pip install -r requirements.txt
+# Set GEMINI_API_KEY in .env
 streamlit run app.py
 </pre>
 				</div>
