@@ -20,7 +20,7 @@
 
 const ALLOWED_ORIGIN = "*";
 const GROQ_MODEL    = "llama-3.1-8b-instant";
-const NVIDIA_MODEL  = "nvidia/llama-3.1-nemotron-ultra-253b-v1";
+const NVIDIA_MODEL  = "nvidia/nemotron-content-safety-reasoning-4b";
 const NVIDIA_BASE   = "https://integrate.api.nvidia.com/v1";
 const NINJAS_BASE   = "https://api.api-ninjas.com/v1";
 
@@ -122,7 +122,7 @@ export default {
     if (!aiResponse.ok) {
       const errText = await aiResponse.text();
       return new Response(
-        JSON.stringify({ error: `${provider} API error ${aiResponse.status}`, details: errText }),
+        JSON.stringify({ error: `${provider} API error ${aiResponse.status}: ${errText}` }),
         { status: 502, headers: { "Content-Type": "application/json", ...corsHeaders(ALLOWED_ORIGIN) } }
       );
     }
