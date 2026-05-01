@@ -20,7 +20,7 @@
 
 const ALLOWED_ORIGIN = "*";
 const GROQ_MODEL    = "llama-3.1-8b-instant";
-const NVIDIA_MODEL  = "nvidia/nemotron-content-safety-reasoning-4b";
+const NVIDIA_MODEL  = "nvidia/llama-3.1-nemotron-ultra-253b-v1";
 const NVIDIA_BASE   = "https://integrate.api.nvidia.com/v1";
 const NINJAS_BASE   = "https://api.api-ninjas.com/v1";
 
@@ -80,8 +80,8 @@ export default {
       .join("\n");
 
     const prompts = {
-      groq:   `You are a web performance assistant. Reply in under 20 words. One verdict sentence for a non-technical reader, then two bullet suggestions (each under 10 words).\n\nMetrics:\n${metricLines}`,
-      nvidia: `You are a senior web performance engineer. Reply in under 30 words. One technical verdict sentence, then two bullet recommendations with brief reasoning.\n\nMetrics:\n${metricLines}`,
+      groq:   `You are a web performance assistant. Write one plain-English verdict sentence (under 15 words) for a non-technical reader. Focus only on whether the experience feels fast or slow.\n\nMetrics:\n${metricLines}`,
+      nvidia: `You are a senior web performance engineer reviewing Core Web Vitals. Identify the single most impactful issue: state the metric name, whether it passes Google's threshold (LCP < 2.5s good, TTFB < 800ms good, page load < 3s good), and the most likely cause. Reply in under 40 words.\n\nMetrics:\n${metricLines}`,
     };
 
     const prompt = prompts[provider] || prompts.groq;
@@ -109,7 +109,7 @@ export default {
           model,
           messages: [{ role: "user", content: prompt }],
           temperature: 0.4,
-          max_tokens: provider === "nvidia" ? 120 : 80,
+          max_tokens: provider === "nvidia" ? 150 : 60,
         }),
       });
     } catch (err) {

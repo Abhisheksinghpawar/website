@@ -823,20 +823,47 @@ section#experience { background: transparent !important; box-shadow: none !impor
 				<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
 					<img src="img/icons8-nvidia-48.png" alt="Nvidia" style="height:28px; width:auto; border-radius:3px;">
 					<h3 style="margin:0; color:#4a7a20;">Nvidia NIM</h3>
-					<span style="font-size:small; color:#999;">(nemotron-content-safety-reasoning-4b)</span>
+					<span style="font-size:small; color:#999;">(llama-3.1-nemotron-ultra-253b-v1)</span>
 				</div>
 				<br>
 				<p id="nvidia-analysis-text">Analyzing...</p>
+			</div>
+		</div>
+		<div id="response-comparison" style="display:none; margin-top:1.2rem; padding:0.9rem 1.1rem; background:#1a1a1a; border-radius:8px;">
+			<p style="margin:0 0 0.75rem; color:#888; font-size:0.78rem; letter-spacing:0.07em; text-transform:uppercase;">API Response Time</p>
+			<div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.55rem;">
+				<span style="width:55px; font-size:0.8rem; color:#ccc;">Groq</span>
+				<div style="flex:1; background:#2a2a2a; border-radius:4px; height:9px; overflow:hidden;">
+					<div id="groq-bar" style="height:100%; width:0%; background:#f55036; border-radius:4px; transition:width 0.6s ease;"></div>
+				</div>
+				<span id="groq-time" style="width:52px; font-size:0.8rem; color:#f55036; text-align:right;">—</span>
+			</div>
+			<div style="display:flex; align-items:center; gap:0.75rem;">
+				<span style="width:55px; font-size:0.8rem; color:#ccc;">Nvidia</span>
+				<div style="flex:1; background:#2a2a2a; border-radius:4px; height:9px; overflow:hidden;">
+					<div id="nvidia-bar" style="height:100%; width:0%; background:#76b900; border-radius:4px; transition:width 0.6s ease;"></div>
+				</div>
+				<span id="nvidia-time" style="width:52px; font-size:0.8rem; color:#76b900; text-align:right;">—</span>
 			</div>
 		</div>
   </section>
   
   <script>
     const metrics = [];
+		const responseTimes = {};
 		// Cloudflare Worker URL — replace with your Worker URL after deploying workers/analyze/
 		// The Groq API key is stored securely in Cloudflare (never in this file).
 		// See workers/analyze/index.js for setup instructions.
 		const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev"; // e.g. https://groq-perf-proxy.YOUR-SUBDOMAIN.workers.dev
+
+		// LCP observer — must be registered before load fires; buffered:true catches earlier entries
+		let lcpMs = null;
+		try {
+			new PerformanceObserver((list) => {
+				const entries = list.getEntries();
+				lcpMs = entries[entries.length - 1].startTime;
+			}).observe({ type: 'largest-contentful-paint', buffered: true });
+		} catch(e) {}
 
     window.addEventListener("load", () => {
       metrics.push({
@@ -844,6 +871,12 @@ section#experience { background: transparent !important; box-shadow: none !impor
         value: performance.now() >= 1000 ? `${(performance.now() / 1000).toFixed(2)} s` : `${Math.round(performance.now())} ms`,
         note: "From navigation to load event"
       });
+
+			const navEntry = performance.getEntriesByType('navigation')[0];
+			if (navEntry) {
+				metrics.push({ title: "TTFB", value: `${navEntry.responseStart.toFixed(0)} ms`, note: "Time to First Byte" });
+				metrics.push({ title: "DOM Ready", value: `${navEntry.domContentLoadedEventEnd.toFixed(0)} ms`, note: "DOMContentLoaded" });
+			}
 
       const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
       if (conn) {
@@ -859,6 +892,8 @@ section#experience { background: transparent !important; box-shadow: none !impor
         });
       }
 
+			metrics.push({ title: "Resources", value: `${performance.getEntriesByType('resource').length}`, note: "Total network requests" });
+
       const pingStart = performance.now();
       const img = new Image();
       img.src = "https://www.google.com/favicon.ico?" + Date.now();
@@ -868,6 +903,7 @@ section#experience { background: transparent !important; box-shadow: none !impor
           value: (performance.now() - pingStart) >= 1000 ? `${((performance.now() - pingStart)/1000).toFixed(2)} s` : `${Math.round(performance.now() - pingStart)} ms`,
           note: "Simulated via favicon fetch"
         });
+				if (lcpMs !== null) metrics.push({ title: "LCP", value: `${lcpMs.toFixed(0)} ms`, note: "Largest Contentful Paint" });
 				renderMetrics();
 				renderGroqAnalysis();
 				renderNvidiaAnalysis();
@@ -878,6 +914,7 @@ section#experience { background: transparent !important; box-shadow: none !impor
           value: "N/A",
           note: "Ping failed"
         });
+				if (lcpMs !== null) metrics.push({ title: "LCP", value: `${lcpMs.toFixed(0)} ms`, note: "Largest Contentful Paint" });
 				renderMetrics();
 				renderGroqAnalysis();
 				renderNvidiaAnalysis();
@@ -915,25 +952,50 @@ section#experience { background: transparent !important; box-shadow: none !impor
 		async function renderGroqAnalysis() {
 			const analysisText = document.getElementById('ai-analysis-text');
 			if (!analysisText) return;
-			analysisText.textContent = 'Analyzing current page metrics with Groq AI...';
+			analysisText.textContent = 'Analyzing...';
+			const start = performance.now();
 			try {
 				const data = await callWorker({ metrics });
+				responseTimes.groq = performance.now() - start;
 				analysisText.textContent = data.verdict || 'No AI analysis returned.';
 			} catch (error) {
-				// Graceful fallback — local summarizer runs if Worker is unavailable
+				responseTimes.groq = performance.now() - start;
 				analysisText.textContent = summarizeMetricsLocal(metrics) + ' (AI unavailable: ' + error.message + ')';
 			}
+			renderComparisonBar();
 		}
 
 		async function renderNvidiaAnalysis() {
 			const nvidiaText = document.getElementById('nvidia-analysis-text');
 			if (!nvidiaText) return;
-			nvidiaText.textContent = 'Running deep technical analysis with Nvidia NIM...';
+			nvidiaText.textContent = 'Analyzing...';
+			const start = performance.now();
 			try {
 				const data = await callWorker({ metrics, provider: 'nvidia' });
+				responseTimes.nvidia = performance.now() - start;
 				nvidiaText.textContent = data.verdict || 'No Nvidia analysis returned.';
 			} catch (error) {
+				responseTimes.nvidia = performance.now() - start;
 				nvidiaText.textContent = 'Nvidia AI unavailable: ' + error.message;
+			}
+			renderComparisonBar();
+		}
+
+		function renderComparisonBar() {
+			const container = document.getElementById('response-comparison');
+			if (!container) return;
+			const { groq, nvidia } = responseTimes;
+			if (!groq && !nvidia) return;
+			container.style.display = 'block';
+			const max = Math.max(groq || 0, nvidia || 0);
+			function fmt(ms) { return ms >= 1000 ? `${(ms / 1000).toFixed(2)}s` : `${Math.round(ms)}ms`; }
+			if (groq) {
+				document.getElementById('groq-bar').style.width = (groq / max * 100).toFixed(1) + '%';
+				document.getElementById('groq-time').textContent = fmt(groq);
+			}
+			if (nvidia) {
+				document.getElementById('nvidia-bar').style.width = (nvidia / max * 100).toFixed(1) + '%';
+				document.getElementById('nvidia-time').textContent = fmt(nvidia);
 			}
 		}
 
