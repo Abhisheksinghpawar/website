@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abhishek Singh Pawar — Performance Engineer</title>
+	<meta name="description" content="Abhishek Singh Pawar — Senior Performance Engineer with 8+ years of experience in JMeter, Grafana, Python, and AI-powered tooling.">
+	<meta property="og:title" content="Abhishek Singh Pawar">
+	<meta property="og:description" content="Performance Engineer & Python/AI enthusiast. Explore projects, experience, and skills.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://abhisheksinghpawar.com/">
+	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@500;700&display=swap">
+	<style>
+
+html, body{
+overflow-x: hidden;
+}
+html,body{
+height: 100%;
+width: 100%;
+font-family: 'Poppins',sans-serif;
+color: #222;
+scroll-behavior: smooth;
+}
+.card-text
+{
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: large;
+}
+.card-body
+{
+box-shadow:10px 10px 10px;
+}
+.navbar{
+padding: .8rem;
+position: relative;
+width: 100%;
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+.carousel-inner img{
+	width: 100%;
+	height: 400px;
+}
+.carousel-inner1 img{
+	width: 100%;
+	height: 300px;
+position: relative;
+}
+.carousel-inner2 img{
+	width: 100%;
+	height: 300px;
+}
+.carousel-caption{
+ position: absolute;
+top: 50%;
+transform: translateY(-50%);
+}
+.round{
+border-radius:3%;
+border: 2px solid #555;
+}
+.card1 {
+	box-shadow:10px 10px 10px rgba(0,0,0,0.08);
+	padding: 10px;
+	text-align: center;
+	background-color: lightgrey;
+	width: 100%;
+	max-width: 330px;
+	height: auto;
+	min-height: 200px;
+	box-sizing: border-box;
+	border-radius:5%;
+	margin:auto;
+}
+.card1:hover{
+opacity:0.6;
+color:white;
+background-color:#808080;
+}
+h5 {
+   width: 90%;
+   border-bottom: 2px solid #000;
+   line-height: 0.2em;
+   margin: 10px auto 20px;
+font-size:25px;
+} 
+
+h5 span { 
+    background:#fff; 
+    padding:0px 15px; 
+}
+/*---Media Queries --*/
+@media (max-width: 414px) {
+h5{ font-size:18px;
+}
+  }
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
+}
+@media (max-width: 576px) {
+  
+
+		/* Keep Performance Metrics using the global `section` styling (restore boxed look) */
+		/* No overrides here so the default section background and shadow remain. */
+
+		/* Remove outer box covering Professional Experience timeline cards */
+		section#experience, section#experience * {
+			background: transparent !important;
+			background-image: none !important;
+			box-shadow: none !important;
+			border: none !important;
+		}
+		section#experience { padding: 0.5rem 0 !important; margin: 0.6rem 0 !important; }
+		section#experience .timeline-content { background: transparent !important; box-shadow: none !important; border: none !important; padding: 0.6rem 0 !important; }
+}
+
+.jumbotron{
+color: #000000;
+background-color:white;
+height: 0.5px;
+}
+.jumbotron2{
+color: #000000;
+background-color:gray;
+height: 70px;
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+.row {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+.container, .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.fa-envelope:hover{
+   opacity:0.7;
+}
+.fa-github:hover{
+   opacity:0.7;
+}
+.fa-twitter:hover{
+   opacity:0.7;
+}
+.fa-linkedin-in:hover{
+   opacity:0.7;
+}
+.footerbg
+{
+background-color:#002966
+}
+.ababab {
+  border: 2px solid #555;
+  border-radius: 15%;
+}
+.card-text {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+.card-img-top {
+	border: 1px solid #ccc;
+	border-bottom: 0px;
+	border-radius: 4px;
+  }
+  
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+</style>
+</head>
+<body id ="page-top">
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top shadow-sm" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966);">
+		<div class="container-fluid">
+		  <!-- Brand -->
+		  <a class="navbar-brand fw-bold fst-italic" href="index.html" style="font-family:Georgia, serif; font-size:1.5rem;">
+			<i class="fas fa-terminal me-2"></i> Abhishek Singh Pawar
+		  </a>
+	  
+		  <!-- Toggler -->
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+	  
+		  <!-- Menu Items -->
+		  <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+			<ul class="navbar-nav mb-2 mb-md-0">
+			  <li class="nav-item">
+				<a class="nav-link active" href="index.html"><i class="fas fa-microchip me-1"></i> Journey</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="slide.html"><i class="fas fa-code me-1"></i> TechStack</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="LiveTiles.html"><i class="fas fa-mug-hot me-1"></i> Afterwork</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="Ai.html"><i class="fas fa-robot me-1"></i> AI</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+<!--- Image Slider -->
+
+<div id="slides" class="carousel slide" data-bs-ride="carousel">
+<ul class="carousel-indicators">
+	<li data-bs-target="#slides" data-bs-slide-to="0" class="active"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="1"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="2"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="3"></li>
+</ul>
+<div class="carousel-inner">	
+	<div class="carousel-item active">
+		<img src="img/background4.jpg">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">"Outstanding student award 2022 winner for MSIS at The University of Cincinnati"</h4>	
+		</div>
+	</div>
+	<div class="carousel-item">
+		<img src="img/bg2.jpg">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;">"You are continuing in supporting all the critical PTaaS programs since long as and when needed with great spirit and commitment. Always reachable and never heard NO for any ask. Much appreciated" - Practice Head</h4>	
+		</div>
+	</div>
+	<div class="carousel-item">
+		<img src="img/background.png">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;">"It's an excellent and valuable work to build assurance and confidence" - Client</h4>
+		</div>	
+	</div>
+	<div class="carousel-item">
+		<img src="img/bg6.gif" height="500px">
+		<div class="carousel-caption">
+			<h4 class="display-6" style="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;">"Always ready to work in the favour of the project/release" - Tech Lead</h4>
+		</div>
+	</div>
+</div>		
+</div>
+</br>
+<div class="container-fluid padding">
+	
+		<div class="col-12" style="vertical-align:center;">
+			<p style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;text-align:center;">Hi there! I’m Abhishek, and I’ve been working as a Performance Engineer and Tester for over eight years now. I completed my master’s degree in Information Systems at the University of Cincinnati, graduating in 2022. I’m passionate about optimizing software performance and ensuring everything runs smoothly, so I love what I do and enjoy tackling new challenges in the tech world.</p>
+		</div>
+	
+</div>
+
+<div class="col-12">
+	<p>
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Here's my story so far</b></span></h5></div>
+	</p>
+</div>
+
+<p style="font-size:25px;text-align:center;padding:30px;color:red;font-family:Georgia, 'Times New Roman', Times, serif;">
+	GRADUATED FROM THE UNIVERSITY OF CINCINNATI -  MASTER'S IN INFORMATION SYSTEMS (2022)
+</p>
+
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-8 col-md-10 col-sm-10 col-xs-10">
+		<p style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;text-align:center;" id="TypingEffect"></p>
+		</div>
+		<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+</div>
+
+<script>
+var i = 0;
+var txt = 'I commenced my Master’s program in the autumn of 2021 at the University of Cincinnati. My curriculum encompassed topics such as data visualization and data analytics methodologies. The coursework presented significant challenges while simultaneously fostering a high level of engagement. I volunteered for the student committee, which was tasked with disseminating articles for prospective graduate students and organizing various events. At the conclusion of my academic year, I was honored with the title of Best Student for the Master of Science in Information Systems program. Additionally, I secured the second place in a consulting competition hosted by Centric Consulting.';
+var speed = 30;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("TypingEffect").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter()
+</script>
+
+<div class="container-fluid py-5" id="achievements_card">
+	<div class="row text-center g-4">
+	  
+	  <!-- Card 1 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/UCLCOB.jpg" class="card-img-top" alt="Outstanding Student Award" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🏆 Outstanding Student Award for MSIS 2022</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 2 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/centric.jpg" class="card-img-top" alt="Centric Case Competition" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🥈 2nd Place @Centric Case Competition</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 3 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/teamwork.jpg" class="card-img-top" alt="MSIS Ambassador Lead" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🤝 MSIS Ambassador Lead</p>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- Card 4 -->
+	  <div class="col-lg-3 col-md-6">
+		<div class="card h-100 shadow-sm border-0">
+		  <img src="img/UCCCM.jpg" class="card-img-top" alt="UC Music Club" style="height: 250px; object-fit: cover;">
+		  <div class="card-body">
+			<p class="card-text fw-semibold">🎶 Member of UC Music Club</p>
+		  </div>
+		</div>
+	  </div>
+  
+	</div>
+  </div>
+
+<div class="container-fluid padding">
+	
+		<div class="col-12" style="vertical-align:center;">
+			<p style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;text-align:center;">"Strive for perfection in everything you do. Take the best that exists and make it better. When it does not exist, design it." - Sir Henry Royce</p>
+		</div>
+</div>
+
+<hr style="width:80%">
+	<div class="col-12">
+	<p class="text-center" style="font-size:35px"><b style="color:darkblue;font-family:'Roboto', sans-serif">Professional Experience</b></p>
+	</div>
+
+	<section id="experience" class="container my-4">
+	  <div class="timeline">
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/nice_systems_logo_3.jpg" alt="NiCE Systems" class="round img-fluid">
+							</div>
+			  <div class="col-12 col-md-8">
+				<h3>NiCE Systems</h3>
+				<p class="muted">Senior Performance Engineer</p>
+				<p>I joined NICE Systems as a Senior Performance Engineer where I use JMeter as my primary scripting tool and developed a Python-Flask application for the internal PSR team.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item timeline-item-right">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-12 col-md-8 order-2 order-md-1">
+				<h3>MassMutual</h3>
+				<p class="muted">Associate - Quality Assurance (Performance Testing)</p>
+				<p>Worked with LoadRunner Enterprise and Grafana for monitoring. Focused on performance testing and improving system observability.</p>
+			  </div>
+							<div class="col-12 col-md-4 text-center order-1 order-md-2">
+								<img src="img/massmutual.jpg" alt="MassMutual" class="round img-fluid">
+							</div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/wipro2.jpg" alt="Wipro" class="round img-fluid">
+							</div>
+			  <div class="col-12 col-md-8">
+				<h3>Wipro</h3>
+				<p class="muted">Software Engineer (2017–2020)</p>
+				<p>Managed several projects, received recognition and awards for contributions and project work.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item timeline-item-right">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+			  <div class="col-12 col-md-8 order-2 order-md-1">
+				<h3>JNCT</h3>
+				<p class="muted">B.E. (Graduated 2016)</p>
+				<p>Graduated from JNCT Bhopal and began my career after campus placements. Active in organizing the college tech fest, which strengthened leadership skills.</p>
+			  </div>
+							<div class="col-12 col-md-4 text-center order-1 order-md-2">
+								<img src="img/jnct.jpg" alt="JNCT" class="round img-fluid">
+							</div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="timeline-item">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-content">
+			<div class="row align-items-center">
+							<div class="col-12 col-md-4 text-center">
+								<img src="img/carmel.jpg" alt="Carmel" class="round img-fluid">
+							</div>
+			  <div class="col-12 col-md-8">
+				<h3>Carmel</h3>
+				<p class="muted">Schooling</p>
+				<p>Completed schooling at Carmel Ratanpur; represented the school in karate competitions and achieved Black Belt Dan - 1 in 11th standard.</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<style>
+		/* Timeline styles */
+/* Experience timeline container adjustments */
+section#experience { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+		.timeline { position: relative; margin: 2rem 0; padding: 1rem 0; }
+		.timeline:before { content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(#dfe9f3, transparent); border-radius:4px; }
+			.timeline-item { position: relative; width: 100%; padding: 1.2rem 0; }
+			.timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: #0078D7; border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,120,215,0.08); }
+		/* Card visual: use light gray similar to recognitions (Victory League) for better contrast */
+		.timeline-content { width: calc(50% - 40px); padding: 0.8rem 1rem; background: #f8fafc; border-radius: 6px; box-shadow: 0 8px 20px rgba(11,37,69,0.06); border: 1px solid #d1d5db; }
+
+				/* Ensure images inside timeline use the same corner radius and cover their container nicely */
+				section#experience .round { border-radius: 6px !important; overflow: hidden; display: block; }
+				/* Default: keep images responsive inside their column */
+				section#experience .timeline-content img { width: 100%; height: auto; object-fit: cover; display: block; }
+				/* Constrain logo size so they don't dominate the mobile layout */
+				section#experience .timeline-content img.round.img-fluid { max-width: 180px; margin: 0 auto; }
+				@media (max-width: 576px) {
+						section#experience .timeline-content img.round.img-fluid { max-width: 120px; }
+						/* Slightly increase left margin so content and dot remain visually separated */
+						section#experience .timeline-content { margin-left: 56px; }
+				}
+			.timeline-item .timeline-content { margin-left: 0; }
+			.timeline-item-right .timeline-content { margin-left: auto; }
+			.timeline-item .muted { font-size: 0.9rem; color: #4f6f8f; margin-top: -6px; }
+			@media (min-width: 768px) {
+				.timeline-item { display: flex; align-items: center; }
+				.timeline-item .timeline-content { width: 45%; }
+				.timeline-item:nth-child(odd) .timeline-content { margin-left: 0; }
+				.timeline-item:nth-child(even) .timeline-content { margin-left: auto; }
+				.timeline-dot { left: 50%; }
+			}
+			@media (max-width: 767px) {
+				.timeline:before { left: 20px; }
+				.timeline-dot { left: 20px; transform: translateX(0); }
+				.timeline-content { width: 100%; margin-left: 48px; }
+				/* On small screens, place logos left-aligned above the company text */
+				section#experience .col-12.text-center { text-align: left !important; }
+				section#experience .timeline-content { text-align: left; }
+				section#experience .timeline-content img.round.img-fluid { margin: 0 0 0 0; float: none; display: block; }
+			}
+			.round { border-radius: 8px; border: 2px solid #e2e8f0; }
+	</style>
+<!--- Two Column Section -->
+<hr style="width:80%">
+<!--- Three Column Section -->
+
+
+<section id="recognitions" class="container-fluid py-4">
+	<div class="container">
+		<h2 class="recognitions-title text-center">Recognitions</h2>
+
+		<div class="row align-items-center gy-4 mt-3">
+			<div class="col-md-6">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Hackathon details" style="color:inherit; text-decoration:none;">
+						<img src="img/Hackathon-page-001.jpg" alt="Hackathon recognition" class="recognition-img round">
+						<h4 style="margin-top:8px; margin-bottom:6px;">HACKATHON</h4>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Employee of the Month details" style="color:inherit; text-decoration:none;">
+						<img src="img/EOM-page-001.jpg" alt="Employee of the Month" class="recognition-img round">
+						<h4 style="margin-top:8px; margin-bottom:6px;">EMPLOYEE OF THE MONTH</h4>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<h3 class="recognitions-subtitle text-center mt-5">Recognitions in Wipro</h3>
+		<div class="row gy-4 mt-3">
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Victory League details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">Victory League</h4>
+						<p style="margin:0;">Won this award twice for my project work</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="Round Of Applause details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">Round Of Applause</h4>
+						<p style="margin:0;">Project manager gave this appreciation for my inputs in the project</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="recognition-card card1">
+					<a href="#" class="stretched-link" aria-label="BU Award details" style="color:inherit; text-decoration:none;">
+						<i class="fas fa-trophy" aria-hidden="true" style="font-size:30px"></i>
+						<h4 style="margin-top:8px; margin-bottom:6px;">BU Award</h4>
+						<p style="margin:0;">Got this award from practice for my efforts and contribution</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Keep recognitions visually plain (override global section background) */
+	#recognitions { background: transparent; box-shadow: none; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0; margin-bottom: 0.5rem; }
+	.recognitions-title { font-size: 35px; color: darkblue; font-family: 'Roboto', sans-serif; margin-bottom: 0.5rem; }
+	.recognitions-subtitle { font-size: 1.35rem; color: darkblue; font-family: 'Roboto', sans-serif; }
+	.recognition-figure { text-align: center; margin: 0; }
+	/* Slightly smaller images so they match surrounding content */
+	.recognition-img { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; border-radius: 6px; border: 2px solid #555; }
+	.recognition-caption { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.15rem; margin-top: 0.5rem; }
+	/* Use subtle card styling and a pleasant hover for recognition cards */
+	.recognition-card { padding: 18px; background-color: #f8fafc; border-radius: 8px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 6px 14px rgba(0,0,0,0.06); transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease; border: 1px solid #d1d5db; color: #0b2545; }
+	.recognition-card a { color: inherit; }
+	/* Hover: lift + softer tint, but keep text color high-contrast */
+	.recognition-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); background-color: #eef6ff; color: #0b2545; }
+	/* Override global .card1 hover which sets text to white; keep recognitions readable */
+	.recognition-card.card1:hover { color: inherit; }
+	.recognition-card h4 { margin: 8px 0 6px; font-size: 1.05rem; }
+	.recognition-card p { margin: 0; color: #333; font-size: 0.95rem; }
+	@media (max-width: 576px) { .recognition-img { max-width: 100%; } .recognition-card { padding: 12px; } }
+</style>
+
+<!--- Fixed background -->s
+<div class="col-12">
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Tech behind this website</b></span></h5></div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row text-center align-items-center g-3 justify-content-center tech-grid" role="list" aria-label="Technologies used">
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-firebase-48.png" alt="Firebase" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Firebase</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-nvidia-48.png" alt="Nvidia" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Nvidia</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-bootstrap-48.png" alt="Bootstrap" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Bootstrap</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-google-analytics-48.png" alt="Google Analytics" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Google Analytics</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-node-js-48.png" alt="Node.js" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Node.js</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-html-5-48.png" alt="HTML5" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">HTML5</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-javascript-48.png" alt="JavaScript" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">JavaScript</div>
+			</div>
+		</div>
+
+		<!-- Groq -->
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/groq.jpg" alt="Groq" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Groq</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-cloudflare-48.png" alt="Cloudflare" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">Cloudflare</div>
+			</div>
+		</div>
+
+		<!-- New: API Ninjas -->
+		<div class="col-6 col-sm-4 col-md-3 col-lg-auto" role="listitem">
+			<div class="tech-item">
+				<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:50px; width:auto; border-radius:3px;">
+				<div class="tech-label">API Ninjas</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+		h2.PerfHeading {
+			text-align: center;
+			font-size: 2rem;
+			margin: 0.6rem 0 1rem; /* reduced top margin to remove extra space inside section */
+			color: #0078D7;
+		}
+		section {
+			max-width: 90%;
+			margin: 0 auto 4rem;
+			padding: 1rem 2rem; /* reduce top padding so heading sits closer to top */
+      background: linear-gradient(to right, #eef2f3, #cae0f2);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .metric-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .metric-card h3 {
+      margin: 0;
+      color: #0078D7;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .metric-card p {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+    .metric-card span {
+      font-size: 0.85rem;
+      color: #555;
+    }
+		.ai-analysis {
+			margin-top: 1.5rem;
+			background: rgba(255, 255, 255, 0.92);
+			border-left: 4px solid #0078D7;
+			border-radius: 8px;
+			padding: 1rem 1.2rem;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+		}
+		.ai-analysis h3 {
+			margin: 0 0 0.5rem;
+			font-size: 1.1rem;
+			color: #005a9e;
+		}
+		.ai-analysis-meta {
+			margin: 0 0 0.6rem;
+			font-size: 0.82rem;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			color: #4f6f8f;
+			text-transform: uppercase;
+		}
+		.ai-analysis p {
+			margin: 0;
+			font-size: 0.95rem;
+			line-height: 1.5;
+			color: #2f2f2f;
+			white-space: pre-line;
+			overflow-wrap: break-word;
+			word-break: break-word;
+		}
+		.ai-snapshot-row {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+			align-items: stretch;
+			margin-top: 1.5rem;
+		}
+		.ai-snapshot-row .ai-analysis {
+			flex: 1;
+			min-width: 260px;
+			margin-top: 0;
+		}
+    @media (max-width: 600px) {
+      section {
+        padding: 1rem;
+      }
+      .ai-snapshot-row .ai-analysis {
+        min-width: 0;
+      }
+    }
+
+		/* Tech grid styles */
+		.tech-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; padding:0.25rem 0.5rem; }
+		.tech-icon { color: inherit; }
+		.tech-label { font-size:0.95rem; font-weight:700; text-transform:uppercase; font-family: 'Roboto', 'Segoe UI', sans-serif; letter-spacing:0.04em; }
+		.tech-grid { gap: 0.75rem; }
+		.tech-item { min-width: 88px; }
+		.tech-icon--firebase { color:#FFCA28; }
+		.tech-icon--bootstrap { color:#7B1FA2; }
+		.tech-icon--analytics { color:orange; }
+		.tech-icon--node { color:#3C873A; }
+		.tech-icon--html5 { color:#E34F26; }
+		.tech-icon--js { color:#F0DB4F; }
+		.tech-icon--docker { color:#2496ED; }
+		.tech-icon--apininas { color:#00A6D6; }
+		.tech-icon--gai { filter: none; }
+		@media (max-width: 576px) {
+			.tech-icon { width:40px; height:40px; }
+			.tech-label { font-size:0.85rem; }
+		}
+  </style>
+  
+  <section class="metrics">
+    <h2 class="PerfHeading">Performance Metrics</h2>
+    <div class="metrics-grid" id="metrics-grid"></div>
+		<div class="ai-snapshot-row">
+			<div class="ai-analysis" id="ai-analysis-card">
+				<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+					<img src="img/groq.jpg" alt="Groq" style="height:28px; width:auto; border-radius:3px;">
+					<h3 style="margin:0;">Groq</h3>
+					<span style="font-size:small; color:#999;">(gpt-oss-20b)</span>
+				</div>
+				<br>
+				<p id="ai-analysis-text">Analyzing...</p>
+			</div>
+			<div class="ai-analysis" id="nvidia-analysis-card" style="border-left-color:#76b900;">
+				<div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+					<img src="img/icons8-nvidia-48.png" alt="Nvidia" style="height:28px; width:auto; border-radius:3px;">
+					<h3 style="margin:0; color:#4a7a20;">Nvidia NIM</h3>
+					<span style="font-size:small; color:#999;">(NVIDIA NIM)</span>
+				</div>
+				<br>
+				<p id="nvidia-analysis-text">Analyzing...</p>
+			</div>
+		</div>
+  </section>
+  
+  <script>
+    const metrics = [];
+		// Cloudflare Worker URL — replace with your Worker URL after deploying workers/analyze/
+		// The Groq API key is stored securely in Cloudflare (never in this file).
+		// See workers/analyze/index.js for setup instructions.
+		const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev"; // e.g. https://groq-perf-proxy.YOUR-SUBDOMAIN.workers.dev
+
+		// LCP observer — must be registered before load fires; buffered:true catches earlier entries
+		let lcpMs = null;
+		try {
+			new PerformanceObserver((list) => {
+				const entries = list.getEntries();
+				lcpMs = entries[entries.length - 1].startTime;
+			}).observe({ type: 'largest-contentful-paint', buffered: true });
+		} catch(e) {}
+
+    window.addEventListener("load", () => {
+      metrics.push({
+        title: "Page Load Time",
+        value: performance.now() >= 1000 ? `${(performance.now() / 1000).toFixed(2)} s` : `${Math.round(performance.now())} ms`,
+        note: "From navigation to load event"
+      });
+
+			const navEntry = performance.getEntriesByType('navigation')[0];
+			if (navEntry) {
+				metrics.push({ title: "TTFB", value: `${navEntry.responseStart.toFixed(0)} ms`, note: "Time to First Byte" });
+				metrics.push({ title: "DOM Ready", value: `${navEntry.domContentLoadedEventEnd.toFixed(0)} ms`, note: "DOMContentLoaded" });
+			}
+
+      const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+      if (conn) {
+        metrics.push({
+          title: "Connection Type",
+          value: conn.effectiveType || "Unknown",
+          note: "Reported by browser"
+        });
+        metrics.push({
+          title: "Estimated Bandwidth",
+          value: `${conn.downlink} Mbps`,
+          note: "Browser estimate"
+        });
+      }
+
+			metrics.push({ title: "Resources", value: `${performance.getEntriesByType('resource').length}`, note: "Total network requests" });
+
+      const pingStart = performance.now();
+      const img = new Image();
+      img.src = "https://www.google.com/favicon.ico?" + Date.now();
+      img.onload = () => {
+        metrics.push({
+          title: "Host Ping",
+          value: (performance.now() - pingStart) >= 1000 ? `${((performance.now() - pingStart)/1000).toFixed(2)} s` : `${Math.round(performance.now() - pingStart)} ms`,
+          note: "Simulated via favicon fetch"
+        });
+				if (lcpMs !== null) metrics.push({ title: "LCP", value: `${lcpMs.toFixed(0)} ms`, note: "Largest Contentful Paint" });
+				renderMetrics();
+				renderGroqAnalysis();
+				renderNvidiaAnalysis();
+      };
+      img.onerror = () => {
+        metrics.push({
+          title: "Host Ping",
+          value: "N/A",
+          note: "Ping failed"
+        });
+				if (lcpMs !== null) metrics.push({ title: "LCP", value: `${lcpMs.toFixed(0)} ms`, note: "Largest Contentful Paint" });
+				renderMetrics();
+				renderGroqAnalysis();
+				renderNvidiaAnalysis();
+      };
+    });
+
+		function renderMetrics() {
+			const grid = document.getElementById("metrics-grid");
+			if (!grid) return;
+			let html = "";
+			metrics.forEach(m => {
+				html += `
+					<div class="metric-card">
+						<h3>${m.title}</h3>
+						<p><strong>${m.value}</strong></p>
+						<span>${m.note}</span>
+					</div>
+				`;
+			});
+			grid.innerHTML = html;
+		}
+
+		// Helper: unified Worker POST + error handling (keeps original semantics)
+		async function callWorker(payload) {
+			const res = await fetch(WORKER_URL, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+			const data = await res.json().catch(() => ({}));
+			if (!res.ok) throw new Error(data?.error || `Worker returned ${res.status}`);
+			return data;
+		}
+
+		async function renderGroqAnalysis() {
+			const analysisText = document.getElementById('ai-analysis-text');
+			if (!analysisText) return;
+			analysisText.textContent = 'Analyzing...';
+			try {
+				const data = await callWorker({ metrics });
+				analysisText.textContent = data.verdict || 'No AI analysis returned.';
+			} catch (error) {
+				analysisText.textContent = summarizeMetricsLocal(metrics) + ' (AI unavailable: ' + error.message + ')';
+			}
+		}
+
+		async function renderNvidiaAnalysis() {
+			const nvidiaText = document.getElementById('nvidia-analysis-text');
+			if (!nvidiaText) return;
+			nvidiaText.textContent = 'Analyzing...';
+			try {
+				const data = await callWorker({ metrics, provider: 'nvidia' });
+				nvidiaText.textContent = data.verdict || 'No Nvidia analysis returned.';
+			} catch (error) {
+				nvidiaText.textContent = 'Nvidia AI unavailable: ' + error.message;
+			}
+		}
+
+		// Local summarizer (runs entirely in-browser, no keys)
+		function summarizeMetricsLocal(metricsList) {
+			if (!metricsList || metricsList.length === 0) return 'No metrics available.';
+
+			const m = {};
+			metricsList.forEach(it => m[it.title] = String(it.value));
+
+			function parseMs(v) {
+				if (!v) return null;
+				v = String(v).trim();
+				if (v === 'N/A') return null;
+				// examples: "420 ms", "1.23 s", "0.65 s"
+				const msMatch = v.match(/([\d\.]+)\s*ms/i);
+				if (msMatch) return parseFloat(msMatch[1]);
+				const sMatch = v.match(/([\d\.]+)\s*s(ec)?/i);
+				if (sMatch) return parseFloat(sMatch[1]) * 1000;
+				const num = v.match(/([\d\.]+)/);
+				return num ? parseFloat(num[1]) : null;
+			}
+
+			function parseMbps(v) {
+				if (!v) return null;
+				v = String(v).trim();
+				const m = v.match(/([\d\.]+)\s*Mb/i);
+				if (m) return parseFloat(m[1]);
+				const num = v.match(/([\d\.]+)/);
+				return num ? parseFloat(num[1]) : null;
+			}
+
+			const loadMs = parseMs(m['Page Load Time'] || m['Page load time'] || m['Load Time']);
+			const pingMs = parseMs(m['Host Ping'] || m['Host ping'] || m['Ping']);
+			const bandwidth = parseMbps(m['Estimated Bandwidth'] || m['Bandwidth']);
+			const connType = m['Connection Type'] || m['Connection'] || '';
+
+			// Scoring: lower is better for load and ping; higher is better for bandwidth
+			let score = 0, weight = 0;
+			// Lenient scoring: widen "good" ranges so normal networks score better
+			if (loadMs != null) { weight += 3; if (loadMs <= 1500) score += 3; else if (loadMs <= 4000) score += 2; else score += 0; }
+			if (pingMs != null) { weight += 2; if (pingMs <= 200) score += 2; else if (pingMs <= 400) score += 1; }
+			if (bandwidth != null) { weight += 2; if (bandwidth >= 10) score += 2; else if (bandwidth >= 3) score += 1; }
+
+			let overall = 'Unknown';
+			if (weight === 0) overall = 'No sufficient data';
+			else {
+				const pct = (score / (weight * 2));
+				// Make Good easier to achieve and Moderate more forgiving
+				if (pct >= 0.7) overall = 'Good';
+				else if (pct >= 0.35) overall = 'Moderate';
+				else overall = 'Poor';
+			}
+
+			// Build concise sentence
+			const parts = [];
+			if (loadMs != null) parts.push(`loads in ${Math.round(loadMs)} ms`);
+			if (pingMs != null) parts.push(`with ~${Math.round(pingMs)} ms ping`);
+			if (connType) parts.push(`over ${connType}`);
+			if (bandwidth != null) parts.push(`(~${Math.round(bandwidth)} Mbps)`);
+
+			const prefix = parts.length ? `Page ${parts.join(' ')} —` : 'Performance data available —';
+			return `${prefix} overall performance: ${overall}.`;
+		}
+
+  </script>
+
+<div class="col-12">
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Get the App or source code</b></span></h5></div>
+</div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+		<div class="text-center"><a href="https://gonative.io/share/rqolaz"><img src="img/android.png" height="50px"></a></div><br>
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+		<div class="text-center"><a href="https://github.com/Abhisheksinghpawar/website/"><img src="img/github.png" height="50px"></a></div><br>
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+	</div>
+	
+	<p class="text-center" style="font-size:15px;font-family:'Times New Roman', Times, serif">Latest Update: <span id="currentDate"></span> </p>
+	<script>
+		// Get the current date
+		const currentDate = new Date();
+		const formattedDate = currentDate.toLocaleDateString('en-US', {
+		  year: 'numeric',
+		  month: 'long',
+		  day: 'numeric',
+		});
+	  
+		// Insert the date into the span with id "currentDate"
+		document.getElementById('currentDate').textContent = formattedDate;
+	  </script>	
+
+</div>
+
+<style>
+	/* ── Floating project capsule ── */
+	.card_popup {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		width: 270px;
+		background: linear-gradient(145deg, rgba(11,37,69,0.92), rgba(0,41,102,0.88));
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		border: 1px solid rgba(111,168,255,0.22);
+		border-radius: 5px;
+		box-shadow: 0 12px 36px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,255,255,0.04);
+		font-family: 'Poppins', sans-serif;
+		z-index: 1000;
+		overflow: hidden;
+		animation: cpSlideIn 0.45s cubic-bezier(0.22,1,0.36,1);
+		transition: transform 0.28s ease, box-shadow 0.28s ease;
+	}
+	.card_popup:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 20px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(111,168,255,0.28);
+	}
+
+	/* label strip at top */
+	.cp-label {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 10px 14px 6px;
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(180,210,255,0.7);
+	}
+	.cp-pulse {
+		width: 7px; height: 7px;
+		background: #4ade80;
+		border-radius: 50%;
+		flex-shrink: 0;
+		animation: cpPulse 2s ease-in-out infinite;
+	}
+	@keyframes cpPulse {
+		0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.6); }
+		50%      { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+	}
+
+	/* main content link */
+	.cp-body {
+		display: block;
+		text-decoration: none;
+		padding: 4px 14px 14px;
+		color: inherit;
+	}
+	.cp-title-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+	}
+	.cp-icon {
+		font-size: 22px;
+		display: inline-block;
+		animation: cpSpin 2.4s linear infinite;
+	}
+	@keyframes cpSpin {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(360deg); }
+	}
+	.cp-title {
+		font-size: 15px;
+		font-weight: 700;
+		color: #e8f0fe;
+		line-height: 1.2;
+	}
+	.cp-subtitle {
+		font-size: 11px;
+		color: rgba(180,210,255,0.65);
+		margin-bottom: 10px;
+	}
+
+	/* tech chip badges */
+	.cp-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+	.cp-chip {
+		font-size: 10px;
+		font-weight: 600;
+		padding: 3px 9px;
+		border-radius: 20px;
+		letter-spacing: 0.03em;
+	}
+	.cp-chip--ollama {
+		color: #f0f0f0;
+		background: rgba(80,80,80,0.55);
+		border: 1px solid rgba(200,200,200,0.25);
+	}
+	.cp-chip--streamlit {
+		color: #ff6b6b;
+		background: rgba(255,87,87,0.15);
+		border: 1px solid rgba(255,87,87,0.35);
+	}
+	.cp-chip--python {
+		color: #ffe066;
+		background: rgba(255,214,0,0.12);
+		border: 1px solid rgba(255,214,0,0.3);
+	}
+
+	/* footer row */
+	.cp-footer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 14px 12px;
+		border-top: 1px solid rgba(255,255,255,0.06);
+		gap: 5px;
+		font-size: 11px;
+	}
+	.cp-footer a {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		color: rgba(180,210,255,0.7);
+		text-decoration: none;
+		transition: color 0.15s;
+	}
+	.cp-footer a:hover { color: #fff; }
+	.cp-footer i { font-size: 13px; }
+
+	/* close button */
+	.cp-close {
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		background: none;
+		border: none;
+		color: rgba(180,210,255,0.5);
+		font-size: 16px;
+		cursor: pointer;
+		line-height: 1;
+		padding: 2px 4px;
+		border-radius: 4px;
+		transition: color 0.15s, background 0.15s;
+	}
+	.cp-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+	/* slide animations */
+	@keyframes cpSlideIn {
+		from { transform: translateX(110%); opacity: 0; }
+		to   { transform: translateX(0);    opacity: 1; }
+	}
+	@keyframes cpSlideOut {
+		to { transform: translateX(110%); opacity: 0; }
+	}
+
+	/* minimised pill toggle */
+	.card_popup_min {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 8px 16px 8px 12px;
+		background: linear-gradient(135deg, #0b2545, #002966);
+		border: 1px solid rgba(111,168,255,0.25);
+		border-radius: 30px;
+		color: #b4d2ff;
+		font-family: 'Poppins', sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		cursor: pointer;
+		box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+		z-index: 1001;
+		transition: transform 0.18s ease, box-shadow 0.18s ease;
+		animation: cpSlideIn 0.35s cubic-bezier(0.22,1,0.36,1);
+	}
+	.card_popup_min:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.45); }
+	.card_popup_min:active { transform: scale(0.96); }
+	.card_popup_min .cp-pulse { width: 6px; height: 6px; }
+</style>
+
+<script>
+	function createPopupToggle() {
+		if (document.getElementById('card_popup_toggle')) return;
+		const btn = document.createElement('button');
+		btn.id = 'card_popup_toggle';
+		btn.className = 'card_popup_min';
+		btn.setAttribute('aria-label', 'Show latest project');
+		btn.innerHTML = '<span class="cp-pulse"></span><span>Latest Project</span>';
+		btn.addEventListener('click', () => {
+			const popup = document.getElementById('card_popup');
+			if (popup) {
+				popup.style.display = '';
+				popup.style.animation = 'cpSlideIn 0.4s cubic-bezier(0.22,1,0.36,1)';
+				btn.remove();
+			}
+		});
+		document.body.appendChild(btn);
+	}
+
+	function hidePopupButKeepToggle() {
+		const popup = document.getElementById('card_popup');
+		if (!popup) return;
+		popup.style.animation = 'cpSlideOut 0.4s ease forwards';
+		setTimeout(() => {
+			popup.style.display = 'none';
+			createPopupToggle();
+		}, 400);
+	}
+
+	setTimeout(hidePopupButKeepToggle, 10000);
+</script>
+
+<div class="card_popup" id="card_popup">
+	<button class="cp-close" onclick="hidePopupButKeepToggle()" aria-label="Dismiss">&#x2715;</button>
+	<div class="cp-label">
+		<span class="cp-pulse"></span>
+		Latest Project
+	</div>
+	<a class="cp-body" href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer" target="_blank" rel="noopener">
+		<div class="cp-title-row">
+			<span class="cp-icon">⚙️</span>
+			<div>
+				<div class="cp-title">AI Logs Analyzer</div>
+				<div class="cp-subtitle">LogsHeapAnalyzer</div>
+			</div>
+		</div>
+		<div class="cp-chips">
+			<span class="cp-chip cp-chip--ollama">Ollama AI</span>
+			<span class="cp-chip cp-chip--streamlit">Streamlit</span>
+			<span class="cp-chip cp-chip--python">Python</span>
+		</div>
+	</a>
+	<div class="cp-footer">
+		<a href="https://github.com/Abhisheksinghpawar/LogsHeapAnalyzer" target="_blank" rel="noopener">
+			<i class="fab fa-github"></i> View on GitHub
+		</a>
+	</div>
+</div>
+
+<div class="footerbg" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966); padding:20px 0;">
+	<footer style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+	  
+	  <!-- Social Icons -->
+	  <div style="display:flex; gap:20px;">
+		<a href="https://www.linkedin.com/in/abhishek-singh-pawar" target="_blank" aria-label="LinkedIn">
+		  <i class="fab fa-linkedin-in" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="mailto:abhisheksinghpawar17@gmail.com" aria-label="Email">
+		  <i class="fas fa-envelope" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://github.com/Abhisheksinghpawar" target="_blank" aria-label="GitHub">
+		  <i class="fab fa-github" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://www.hackerrank.com/profile/abhishek1994paw1" target="_blank" aria-label="HackerRank">
+		  <i class="fa-brands fa-hackerrank" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://medium.com/@abhisheksinghpawar17" target="_blank" aria-label="Medium">
+		  <i class="fa-solid fa-m" style="font-size:24px; color:white;"></i>
+		</a>
+	  </div>
+  
+	  <!-- Footer Text -->
+	  <div style="text-align:center; color:white; font-size:14px;">
+		<p>&copy; Abhishek Singh Pawar</p>
+		<p>All Rights Reserved</p>
+	  </div>
+	</footer>
+  </div>
+
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+	apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</html>

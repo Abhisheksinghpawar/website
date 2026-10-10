@@ -67,3 +67,13 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Cloudflare Wrangler local state (contains account metadata)
+.wrangler/
+
+# Local tooling / scratch
+_work/
+*.zip
+
+# Dependencies of archived code, if ever restored
+archive/**/node_modules/

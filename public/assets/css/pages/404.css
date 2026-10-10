@@ -1,0 +1,3 @@
+.nf{min-height:80vh;display:grid;align-items:center}
+.nf .code{font-family:'JetBrains Mono',monospace;font-size:1rem;letter-spacing:.3em}
+.nf .code::before{content:'ERROR ';color:var(--muted)}

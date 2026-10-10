@@ -1,10 +1,11 @@
 {
-  "tags": [
-    "swiper"
-  ],
-  "name": "Swiper - Infinite loop",
-  "dependencies": {
-    "swiper": "latest",
-    "parcel-bundler": "^1.6.1"
+  "name": "abhisheksinghpawar-website",
+  "private": true,
+  "description": "Personal website: static site in public/ (Firebase Hosting) + AI/API proxy Worker in workers/analyze/ (Cloudflare).",
+  "scripts": {
+    "serve": "npx --yes serve public",
+    "check": "node tools/check-links.mjs",
+    "deploy:site": "firebase deploy --only hosting",
+    "deploy:worker": "cd workers/analyze && npx wrangler deploy"
   }
 }

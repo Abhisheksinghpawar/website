@@ -5,6 +5,36 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      { "source": "/python.html",         "destination": "/topics/python.html",         "type": 301 },
+      { "source": "/pythonprojects.html", "destination": "/topics/pythonprojects.html", "type": 301 },
+      { "source": "/bootstrap.html",      "destination": "/topics/bootstrap.html",      "type": 301 },
+      { "source": "/c.html",              "destination": "/topics/c.html",              "type": 301 },
+      { "source": "/firebase.html",       "destination": "/topics/firebase.html",       "type": 301 },
+      { "source": "/html5.html",          "destination": "/topics/html5.html",          "type": 301 },
+      { "source": "/r.html",              "destination": "/topics/r.html",              "type": 301 },
+      { "source": "/tableau.html",        "destination": "/topics/tableau.html",        "type": 301 },
+      { "source": "/Login.html",          "destination": "/feedback.html",              "type": 301 },
+      { "source": "/sports.html",         "destination": "/LiveTiles.html",             "type": 301 },
+      { "source": "/dash.html",           "destination": "/index.html",                 "type": 301 }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        ]
+      },
+      {
+        "source": "**/*.@(css|js)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+      },
+      {
+        "source": "/assets/@(img|docs)/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+      }
     ]
   }
 }

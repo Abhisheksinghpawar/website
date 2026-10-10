@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Timeline</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
+	<style>
+
+:root{
+  --fs-base:16px; /* base font-size for rem calculations */
+  --muted:#55607a;
+}
+
+html{ font-size:var(--fs-base); }
+html,body
+{
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins',sans-serif;
+  color: #222;
+  scroll-behavior: smooth;
+}
+.navbar{
+	padding: .8rem;
+position: relative;
+width: 100%;
+font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+.navbar-nav li{
+	padding-right: 20px;
+}
+.nav-link{
+	font-size: 1.1em !important;
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+.tales {
+  width: 90%;
+  height: 149px;
+}
+.tales2
+{
+  width: 90%;
+  height: 250px;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+.row {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+.container, .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.bck
+{
+	position: relative;
+	background: #00fdff url(img/33249-NZCLGV.JPG);
+	height: 90vh;
+	background-size: cover;
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	animation: animate 15s linear infinite;
+}
+.box
+{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: calc(1536px/6);
+	height: 256px;
+	background: url(img/spritestrip.PNG);
+	animation: animate 1s steps(6) infinite;
+}
+.gif
+{
+max-width: 100%;
+}
+.neon
+{
+font-size: 4em;
+color: red;
+text-shadow: 0 0 20px #ff005b;
+}
+.footerbg
+{
+background-color:#002966
+}	
+
+#plx
+{
+background:url(img/france.jpg);
+background-attachment:fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.atitle
+{
+padding: 150px 20px;
+}
+#plx2
+{
+background:url(img/books.jpg);
+background-attachment:fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+#plx3
+{
+background:url(img/piano2.jpg);
+background-attachment:fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.btitle
+{
+padding: 150px 20px;
+}
+.card{
+box-shadow:10px 10px 10px;
+border-radius:6px;
+  box-shadow:10px 10px 10px;
+  border-radius:6px;
+}
+.decor-blob{
+  position:absolute;
+  right:12px;
+  top:90px; /* place below the navbar */
+  opacity:0.12;
+  transform:rotate(12deg);
+  pointer-events:none;
+  z-index:0;
+}
+.abhi{
+box-shadow:10px 10px 10px;
+}
+.carousel-inner img{
+	width: 100%;
+	height: 200px;
+}
+.jumbotron{
+color: #000000;
+background-color:white;
+height: 0.5px;
+}
+h5 {
+  width: 90%;
+  border-bottom: 2px solid #000;
+  line-height: 0.2em;
+  margin: 10px 0 20px;
+  font-size: 1.2rem; /* reduced and made relative */
+}
+
+h5 span { 
+    background:#fff; 
+    padding:0px 15px; 
+}
+
+/* Compact mobile adjustments: reduce vertical space and enforce image crop */
+@media (max-width:600px){
+  .carousel-inner img{ height:140px; object-fit:cover; }
+  .tales, .tales2 { height:auto; }
+  .card, .abhi { margin-bottom:0.5rem; }
+  .card .card-body, .card-body { padding:8px !important; }
+  .container-fluid.padding .row.padding > div { padding:0.5rem; }
+  .jumbotron, .atitle, .btitle { padding:40px 10px; }
+  h5 { font-size:20px; }
+}
+
+/* Day cards (Quote / Fact) - enhanced typography and responsive layout */
+.day-wrap{ display:flex; justify-content:center; }
+.day-card{ display:block; width:min(720px,90%); background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%); border-radius:12px; box-shadow:0 12px 40px rgba(15,30,60,0.08); text-align:left; margin:0 auto; border-left:4px solid var(--accent); overflow:hidden; }
+.day-card .card-body{ padding:18px 22px; position:relative; }
+.day-card-title{ font-size:1rem; margin:0 0 6px 0; font-weight:700; color:#07203a; display:flex; gap:8px; align-items:center; }
+.day-card-title i{ color:var(--accent); font-size:1.05rem; }
+.day-card-text{ font-family: 'Playfair Display', serif; font-style:italic; font-size:1.25rem; color:#12202b; margin:10px 0; line-height:1.55; position:relative; padding-left:12px; }
+/* decorative large quote mark behind the text */
+.day-card-text::before{ content: '“'; font-family: 'Playfair Display', serif; font-size:3.2rem; position:absolute; left:-6px; top:-10px; color:rgba(43,110,246,0.10); line-height:1; }
+.day-card-footer{ font-size:0.95rem; color:var(--muted); text-align:right; margin-top:8px; font-weight:600; }
+.day-card-powered{ font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:right; }
+@media (max-width:600px){
+  .day-card .day-card-text{ font-size:1.05rem; }
+  .day-card{ width:94%; }
+  .day-card-text::before{ font-size:2.2rem; left:0; top:-6px; }
+  .day-card-footer{ text-align:left; }
+}
+@media (max-width:600px){
+  .carousel-inner img{ height:140px; object-fit:cover; }
+  .tales, .tales2 { height:auto; }
+  .card, .abhi { margin-bottom:0.5rem; }
+  .card .card-body, .card-body { padding:8px !important; }
+  .container-fluid.padding .row.padding > div { padding:0.5rem; }
+  .jumbotron, .atitle, .btitle { padding:40px 10px; }
+  h5 { font-size:20px; }
+}
+
+/* Global scaling tweaks: make common text sizes relative to root and reduce a few oversized inline styles */
+body{ font-size:1rem; overflow-x:hidden; }
+img { max-width: 100%; }
+.card-title{ font-size:1rem; }
+.display-5{ font-size:1.6rem; }
+
+/* Override explicit large inline titles (originally 50px) to keep relative sizing */
+#plx3 .atitle p, #plx .atitle p, #plx2 .btitle p{ font-size:2.2rem !important; }
+#plx .atitle p + p, #plx3 .atitle p + p{ font-size:1.15rem !important; }
+
+/* Target paragraphs with inline 25px and reduce them while preserving padding */
+p[style*="font-size:25px"]{ font-size:1.05rem !important; padding:3rem !important; }
+@media (max-width: 768px) {
+  .navbar-brand { font-size: 1.1rem !important; }
+  html { overflow-x: hidden; }
+}
+
+	</style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top shadow-sm" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966);">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold fst-italic" href="index.html" style="font-family:Georgia, serif; font-size:1.5rem;">
+          <i class="fas fa-terminal me-2"></i> Abhishek Singh Pawar
+        </a>
+    
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+          <ul class="navbar-nav mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"><i class="fas fa-microchip me-1"></i> Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="slide.html"><i class="fas fa-code me-1"></i> TechStack</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="LiveTiles.html"><i class="fas fa-mug-hot me-1"></i> Afterwork</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ai.html"><i class="fas fa-robot me-1"></i> AI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- decorative purple blob (matches Ai.html) -->
+    <svg class="decor-blob" width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#6d28d9" />
+          <stop offset="100%" stop-color="#2563eb" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(20,0)">
+        <path d="M45,10 C110,-10 160,30 190,80 C220,130 170,190 110,200 C50,210 10,160 10,110 C10,60 20,30 45,10Z" fill="url(#g1)" />
+      </g>
+    </svg>
+
+</br></br>
+
+<div align="center">
+  <div id="api-response" style="width:75%;">Loading...</div>
+  <br>
+  <!-- moved into day-card footers -->
+</div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+      const WORKER_URL = "https://groq-perf-proxy.abhisheksinghpawar17.workers.dev";
+
+      // Small helper to POST to the Worker and return parsed JSON (preserves original error semantics)
+      async function postToWorker(payload) {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        // parse JSON once and return, caller handles errors similarly to previous code
+        const data = await res.json().catch(() => ({}));
+        return { ok: res.ok, status: res.status, data };
+      }
+
+      function renderDayCard(targetSelector, titleIconHtml, titleText, contentHtml, footerHtml, poweredHtml) {
+        const responseElement = $(targetSelector);
+        responseElement.html(`
+    <div class="day-wrap">
+    <div class="day-card card" role="region">
+    <div class="card-body">
+      <div class="day-card-title">${titleIconHtml} ${titleText}</div>
+      <div class="day-card-text">${contentHtml}</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+      <div class="day-card-footer">${footerHtml}</div>
+      <div class="day-card-powered">${poweredHtml}</div>
+      </div>
+    </div>
+    </div>
+    </div>
+        `);
+      }
+
+      async function fetchAndDisplayData() {
+        try {
+          const { ok, data } = await postToWorker({ type: 'ninjas', endpoint: 'quotes' });
+          if (!ok) { $('#api-response').html('Quote error: Service unavailable.'); return; }
+          if (Array.isArray(data) && data.length > 0) {
+            const quote = data[0];
+            renderDayCard('#api-response', '<i class="fa-solid fa-quote-left" style="color:gray;"></i>', 'Quote of the Day', quote.quote, quote.author || '', '<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a>');
+          } else {
+            $('#api-response').html('No quotes found.');
+          }
+        } catch (err) {
+          $('#api-response').html('Error: ' + (err && err.message ? err.message : 'Unknown'));
+        }
+      }
+
+      $(document).ready(fetchAndDisplayData);
+    </script>
+    <br>
+<hr width="70%">
+
+</br>
+<!-- Compact 4 live-tiles: Books, Places, Food, Music -->
+<section class="personal-tiles" aria-labelledby="tiles-heading">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{ --bg:#f6f8fb; --card:#ffffff; --muted:#55607a; --accent:#2b6ef6; --radius:12px; --gap:1rem; --card-shadow: 0 10px 30px rgba(18,40,80,0.06); --max-width:1100px; }
+    .personal-tiles{font-family:Inter, Poppins, system-ui; background:var(--bg); padding:24px 12px; display:flex; justify-content:center;}
+    .pt-inner{width:100%; max-width:var(--max-width);} .tiles-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; align-items:start;}
+    .card{ background:var(--card); border-radius:6px; overflow:hidden; box-shadow:var(--card-shadow); transition:transform .22s ease, box-shadow .22s ease; display:flex; flex-direction:column; }
+    .card:hover{ transform:translateY(-6px); }
+    .card-media{width:100%; height:140px; background-size:cover; background-position:center;}
+    .card-body{padding:12px 12px; display:flex; flex-direction:column; gap:6px;}
+    .card-title{font-weight:700; color:#0f2136; margin:0; font-size:1rem}
+    .card-sub{color:var(--muted); font-size:0.9rem; margin:0;}
+    .tiles-sub{color:var(--muted); margin-top:6px; font-size:0.95rem; opacity:0.95}
+    .small-list{margin:6px 0 0; padding:0; list-style:none; color:var(--muted); font-size:0.9rem}
+    .small-list li{margin:3px 0}
+    @media (max-width:900px){ .tiles-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:600px){ .tiles-grid{grid-template-columns:1fr; gap:10px;} .card-media{height:120px;} .personal-tiles{padding:16px 10px} }
+    /* Make Games cards wider than default tiles: two roomy columns on large screens */
+    section[aria-labelledby="games-heading"] .tiles-grid {
+      grid-template-columns: repeat(2, minmax(360px, 1fr));
+      justify-content: center;
+      gap: 18px;
+    }
+    @media (max-width:1200px) {
+      section[aria-labelledby="games-heading"] .tiles-grid { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+    }
+    @media (max-width:900px) {
+      section[aria-labelledby="games-heading"] .tiles-grid { grid-template-columns: 1fr; }
+    }
+    /* Games cards: horizontal layout (image left, text right) and compact height
+       Ensure the image fills the card top-to-bottom with no internal gaps */
+    section[aria-labelledby="games-heading"] .card {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch; /* make media fill card height */
+      gap: 0; /* remove gap so image touches card edges */
+      min-height: 0; /* allow shorter cards */
+      padding: 0; /* remove inner padding so media reaches edges */
+      overflow: hidden; /* clip media to card corners */
+      border-radius: 6px;
+      background: var(--card);
+    }
+    /* Make the article itself occupy full width of its grid cell without extra spacing */
+    section[aria-labelledby="games-heading"] .tiles-grid > article.card { margin: 0; }
+    section[aria-labelledby="games-heading"] .card-media {
+      width: 160px;
+      height: auto; /* let content determine height reliably */
+      min-height: 120px; /* ensure a visible height for the image */
+      background-size: cover;
+      background-position: center;
+      flex: 0 0 160px;
+      margin: 0;
+      border-radius: 6px 0 0 6px; /* round left corners only so image sits flush top/bottom */
+      display: block;
+      align-self: stretch; /* stretch to match text column height when possible */
+    }
+    section[aria-labelledby="games-heading"] .card-body { padding:12px; }
+    section[aria-labelledby="games-heading"] .card-title { font-size:1.05rem; }
+    @media (max-width:900px) {
+      section[aria-labelledby="games-heading"] .card { flex-direction: column; }
+      section[aria-labelledby="games-heading"] .card-media { width:100%; height:140px; flex: none; border-radius:6px 6px 0 0; }
+    }
+  </style>
+
+  <div class="pt-inner">
+    <style>
+      /* Header accent styling for this section */
+      .tiles-header { display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-bottom:6px; }
+      .tiles-header h2{ margin:0; }
+      .tiles-accent { height:6px; width:72px; border-radius:6px; background:linear-gradient(90deg,var(--accent),#6fa8ff); box-shadow:0 8px 18px rgba(43,110,246,0.08); }
+    </style>
+
+    <div class="tiles-header">
+      <h2 id="tiles-heading" style="font-size:1.15rem;">Tastes, Journeys & Beats</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
+    </div>
+    <p class="tiles-sub" style="margin-top:6px;">A curated mix of the flavours I crave, the places I remember, and the songs I replay.</p>
+
+    <div class="tiles-grid">
+      <!-- Books -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/book1.jpg');" role="img" aria-label="Books"></div>
+        <div class="card-body">
+          <div class="card-title">Digital Fortress</div>
+          <div class="card-sub">Also enjoy:</div>
+          <ul class="small-list"><li>Atomic Habits</li><li>The Alchemist</li><li>Bhagvat Gita</li></ul>
+        </div>
+      </article>
+
+      <!-- Places -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/Dubai.jpg');" role="img" aria-label="Dubai"></div>
+        <div class="card-body">
+          <div class="card-title">Dubai</div>
+          <div class="card-sub">Also visited:</div>
+          <ul class="small-list"><li>New York</li><li>Vegas</li><li>Dallas</li></ul>
+        </div>
+      </article>
+
+      <!-- Food -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/biryani.jpg');" role="img" aria-label="Biryani"></div>
+        <div class="card-body">
+          <div class="card-title">Biryani</div>
+          <div class="card-sub">Also love:</div>
+          <ul class="small-list"><li>Pizza</li><li>Mediterranean</li><li>Chocolates</li></ul>
+        </div>
+      </article>
+
+      <!-- Music -->
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/music.jpg');" role="img" aria-label="Music"></div>
+        <div class="card-body">
+          <div class="card-title">Eminem</div>
+          <div class="card-sub">Also listen to:</div>
+          <ul class="small-list"><li>KK</li><li>Sunidhi Chauhan</li><li>Linkin Park</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Small JS: pause/resume Bootstrap carousels on hover (if any) -->
+<script>
+  (function(){
+    if (typeof jQuery === 'undefined') return;
+    var $ = jQuery;
+    $(document).on('mouseenter', '.carousel', function(){ try{ $(this).carousel('pause'); }catch(e){} });
+    $(document).on('mouseleave', '.carousel', function(){ try{ $(this).carousel('cycle'); }catch(e){} });
+  })();
+</script>
+
+<!-- Sports: live-tiles style (matches top tiles) -->
+<section class="personal-tiles" aria-labelledby="sports-heading">
+  <div class="pt-inner">
+    <div class="tiles-header">
+      <h2 id="sports-heading" style="font-size:1.15rem; margin:0;">Sports & Passions</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
+    </div>
+    <p class="tiles-sub">Athletics, moments and practices I enjoy.</p>
+
+    <div class="tiles-grid">
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img4.jpg');" role="img" aria-label="Swimming"></div>
+        <div class="card-body">
+          <div class="card-title">Swimming</div>
+          <p class="card-sub">Short laps — reset and refocus.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img1.jpg');" role="img" aria-label="Formula 1"></div>
+        <div class="card-body">
+          <div class="card-title">Formula 1</div>
+          <p class="card-sub">Speed, engineering, and flair.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img2.jpg');" role="img" aria-label="Cricket"></div>
+        <div class="card-body">
+          <div class="card-title">Cricket</div>
+          <p class="card-sub">Classic innings, iconic moments.</p>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/img3.jpg');" role="img" aria-label="Karate"></div>
+        <div class="card-body">
+          <div class="card-title">Karate</div>
+          <p class="card-sub">Focus, form, and calm.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Games section: Nintendo & Xbox -->
+<section class="personal-tiles" aria-labelledby="games-heading">
+  <div class="pt-inner">
+    <div class="tiles-header">
+      <h2 id="games-heading" style="font-size:1.15rem; margin:0;">Games I Play</h2>
+      <div class="tiles-accent" aria-hidden="true"></div>
+    </div>
+    <p class="tiles-sub">Favorite console titles I enjoy on Nintendo and Xbox.</p>
+
+    <div class="tiles-grid">
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/nintendo.jpg');" role="img" aria-label="Nintendo games"></div>
+        <div class="card-body">
+          <div class="card-title">Nintendo</div>
+          <p class="card-sub">Handheld & console favourites</p>
+          <ul class="small-list" aria-hidden="false" style="margin-top:8px;">
+            <li>Need for Speed (NFS) — Racing</li>
+            <li>Assassin's Creed — Action / Adventure</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" tabindex="0">
+        <div class="card-media" style="background-image:url('img/xbox.jpg');" role="img" aria-label="Xbox games"></div>
+        <div class="card-body">
+          <div class="card-title">Xbox</div>
+          <p class="card-sub">Big-screen co-op & classics</p>
+          <ul class="small-list" aria-hidden="false" style="margin-top:8px;">
+            <li>Harry Potter — Adventure</li>
+            <li>Forza Horizon 5 — Racing / Open world</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<h2 class="display-5" align="center"><img class="tales" style="width:60px;height:60px;" src="img/gif/smiley.gif" alt="Smiley">Connect with me on social media</h2>
+<div align="center">
+    
+<a href="https://www.facebook.com/abhishek.pawar.94"><i class="fa-brands fa-square-facebook fa-4x" style="color:#0047b3"></i></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- Adding space between icons -->
+<a href="https://www.instagram.com/abhishekpawar94?igsh=ZHA5MHVxcWZwZ2di"><i class="fa-brands fa-instagram fa-4x" style="color:#ff005b"></i></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- Adding space between icons -->
+<a href="https://twitter.com/abhishek1994pa1"><i class="fa-brands fa-x-twitter fa-4x" style="color:black"></i></a>
+</div>
+</br>
+<section id="plx3">
+<div class="container">
+<div class="atitle text-center">
+<p style="color:white;font-size:50px;">"Yes !! I play the Piano"</p>
+</div>
+</div>
+</section>
+
+<p style="font-size:25px;text-align:center;padding:50px"></br>
+  I have been playing the piano since the age of twelve. My proficiency is self-taught, as I utilize online tutorials to learn and replicate the techniques demonstrated. This pastime serves as an effective stress reliever, providing me with a much-needed respite from my professional responsibilities and other obligations.
+</br></p>
+
+</br>
+<section id="plx">
+<div class="container">
+<div class="atitle text-center">
+<p style="color:white;font-size:50px;">"oui !! je parle aussi français"</p>
+</br>
+<p style="color:white;font-size:20px;text-align:right">"Yes !! I speak french too"</p>
+</div>
+</div>
+</section>
+
+<p style="font-size:25px;text-align:center;padding:50px"></br>
+  In 2015, I successfully completed the A1 level French course at Alliance Bhopal. I have consistently harbored an intrinsic curiosity regarding the acquisition of various languages. The experience proved to be immensely enriching, facilitating not only my linguistic development but also my understanding of the cultural practices intrinsic to the native speakers of the language.
+</br></p>
+
+<section id="plx2">
+<div class="container">
+<div class="btitle text-center">
+<p style="color:white;font-size:50px;">I enjoy writing and listening poetry, specially Urdu poets</p>
+</div>
+</div>
+</section>
+
+<p style="font-size:25px;text-align:center;padding:50px"></br>
+  Building upon my passion for languages, I commenced the composition of short narratives in English during my early youth. This writing endeavor persisted throughout my collegiate experience, culminating in the creation of three short stories and a prodigious number of poems, the details of which have largely escaped my recollection.
+</br></p>
+
+  <style>
+    /* Make the four author/poetry cards equal height and clamp long subtitles */
+    .equal-cards-row > [class*="col-"] .card { height: 100%; display:flex; flex-direction:column; }
+    .equal-cards-row > [class*="col-"] .card .card-body { flex: 1 1 auto; }
+    .equal-cards-row > [class*="col-"] .card .card-sub { max-height:4.5rem; overflow:hidden; }
+    @media (max-width:767px){ .equal-cards-row > [class*="col-"] .card .card-sub { max-height:none; } }
+  </style>
+  <div class="container mt-3">
+  <div class="row equal-cards-row">
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/akhtar.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Javed Akhtar</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Gin gin ke sikke haath mera khurdura hua, Jaati rahi wo lams ki narmi, bura hua</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">Un chiraagon mein tel hi kam tha, kyun gila fir hum hawa se rahe</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/bruce-lee.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Bruce Lee</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Be water, my friend</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">Real living is living for others</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/harsha.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Harsha Bhogle</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Ask Dravid to walk on water and he'll say "How many kilometers?"</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">We have a surgeon at one end and a butcher at the other</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="card">
+        <div class="card-media" style="background-image:url('img/Mahatma-Gandhi.jpg'); height:140px; background-size:cover; background-position:center;"></div>
+        <div class="card-body">
+          <h3 class="card-title" style="color:#0047b3; margin-bottom:6px;">Mahatma Gandhi</h3>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0.25rem;">Be the change you wish to see in the world</p>
+          <p class="card-sub" style="text-align:left; font-family:Georgia, serif; margin-bottom:0;">The future depends on what you do today</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row jumbotron">
+	<div class="col-12" style="height:auto">
+	<div class="text-center"><h5><span><b>Daily Websites</b></span></h5></div></div>
+</div></div>
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0 col-0">	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\ht.png" height="70px"></h7>	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\youtube.png" height="70px"></h7>	
+		</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-4">
+			<h7><img src="img\hindu.jpg" height="70px"></h7>	
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0 col-0">	
+		</div>
+	</div>
+</div>
+
+
+</br>
+
+
+<div align="center">
+  <div id="api-response2" style="width:45%;font-size:small">Loading...</div>
+  <br>
+  <!-- moved into day-card footers -->
+</div>
+
+    <script>
+      async function fetchAndDisplayData2() {
+        try {
+          const { ok, data } = await postToWorker({ type: 'ninjas', endpoint: 'facts' });
+          if (!ok) { $('#api-response2').html('Fact error: Service unavailable.'); return; }
+          if (Array.isArray(data) && data.length > 0) {
+            const fact = data[0];
+            renderDayCard('#api-response2', '<i class="fa-solid fa-bolt" style="color:gray;"></i>', 'Fact of the Day', fact.fact, '', '<img src="img/icons8-ninja-50.png" alt="API Ninjas" style="height:15px; vertical-align:middle;"> <a href="https://api-ninjas.com/">API Ninjas</a>');
+          } else {
+            $('#api-response2').html('No facts found.');
+          }
+        } catch (err) {
+          $('#api-response2').html('Error: ' + (err && err.message ? err.message : 'Unknown'));
+        }
+      }
+
+      $(document).ready(fetchAndDisplayData2);
+    </script>
+
+
+
+
+
+</br>
+</br>
+
+<div class="footerbg" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966); padding:20px 0;">
+	<footer style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+	  
+	  <!-- Social Icons -->
+	  <div style="display:flex; gap:20px;">
+		<a href="https://www.linkedin.com/in/abhishek-singh-pawar" target="_blank" aria-label="LinkedIn">
+		  <i class="fab fa-linkedin-in" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="mailto:abhisheksinghpawar17@gmail.com" aria-label="Email">
+		  <i class="fas fa-envelope" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://github.com/Abhisheksinghpawar" target="_blank" aria-label="GitHub">
+		  <i class="fab fa-github" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://www.hackerrank.com/profile/abhishek1994paw1" target="_blank" aria-label="HackerRank">
+		  <i class="fa-brands fa-hackerrank" style="font-size:24px; color:white;"></i>
+		</a>
+		<a href="https://medium.com/@abhisheksinghpawar17" target="_blank" aria-label="Medium">
+		  <i class="fa-solid fa-m" style="font-size:24px; color:white;"></i>
+		</a>
+	  </div>
+  
+	  <!-- Footer Text -->
+	  <div style="text-align:center; color:white; font-size:14px;">
+		<p>&copy; Abhishek Singh Pawar</p>
+		<p>All Rights Reserved</p>
+	  </div>
+	</footer>
+  </div>
+
+  </body>
+  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
+    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
+    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
+    projectId: "abhisheksinghpawar-70ac7",
+    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
+    messagingSenderId: "483538358530",
+    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
+    measurementId: "G-MWB9YEZPBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+</html>

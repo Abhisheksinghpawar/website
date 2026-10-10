@@ -1,568 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Abhishek Singh Pawar</title>
-	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
-  <style>
-    body {
-	font-family: 'Poppins',sans-serif;
-    }
-	img{
-		float: left;
-		padding: 50px;
-	}
-	.navbar{
-	padding: .8rem;
-	position: relative;
-	width: 100%;
-	font-family: 'Segoe UI', 'Roboto', sans-serif;
-}
-.navbar-nav li{
-	padding-right: 20px;
-}
-.nav-link{
-	font-size: 1.1em !important;
-}
-.carousel-indicators .active{
-	background-color: #3255e3;
-}
-.footerbg
-{
-background-color:#002966
-}
-.card{
-padding: 1px 1px 1px 1px;
-background:#e6f7ff;
-box-shadow:10px 10px 10px;
-}
-.card-footer
-{
-background:#b3e7ff;
-}
-.swiper {
-	width: 100%;
-	padding-top: 50px;
-	padding-bottom: 50px;
-  }
-
-  .swiper-slide {
-	background-position: center;
-	background-size: cover;
-	width: 300px;
-	height: 300px;
-  }
-
-  .swiper-slide img {
-	display: block;
-	width: 100%;
-  }
-  
-	/* Add LiveTiles-like card-media and equal-height row styles */
-	.card-media{width:100%; height:160px; background-size:cover; background-position:center;}
-	.equal-cards-row > [class*="col-"] .card { height:100%; display:flex; flex-direction:column; }
-	.equal-cards-row > [class*="col-"] .card .card-body { flex:1 1 auto; }
-	.equal-cards-row > [class*="col-"] .card .card-sub { max-height:4.5rem; overflow:hidden; }
-	@media (max-width:767px){ .equal-cards-row > [class*="col-"] .card .card-sub { max-height:none; } }
-	@media (max-width: 768px) {
-		.navbar-brand { font-size: 1.1rem !important; }
-		html { overflow-x: hidden; }
-	}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechStack — Abhishek Singh Pawar</title>
+<meta name="description" content="The performance engineering, testing, monitoring and execution tools Abhishek Singh Pawar works with.">
+<link rel="canonical" href="https://abhisheksinghpawar.com/slide.html">
+<meta property="og:site_name" content="Abhishek Singh Pawar">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TechStack — Abhishek Singh Pawar">
+<meta property="og:description" content="The performance engineering, testing, monitoring and execution tools Abhishek Singh Pawar works with.">
+<meta property="og:url" content="https://abhisheksinghpawar.com/slide.html">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/ai-theme.css">
+<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js" defer></script>
+<link rel="stylesheet" href="assets/css/pages/techstack.css">
 </head>
-<body>
+<body id="top">
+<div class="progress" id="progress"></div>
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="grid-bg"></div>
 
-	<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top shadow-sm" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966);">
-		<div class="container-fluid">
-		  <!-- Brand -->
-		  <a class="navbar-brand fw-bold fst-italic" href="index.html" style="font-family:Georgia, serif; font-size:1.5rem;">
-			<i class="fas fa-terminal me-2"></i> Abhishek Singh Pawar
-		  </a>
-	  
-		  <!-- Toggler -->
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-	  
-		  <!-- Menu Items -->
-		  <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
-			<ul class="navbar-nav mb-2 mb-md-0">
-			  <li class="nav-item">
-				<a class="nav-link" href="index.html"><i class="fas fa-microchip me-1"></i> Journey</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link active" href="slide.html"><i class="fas fa-code me-1"></i> TechStack</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="LiveTiles.html"><i class="fas fa-mug-hot me-1"></i> Afterwork</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="Ai.html"><i class="fas fa-robot me-1"></i> AI</a>
-			  </li>
-			</ul>
-		  </div>
-		</div>
-	  </nav> 
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-		<div class="swiper-slide">
-		  <img src="img/4375050_logo_Jmeter_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/mat_thumb.png" style="width:300px;height:300px;"/>
-			</div>
-		  <div class="swiper-slide">
-			<img src="img/amazon-web-services-logo.png" style="width:300px;height:300px;"/>
-			</div>
-			<div class="swiper-slide">
-				<img src="img/gemini-logo.png" style="width:300px;height:300px;"/>
-		 	</div>
-		  <div class="swiper-slide">
-				<img src="img/visualVM-logo.png" style="width:300px;height:300px;"/>
-		 	</div>
-		  <div class="swiper-slide">
-				<img src="img/Linux-icon-PNG.png" style="width:300px;height:300px;"/>
-			</div>
-		  <div class="swiper-slide">
-				<img src="img/wireshark-logo.jpg" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/locust_icon.png" style="width:300px;height:300px;"/>
-	  </div>
-		  <div class="swiper-slide">
-				<img src="img/4375050_logo_jenkins_icon.png" style="width:300px;height:300px;"/>
-			</div>
-			<div class="swiper-slide">
-				<img src="img/PointFiveLogo.png" style="width:300px;height:300px;"/>
-			</div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_grafana_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_blazemeter_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_loadrunner_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_neoload_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_otel_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/vscode-logo.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_github_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-      	  <div class="swiper-slide">
-         	<img src="img/4375050_logo_python_icon.png" style="width:300px;height:300px;"/>
-      	  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_bootstrap_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_r_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_tableau_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_html_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_firebase_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_C_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/4375050_logo_css_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		  <div class="swiper-slide">
-			<img src="img/ollama_icon.png" style="width:300px;height:300px;"/>
-		  </div>
-		</div>
+<nav>
+  <a class="brand" href="index.html"><span class="logo"><i class="fas fa-bolt"></i></span>Abhishek S. Pawar</a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+  <ul class="links" id="links">
+    <li><a href="index.html">Journey</a></li>
+    <li><a class="on" href="slide.html">TechStack</a></li>
+    <li><a href="LiveTiles.html">Afterwork</a></li>
+    <li><a href="Ai.html">AI</a></li>
+    <li><a class="cta" href="mailto:abhisheksinghpawar17@gmail.com">Say hi</a></li>
+  </ul>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <span class="pill"><i class="fas fa-code"></i> TechStack</span>
+    <h1>My <em class="grad-text">toolbox</em> for speed.</h1>
+    <p class="lead">Being part of the Performance Engineering teams, my main focus isn't on programming and coding, but on the broader spectrum of IT. In today's fast-paced tech environment, it's crucial to keep stepping outside your comfort zone and absorbing new knowledge. I love sharing my insights, which you can find in my personal reviews, along with the YouTube videos and tutorials that helped me grasp various concepts.</p>
+    <div class="tags">
+      <span class="tag">HP LoadRunner</span><span class="tag">NeoLoad</span><span class="tag">JMeter</span><span class="tag">Performance Center</span><span class="tag">Controller</span><span class="tag">StormRunner</span>
+    </div>
   </div>
+</header>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Initialize Swiper -->
-	<script>
-		const swiper = new Swiper(".mySwiper", {
-			effect: "coverflow",
-			grabCursor: true,
-			centeredSlides: true,
-			slidesPerView: "auto",
-			coverflowEffect: {
-				rotate: 50,
-				stretch: 0,
-				depth: 100,
-				modifier: 1,
-				slideShadows: true,
-			},
-			loop: true,
-			pagination: { el: ".swiper-pagination" },
-			autoplay: {
-				delay: 1000, // Delay in ms (1 second)
-				disableOnInteraction: false,
-			},
-		});
-
-		// Ensure Swiper autoplay starts on first load (some browsers block autoplay until a user gesture).
-		// Attempt to start immediately, then once more after a short delay — preserves original behavior.
-		window.addEventListener('load', function() {
-			try {
-				if (swiper && swiper.autoplay) swiper.autoplay.start();
-			} catch (e) {}
-			setTimeout(function() { try { if (swiper && swiper.autoplay) swiper.autoplay.start(); } catch (e) {} }, 300);
-		});
-	</script>
-
-  <hr style="width:80%">
-
-</br>
-
-<table align="center" width="95%" border="0" style="font-family:Georgia, 'Times New Roman', Times, serif;">
-<tr><td align="center"><h5>
-Being part of the Performance Engineering teams, where my main focus isn’t on programming and coding, but rather on the broader spectrum of IT. In today’s fast-paced tech environment, I believe it's crucial to continuously step outside of your comfort zone and absorb new knowledge. I love sharing my insights, which you can find by clicking on the images that showcase my personal reviews, along with the YouTube videos and tutorials that have helped me grasp various concepts.</td></h5></tr>
-</table>
-</br>
-<table align="center" width="95%" border="0" style="font-family:Georgia, 'Times New Roman', Times, serif;">
-<tr><td align="center"><h5>
-	Throughout my projects, I've utilized several performance testing tools such as HP Loadrunner, Neoload, Jmeter, Performance Center, Controller, and Storm Runner
-</h5>
-</td></tr>
-</table>
-</br>
-<hr style="width:80%">
-</br>
-<div class="container-fluid padding">
-
-	<h2 align="center" style="color:darkblue; font-family: 'Roboto', sans-serif;"><b>Performance Engineering Tools</b></h2 >
-	</br>
-	<h3 align="center">Memory Analyzer (MAT)</h3 >
-		
-	</br>	
-	<table align="center" width="95%" border="0" style="font-family:Georgia, 'Times New Roman', Times, serif;">
-		<tr><td align="center"><h5>
-			The Eclipse Memory Analyzer is a fast and feature-rich Java heap analyzer that helps you find memory leaks and reduce memory consumption. Use the Memory Analyzer to analyze productive heap dumps with hundreds of millions of objects, quickly calculate the retained sizes of objects, see who is preventing the Garbage Collector from collecting objects, run a report to automatically extract leak suspects.</td></h5></tr>
-			<tr><td align="center"><h6><a href="https://eclipse.dev/mat/">Download</a></h6></td></tr>
-		</table>
-
-	</br>
-	<h3 align="center">Visualvm</h3 >
-		
-	</br>	
-	<table align="center" width="95%" border="0" style="font-family:Georgia, 'Times New Roman', Times, serif;">
-		<tr><td align="center"><h5>VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities. Designed for both development and production time use.</td></h5></tr>
-		<tr><td align="center"><h6><a href="https://visualvm.github.io/">Download</a></h6></td></tr>	
-	</table>
-
-	</div>
-
-</br>
-<hr style="width:80%">
-</br>
-<h2 align="center" style="color:darkblue; font-family: 'Roboto', sans-serif; font-weight: bold;">Performance Testing Tools</h2>
-
-</br>
-
-
-<div class="container-fluid padding">
-<div class="row text-center padding equal-cards-row" style="padding:30px 30px 30px 30px;">
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-	  <article class="card">
-	    <div class="card-media" style="background-image:url('img/jmeter.png');"></div>
-	    <div class="card-body">
-	      <h3 class="card-title">JMeter</h3>
-	      <p class="card-sub">Experience in scripting in this open source tool and completed company challenges and short term projects for scripting</p>
-	      <p><a href="https://jmeter.apache.org/download_jmeter.cgi">download</a></p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Hands on experience with version 5.4</small>
-	    </div>
-	  </article>
-	</div>
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-	  <article class="card">
-	    <div class="card-media" style="background-image:url('img/loadrunner.png');"></div>
-	    <div class="card-body">
-	      <h3 class="card-title">LoadRunner</h3>
-	      <p class="card-sub">Completed multiple project scripting using Vugen and execution using Stormrunner, Controller and Performance Center</p>
-	      <p><a href="https://www.microfocus.com/en-us/products/loadrunner-professional/free-trial">download</a></p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Hands on experience with version 12.53</small>
-	    </div>
-	  </article>
-	</div>
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-	  <article class="card">
-	    <div class="card-media" style="background-image:url('img/neoload.png');"></div>
-	    <div class="card-body">
-	      <h3 class="card-title">NeoLoad</h3>
-	      <p class="card-sub">Over a year experience, completed migration project for a UK client from on prem to cloud servers testing and report analysis</p>
-	      <p><a href="https://www.tricentis.com/lp/neoload-performance-load-testing-ppc?utm_source=google&utm_medium=paidsearch&utm_campaign=NeoLoad_Search_Brand_High_AMS_EN&utm_term=download%20neoload&gad_source=1&gclid=Cj0KCQjw8--2BhCHARIsAF_w1gxy6pa3_TYoqz-1YABIPE6CaNDDcIbd-xmdCsPhwCd3bFxwiQK9yNwaAqzOEALw_wcB">download</a></p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Hands on experience with version 6.9,7.0 and 7.4</small>
-	    </div>
-	  </article>
-	</div>
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
-	  <article class="card">
-	    <div class="card-media" style="background-image:url('img/blazemeter-logo-png.png');"></div>
-	    <div class="card-body">
-	      <h3 class="card-title">Blazemeter</h3>
-	      <p class="card-sub">Recorded multiple http/https scripts and converted them to JMX file for load testing in JMeter</p>
-	      <p><a href="https://www.blazemeter.com/product/blazemeter">download</a></p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Hands on experience with version 6.4.0</small>
-	    </div>
-	  </article>
-	</div>
-
-	</div>
-</div>
-
-<hr style="width:80%">
-</br>
-<h2 align="center" style="color:darkblue; font-family: 'Roboto', sans-serif; font-weight: bold;">Monitoring Tools</h2>
-
-	<div class="container-fluid padding">
-	<div class="row padding	" align="center" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:20px;">
-	<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-	</br>
-	<img src="img\glowroot.jpg" class="card-img-top" alt="glowrootIcon" style="height:250px;">
-	GLOWROOT
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-	</br>
-	<img src="img\opentelemetry.jpg" class="card-img-top" alt="otelIcon" style="height:250px;">
-	</br></br>
-	OPENTELEMETRY
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-	</br>
-	<img src="img\datadog.jpg" class="card-img-top" alt="datadogIcon" style="height:250px;">
-	</br></br>
-	DATADOG
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-	</br>
-	<img src="img\amazon_cloudwatch_logo_icon.jpg" class="card-img-top" alt="cloudwatchIcon" style="height:250px;">
-	</br></br>
-	CLOUDWATCH
-	</div>
-	</div>
-	</div>
-
-<div class="container-fluid padding">
-<div class="row padding	" align="center" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:20px;">
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<img src="img\grafana.jpg" class="card-img-top" alt="grafanaIcon" style="height:250px;">
-GRAFANA
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<img src="img\influxdata.jpg" class="card-img-top" alt="influxIcon" style="height:250px;">
-</br></br>
-INFLUX DB
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<img src="img\telegraf.png" class="card-img-top" alt="telegrafIcon" style="height:250px;">
-</br></br>
-TELEGRAF
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<img src="img\prometheus.png" class="card-img-top" alt="premetheusIcon" style="height:250px;">
-</br></br>
-PROMETHEUS
-</div>
-</div>
-</div>
-
-</br>
-<hr style="width:80%">
-
-<h2 align="center" style="color:darkblue; font-family: 'Roboto', sans-serif; font-weight: bold;">Execution Tools</h2></br>
-<div class="container-fluid padding">
-<div class="row padding	" align="center" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:20px;">
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<i class="fas fa-cogs fa-3x" style="color:grey;"></i>
-</br></br>
-STORMRUNNER
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<i class="fas fa-cogs fa-3x" style="color:grey;"></i>
-</br></br>
-CONTROLLER
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<i class="fas fa-cogs fa-3x" style="color:grey;"></i>
-</br></br>
-PERFORMANCE CENTER
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-6">
-</br>
-<i class="fas fa-cogs fa-3x" style="color:grey;"></i>
-</br></br>
-JENKINS
-</div>
-</div>
-</div>
-</br>
-<hr style="width:80%">
-
-<h2 align="center" style="color:darkblue; font-family: 'Roboto', sans-serif; font-weight: bold;">APM Tool</h2>
-
-<div class="container-fluid padding">
-	<div class="row text-center padding">
-		<div class="col-lg-2 "></div>
-		<div class="col-lg-2 "></div>
-		<div class="col-lg-4 ">
-			<div class="text-center"><img src="img/appD.jpg" class="img-fluid" alt="AppDynamics"></div><br>	
-		</div>
-		<div class="col-lg-2 "></div>
-		<div class="col-lg-2 "></div>
-		</div>
-		</div>
-
-	</br>
-	<hr style="width:80%">
-	</br>
-
-		<div class="container-fluid padding">
-		<div class="row padding	" align="center">
-		<div class="col-md-3 col-sm-6 col-6">
-				<a href="python.html"><i class="fab fa-python fa-4x" style="color:navy;"></i>
-				</br></br>
-				<h6>PYTHON</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="bootstrap.html"><i class="fab fa-bootstrap fa-4x" style="color:Purple;"></i>
-				</br></br>
-				<h6>BOOTSTRAP</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="r.html"><i class="fab fa-r-project fa-4x" style="color:blue;"></i>
-				</br></br>
-				<h6>R</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="tableau.html"><i class="fas fa-chart-area fa-4x" style="color:orange;"></i></i>
-				</br></br>
-				<h6>TABLEAU</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="html5.html"><i class="fab fa-html5 fa-4x"  style="color:red;"></i>
-				</br></br>
-				<h6>HTML</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="firebase.html"><i class="fas fa-fire-alt fa-4x" style="color:#ffff00;"></i>
-				</br></br>
-				<h6>FIREBASE</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<a href="c.html"><i class="fab fa-cuttlefish fa-4x"  style="color:lightblue;"></i>
-				</br></br>
-				<h6>C</h6></a>
-				</div>
-				<div class="col-md-3 col-sm-6 col-6">
-				<i class="fab fa-css3 fa-4x"  style="color:blue;"></i>
-				</br></br>
-				<h6>CSS</h6>
-				</div>
-		</div>
-		</div>
-	<br>
-
-<!--
-<div class="container-fluid padding">
-<div class="row padding	" align="center">
-<div class="col-md-3 col-sm-1">
-</div>
-<div class="col-md-6 col-sm-10">
-<img src="img/appD.jpg" class="img-fluid" alt="AppDynamics">
-</div>
-<div class="col-md-3 col-sm-1">
-</div>
-</div>
-</div>
--->
-
-<div class="footerbg" style="background: linear-gradient(to right, rgb(30, 30, 47), #002966); padding:20px 0;">
-	<footer style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
-	  
-	  <!-- Social Icons -->
-	  <div style="display:flex; gap:20px;">
-		<a href="https://www.linkedin.com/in/abhishek-singh-pawar" target="_blank" aria-label="LinkedIn">
-		  <i class="fab fa-linkedin-in" style="font-size:24px; color:white;"></i>
-		</a>
-		<a href="mailto:abhisheksinghpawar17@gmail.com" aria-label="Email">
-		  <i class="fas fa-envelope" style="font-size:24px; color:white;"></i>
-		</a>
-		<a href="https://github.com/Abhisheksinghpawar" target="_blank" aria-label="GitHub">
-		  <i class="fab fa-github" style="font-size:24px; color:white;"></i>
-		</a>
-		<a href="https://www.hackerrank.com/profile/abhishek1994paw1" target="_blank" aria-label="HackerRank">
-		  <i class="fa-brands fa-hackerrank" style="font-size:24px; color:white;"></i>
-		</a>
-		<a href="https://medium.com/@abhisheksinghpawar17" target="_blank" aria-label="Medium">
-		  <i class="fa-solid fa-m" style="font-size:24px; color:white;"></i>
-		</a>
-	  </div>
-  
-	  <!-- Footer Text -->
-	  <div style="text-align:center; color:white; font-size:14px;">
-		<p>&copy; Abhishek Singh Pawar</p>
-		<p>All Rights Reserved</p>
-	  </div>
-	</footer>
+<!-- logo marquee (replaces the old coverflow slider) -->
+<div style="padding:10px 0 70px" aria-label="Tools and technologies">
+  <div class="marquee">
+    <div class="track">
+      <div class="ltile"><img src="assets/img/logos/tools/jmeter-icon.png" alt="JMeter"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/eclipse-mat.png" alt="Memory Analyzer"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/aws.png" alt="AWS"></div>
+      <div class="ltile"><img src="assets/img/logos/ai/gemini-logo.png" alt="Gemini"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/visualvm.png" alt="VisualVM"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/linux.png" alt="Linux"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/wireshark.jpg" alt="Wireshark"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/locust.png" alt="Locust"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/jenkins-icon.png" alt="Jenkins"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/pointfive.png" alt="PointFive"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/grafana-icon.png" alt="Grafana"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/blazemeter-icon.png" alt="BlazeMeter"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/loadrunner-icon.png" alt="LoadRunner"></div>
+    </div>
   </div>
+  <div class="marquee rev">
+    <div class="track">
+      <div class="ltile"><img src="assets/img/logos/tools/neoload-icon.png" alt="NeoLoad"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/otel-icon.png" alt="OpenTelemetry"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/vscode.png" alt="VS Code"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/github-icon.png" alt="GitHub"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/python-icon.png" alt="Python"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/bootstrap-icon.png" alt="Bootstrap"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/r-icon.png" alt="R"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/tableau-icon.png" alt="Tableau"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/html-icon.png" alt="HTML"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/firebase-icon.png" alt="Firebase"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/c-icon.png" alt="C"></div>
+      <div class="ltile"><img src="assets/img/logos/tools/css-icon.png" alt="CSS"></div>
+      <div class="ltile"><img src="assets/img/logos/ai/ollama-icon.png" alt="Ollama"></div>
+    </div>
+  </div>
+</div>
 
+<!-- 01 PERFORMANCE ENGINEERING -->
+<section id="engineering">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">// 01 · performance engineering tools</div><h2 class="sec-title">Finding the <span class="grad-text">leak</span>.</h2></div>
+    <div class="grid g2">
+      <article class="glass card tool rv"><div class="ltile"><img src="assets/img/logos/tools/eclipse-mat.png" alt="Eclipse MAT" loading="lazy"></div><div>
+        <h3>Memory Analyzer (MAT)</h3>
+        <p>A fast, feature-rich Java heap analyzer for finding memory leaks and reducing memory consumption. It handles huge production heap dumps, shows what is blocking garbage collection, and can automatically report leak suspects.</p>
+        <a class="btn ghost sm" href="https://eclipse.dev/mat/" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download</a></div></article>
+      <article class="glass card tool rv"><div class="ltile"><img src="assets/img/logos/tools/visualvm.png" alt="VisualVM" loading="lazy"></div><div>
+        <h3>VisualVM</h3>
+        <p>VisualVM is a visual tool integrating command-line JDK tools and lightweight profiling capabilities. Designed for both development and production-time use.</p>
+        <a class="btn ghost sm" href="https://visualvm.github.io/" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 TESTING -->
+<section id="testing">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">// 02 · performance testing tools</div><h2 class="sec-title">Breaking things <span class="grad-text">on purpose</span>.</h2></div>
+    <div class="grid g4">
+      <article class="glass card tt rv"><div class="media" style="--b:#cbcbcb"><img src="assets/img/logos/tools/jmeter.png" alt="JMeter" loading="lazy"></div><div class="body"><h3>JMeter</h3><p>Experience scripting in this open source tool, completing company challenges and short-term projects.</p><a class="dl" href="https://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">Download<i class="fas fa-arrow-up-right-from-square"></i></a></div><div class="foot">Hands-on with version 5.4</div></article>
+      <article class="glass card tt rv"><div class="media" style="--b:#146c82"><img src="assets/img/logos/tools/loadrunner.png" alt="LoadRunner" loading="lazy"></div><div class="body"><h3>LoadRunner</h3><p>Completed multiple project scripting using VuGen and execution using StormRunner, Controller and Performance Center.</p><a class="dl" href="https://www.microfocus.com/en-us/products/loadrunner-professional/free-trial" target="_blank" rel="noopener">Download<i class="fas fa-arrow-up-right-from-square"></i></a></div><div class="foot">Hands-on with version 12.53</div></article>
+      <article class="glass card tt rv"><div class="media fit" style="--b:#343233"><img src="assets/img/logos/tools/neoload.png" alt="NeoLoad" loading="lazy"></div><div class="body"><h3>NeoLoad</h3><p>Over a year of experience; completed a migration project for a UK client from on-prem to cloud servers, covering testing and report analysis.</p><a class="dl" href="https://www.tricentis.com/lp/neoload-performance-load-testing-ppc" target="_blank" rel="noopener">Download<i class="fas fa-arrow-up-right-from-square"></i></a></div><div class="foot">Hands-on with versions 6.9, 7.0 and 7.4</div></article>
+      <article class="glass card tt rv"><div class="media" style="--b:#fff"><img src="assets/img/logos/tools/blazemeter.png" alt="BlazeMeter" loading="lazy"></div><div class="body"><h3>BlazeMeter</h3><p>Recorded multiple HTTP/HTTPS scripts and converted them to JMX files for load testing in JMeter.</p><a class="dl" href="https://www.blazemeter.com/product/blazemeter" target="_blank" rel="noopener">Download<i class="fas fa-arrow-up-right-from-square"></i></a></div><div class="foot">Hands-on with version 6.4.0</div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MONITORING -->
+<section id="monitoring">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">// 03 · monitoring tools</div><h2 class="sec-title">Seeing what the system <span class="grad-text">sees</span>.</h2></div>
+    <div class="grid g4">
+      <div class="glass card mon rv"><div class="bt" style="--b:#f5f5f5"><img src="assets/img/logos/tools/glowroot.jpg" alt="Glowroot" loading="lazy"></div><span>GLOWROOT</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#000"><img src="assets/img/logos/tools/opentelemetry.jpg" alt="OpenTelemetry" loading="lazy"></div><span>OPENTELEMETRY</span></div>
+      <div class="glass card mon rv"><div class="bt cover" style="--b:#622fa8"><img src="assets/img/logos/tools/datadog.jpg" alt="Datadog" loading="lazy"></div><span>DATADOG</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#fff"><img src="assets/img/logos/tools/cloudwatch.jpg" alt="CloudWatch" loading="lazy"></div><span>CLOUDWATCH</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#312f30"><img src="assets/img/logos/tools/grafana.jpg" alt="Grafana" loading="lazy"></div><span>GRAFANA</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#20242d"><img src="assets/img/logos/tools/influxdb.jpg" alt="InfluxDB" loading="lazy"></div><span>INFLUX DB</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#1b1f28"><img src="assets/img/logos/tools/telegraf.png" alt="Telegraf" loading="lazy"></div><span>TELEGRAF</span></div>
+      <div class="glass card mon rv"><div class="bt" style="--b:#fff"><img src="assets/img/logos/tools/prometheus.png" alt="Prometheus" loading="lazy"></div><span>PROMETHEUS</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 EXECUTION + APM -->
+<section id="execution">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">// 04 · execution &amp; apm</div><h2 class="sec-title">Running it, <span class="grad-text">end to end</span>.</h2></div>
+    <div class="split">
+      <div class="glass card apm xp rv"><span class="eyebrow">Execution tools</span><div class="exec">
+        <div class="ex"><div class="ico"><i class="fas fa-gears"></i></div><span>StormRunner</span></div>
+        <div class="ex"><div class="ico"><i class="fas fa-gears"></i></div><span>Controller</span></div>
+        <div class="ex"><div class="ico"><i class="fas fa-gears"></i></div><span>Performance Center</span></div>
+        <div class="ex"><div class="ico"><i class="fas fa-gears"></i></div><span>Jenkins</span></div>
+      </div></div>
+      <div class="glass card apm rv"><span class="eyebrow">APM tool</span><div class="bt cover" style="--b:#1a222b"><img src="assets/img/logos/tools/appdynamics.png" alt="AppDynamics" loading="lazy"></div><p>AppDynamics</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 LANGUAGES -->
+<section id="languages">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">// 05 · languages &amp; web</div><h2 class="sec-title">Beyond <span class="grad-text">testing</span>.</h2><p class="sec-sub">Notes and projects from the languages and tools I use around performance work.</p></div>
+    <div class="grid g4">
+      <a class="glass card lang rv" href="topics/python.html"><i class="fab fa-python" style="color:#5aa0d8"></i><span>PYTHON</span></a>
+      <a class="glass card lang rv" href="topics/bootstrap.html"><i class="fab fa-bootstrap" style="color:#a98aff"></i><span>BOOTSTRAP</span></a>
+      <a class="glass card lang rv" href="topics/r.html"><i class="fab fa-r-project" style="color:#5b9bd5"></i><span>R</span></a>
+      <a class="glass card lang rv" href="topics/tableau.html"><i class="fas fa-chart-area" style="color:#f0802f"></i><span>TABLEAU</span></a>
+      <a class="glass card lang rv" href="topics/html5.html"><i class="fab fa-html5" style="color:#f06529"></i><span>HTML</span></a>
+      <a class="glass card lang rv" href="topics/firebase.html"><i class="fas fa-fire-flame-curved" style="color:#ffca28"></i><span>FIREBASE</span></a>
+      <a class="glass card lang rv" href="topics/c.html"><i class="fab fa-cuttlefish" style="color:#6aa0d4"></i><span>C</span></a>
+      <div class="glass card lang rv"><i class="fab fa-css3-alt" style="color:#4d86f5"></i><span>CSS</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks"><a href="index.html">Journey</a><a href="slide.html">TechStack</a><a href="LiveTiles.html">Afterwork</a><a href="Ai.html">AI</a><a href="feedback.html">Feedback</a><a href="https://gonative.io/share/rqolaz" target="_blank" rel="noopener">Android app</a><a href="#top">Back to top ↑</a></div>
+  <div class="soc">
+    <a href="https://www.linkedin.com/in/abhishek-singh-pawar" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:abhisheksinghpawar17@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/Abhisheksinghpawar" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.hackerrank.com/profile/abhishek1994paw1" target="_blank" rel="noopener" aria-label="HackerRank"><i class="fa-brands fa-hackerrank"></i></a>
+    <a href="https://medium.com/@abhisheksinghpawar17" target="_blank" rel="noopener" aria-label="Medium"><span class="mmark">M</span></a>
+  </div>
+  <p>&copy; <span id="yr"></span> Abhishek Singh Pawar · All rights reserved</p>
+</footer>
+
+<script src="assets/js/ai-theme.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/analytics.js" defer></script>
 </body>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-	apiKey: "AIzaSyAu35v2KvYao8rgk0zLqmpLWWyipiLMYqI",
-    authDomain: "abhisheksinghpawar-70ac7.firebaseapp.com",
-    databaseURL: "https://abhisheksinghpawar-70ac7.firebaseio.com",
-    projectId: "abhisheksinghpawar-70ac7",
-    storageBucket: "abhisheksinghpawar-70ac7.appspot.com",
-    messagingSenderId: "483538358530",
-    appId: "1:483538358530:web:11ce9ac09a6798a744b21b",
-    measurementId: "G-MWB9YEZPBK"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
 </html>
