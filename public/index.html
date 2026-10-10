@@ -3,20 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Abhishek Singh Pawar</title>
+	<title>Abhishek Singh Pawar — Performance Engineer</title>
+	<meta name="description" content="Abhishek Singh Pawar — Senior Performance Engineer with 7+ years of experience in JMeter, Grafana, Python, and AI-powered tooling.">
+	<meta property="og:title" content="Abhishek Singh Pawar">
+	<meta property="og:description" content="Performance Engineer & Python/AI enthusiast. Explore projects, experience, and skills.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://abhisheksinghpawar.com/">
 	<link rel="shortcut icon" type="image/x-icon" href="img/icons8-alpha-64.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <!-- Bootstrap Bundle with Popper (required for navbar toggler) -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@500;700&display=swap">
 	<style>
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
 
+html{
+overflow-x: hidden;
+}
 html,body{
 height: 100%;
 width: 100%;
@@ -102,7 +107,9 @@ h5{ font-size:18px;
 }
   }
 @media (max-width: 768px) {
-  
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
 }
 @media (max-width: 576px) {
   
@@ -171,6 +178,10 @@ figure {
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
     padding: 1rem;
+}
+.row {
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 .fa-envelope:hover{
    opacity:0.7;
@@ -262,12 +273,12 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 <!--- Image Slider -->
 
-<div id="slides" class="carousel slide" data-ride="carousel">
+<div id="slides" class="carousel slide" data-bs-ride="carousel">
 <ul class="carousel-indicators">
-	<li data-target="#slides" data-slide-to="0" class="active"></li>
-	<li data-target="#slides" data-slide-to="1" class="active"></li>
-	<li data-target="#slides" data-slide-to="2" class="active"></li>
-	<li data-target="#slides" data-slide-to="3" class="active"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="0" class="active"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="1"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="2"></li>
+	<li data-bs-target="#slides" data-bs-slide-to="3"></li>
 </ul>
 <div class="carousel-inner">	
 	<div class="carousel-item active">
@@ -307,7 +318,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 <div class="col-12">
 	<p>
-	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Here's my story so far</b></span></h5></center>
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Here's my story so far</b></span></h5></div>
 	</p>
 </div>
 
@@ -395,9 +406,7 @@ typeWriter()
 
 <hr style="width:80%">
 	<div class="col-12">
-	<p>
-	<center style="font-size:35px"><b style="color:darkblue;font-family:'Roboto', sans-serif">Professional Experience</b></center>
-	</p>
+	<p class="text-center" style="font-size:35px"><b style="color:darkblue;font-family:'Roboto', sans-serif">Professional Experience</b></p>
 	</div>
 
 	<section id="experience" class="container my-4">
@@ -611,9 +620,7 @@ section#experience { background: transparent !important; box-shadow: none !impor
 
 <!--- Fixed background -->s
 <div class="col-12">
-	<p>
-	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Tech behind this website</b></span></h5></center>
-	</p>
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Tech behind this website</b></span></h5></div>
 </div>
 
 <div class="container-fluid padding">
@@ -1024,9 +1031,7 @@ section#experience { background: transparent !important; box-shadow: none !impor
   </script>
 
 <div class="col-12">
-	<p>
-	<center style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Get the App or source code</b></span></h5></center>
-	</p>
+	<div class="text-center" style="font-size:30px;font-family:Georgia, 'Times New Roman', Times, serif"><h5><span><b>Get the App or source code</b></span></h5></div>
 </div>
 
 <div class="container-fluid padding">
@@ -1034,16 +1039,16 @@ section#experience { background: transparent !important; box-shadow: none !impor
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-		<center><a href="https://gonative.io/share/rqolaz"><img src="img/android.png" height="50px"></a></center><br>	
+		<div class="text-center"><a href="https://gonative.io/share/rqolaz"><img src="img/android.png" height="50px"></a></div><br>
 		</div>
 	<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-		<center><a href="https://github.com/Abhisheksinghpawar/website/"><img src="img/github.png" height="50px"></a></center><br>	
+		<div class="text-center"><a href="https://github.com/Abhisheksinghpawar/website/"><img src="img/github.png" height="50px"></a></div><br>
 	</div>
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
 	</div>
 	
-	<p><center style="font-size:15px;font-family:'Times New Roman', Times, serif">Latest Update: <span id="currentDate"></span> </center></p>
+	<p class="text-center" style="font-size:15px;font-family:'Times New Roman', Times, serif">Latest Update: <span id="currentDate"></span> </p>
 	<script>
 		// Get the current date
 		const currentDate = new Date();
