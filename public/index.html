@@ -90,11 +90,11 @@ color:white;
 background-color:#808080;
 }
 h5 {
-   width: 90%; 
+   width: 90%;
    border-bottom: 2px solid #000;
    line-height: 0.2em;
-   margin: 10px 0 20px;
-font-size:25px; 
+   margin: 10px auto 20px;
+font-size:25px;
 } 
 
 h5 span { 
@@ -781,6 +781,8 @@ section#experience { background: transparent !important; box-shadow: none !impor
 			line-height: 1.5;
 			color: #2f2f2f;
 			white-space: pre-line;
+			overflow-wrap: break-word;
+			word-break: break-word;
 		}
 		.ai-snapshot-row {
 			display: flex;
@@ -797,6 +799,9 @@ section#experience { background: transparent !important; box-shadow: none !impor
     @media (max-width: 600px) {
       section {
         padding: 1rem;
+      }
+      .ai-snapshot-row .ai-analysis {
+        min-width: 0;
       }
     }
 
