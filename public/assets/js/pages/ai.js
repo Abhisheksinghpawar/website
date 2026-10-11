@@ -141,14 +141,15 @@ document.getElementById('proj-grid').innerHTML = projects.map(p => `
     <div class="pb">
       <div class="flow">${p.flow.map((n, i) => (i ? '<i class="fas fa-arrow-right"></i>' : '') + `<span class="node" tabindex="0" data-tip="${n[1].replace(/"/g, '&quot;')}">${n[0]}</span>`).join('')}</div>
       <div class="row"><b>Highlights:</b> <span>${p.highlights}</span></div>
-      <div class="row"><b>Problem it solves:</b> <span>${p.problem}</span></div>
-      <div class="row"><b>Advantages:</b><ul>${p.adv.map(a => `<li>${a}</li>`).join('')}</ul></div>
+      <details class="more"><summary>Problem it solves &amp; advantages</summary>
+        <div class="row"><b>Problem it solves:</b> <span>${p.problem}</span></div>
+        <div class="row"><b>Advantages:</b><ul>${p.adv.map(a => `<li>${a}</li>`).join('')}</ul></div>
+      </details>
     </div>
     <div class="pf">
       <div class="acts">
         <button class="btn line sm" data-t="${p.id}" aria-haspopup="dialog"><i class="fas fa-circle-info"></i> More details</button>
-        <a class="btn line sm" href="https://github.com/Abhisheksinghpawar/${p.repo}" target="_blank" rel="noopener"><i class="fab fa-github"></i> View code</a>
-        <a class="btn dl sm" href="https://github.com/Abhisheksinghpawar/${p.repo}/archive/refs/heads/main.zip" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download</a>
+        <a class="btn dl sm" href="https://github.com/Abhisheksinghpawar/${p.repo}" target="_blank" rel="noopener"><i class="fab fa-github"></i> View code</a>
       </div>
     </div>
   </article>`).join('');
@@ -162,4 +163,83 @@ const closeModal = () => modal.classList.remove('open');
 document.getElementById('mclose').onclick = closeModal;
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+// ---- featured project: each step's mini illustration plays once when the card appears, and again on hover ----
+(function stepIllustrations() {
+  const steps = document.querySelectorAll('#featured .step');
+  const play = s => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); };   // reflow restarts the CSS animations
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { play(e.target); io.unobserve(e.target); }
+  }), { threshold: .1 });
+  steps.forEach(s => { io.observe(s); s.addEventListener('mouseenter', () => play(s)); });
+})();
+
+// ---- featured project: refresh the report card from the latest published run (the HTML holds a real run as fallback) ----
+(function reportCard() {
+  const card = document.getElementById('report-card');
+  if (!card) return;           // the report site allows any origin (CORS *), so this also works when the page is opened from disk
+  const $ = k => card.querySelector(`[data-r="${k}"]`);
+  const set = (k, v) => { const el = $(k); if (el) el.textContent = String(v).replace(/\u2011|\u2010/g, '-').replace(/\u202f/g, ' '); };
+  const num = v => Math.round(v || 0).toLocaleString('en-US');
+  const ms = v => (v < 10 ? (+v || 0).toFixed(1) : Math.round(v)) + ' ms';
+  const utc = iso => new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }).replace(',', ',') + ' UTC';
+  const plural = (k, w) => `${num(k)} ${w}${k === 1 ? '' : 's'}`;
+  fetch('https://raw.githubusercontent.com/Abhisheksinghpawar/perf-agent-lab/main/memory/state.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .then(s => { if (s.last_checked) set('sched', `Scheduled nightly at 03:17 UTC · last checked ${utc(s.last_checked)}; re-tests when JPetStore changes.`); })
+    .catch(() => {});
+  fetch('https://abhisheksinghpawar.github.io/perf-agent-lab/latest.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .then(d => {
+      const l = d.load || {}, res = d.resources || {}, an = d.analysis, lg = d.logs, f = d.top_finding, c = d.commit || {};
+      if (!l.requests || !an || !lg) return;                   // run stopped before the load test: keep the snapshot
+      const labels = { healthy: 'Healthy', attention: 'Needs attention', failed: 'Run failed' };
+      const badge = $('verdict');
+      badge.textContent = labels[d.verdict] || d.verdict;
+      badge.className = 'vbadge ' + d.verdict;
+      const when = 'Last tested ' + utc(d.finished_at);
+      const llm = d.llm || 'off';
+      const tok = num(d.tokens && d.tokens.total);
+      const mode = /^off/.test(llm) ? 'rule-based analysis, 0 LLM tokens'
+        : /scripted/.test(llm) ? 'scripted demo model'
+        : d.analysis_by === 'llm' ? `findings by ${llm} (${tok} tokens)`
+        : d.tokens && d.tokens.total ? `rule-based findings (${llm} fell back, ${tok} tokens)` : 'rule-based analysis, 0 LLM tokens';
+      set('meta', `${when} · ${(d.target && d.target.name) || 'JPetStore'} @ ${c.short} · ${mode}`);
+      set('shape', `${l.users} users · ${l.duration_s % 60 ? l.duration_s + ' s' : l.duration_s / 60 + ' min'}`);
+      set('requests', num(l.requests));
+      set('rps', num(l.rps) + ' req/s');
+      set('p95', ms(l.p95));
+      const pct = (l.error_rate || 0) * 100;
+      set('errors', pct === 0 ? '0%' : pct < 0.01 ? '<0.01%' : pct.toFixed(2) + '%');
+      const sm = d.smoke || {};
+      set('smoke', sm.healed ? `Script repaired by the agent (${plural(sm.heal_attempts, 'attempt')}), then the sanity test passed.`
+        : `Sanity test passed (${num(sm.requests)} requests).`);
+      set('latency', `p50 ${ms(l.p50)} · p99 ${ms(l.p99)} · ${an.spikes ? plural(an.spikes, 'spike') : 'no spikes'}` +
+        (an.regressions ? ` · ${plural(an.regressions, 'regression')}` : ''));
+      set('infra', `CPU ${Math.round(res.cpu_avg)}% avg · ${num(res.java_rss_max_mb)} MB` + (lg.gc_count ? ` · GC max ${ms(lg.gc_max_pause_ms)}` : ''));
+      const ef = f && f.category === 'errors' ? f : null;
+      const http = ef && /^HTTP (\d{3}) x(\d+)/.exec((ef.evidence || [])[0] || '');
+      set('err', !l.failures ? 'No failed requests' : http ? `${http[2]} × HTTP ${http[1]} on ${ef.endpoint}`
+        : ef && ef.endpoint ? `${plural(l.failures, 'failed request')} on ${ef.endpoint}` : plural(l.failures, 'failed request'));
+      card.querySelectorAll('[data-row="cause"]').forEach(el => { el.hidden = !f; });
+      if (f) {
+        const full = f.suspected_cause || f.title, k = full.indexOf(': ');
+        const cause = k > 0 && k < 70 ? full.slice(k + 2) : full;          // keep the explanation, drop the lead-in
+        set('cause', /^[a-z]+[A-Z_(]/.test(cause) ? cause : cause.charAt(0).toUpperCase() + cause.slice(1));     // keep code identifiers like getNextId as written
+        const linkable = /^https:\/\/github\.com\/[\w.-]+\/[\w.-]+$/.test(c.repo) && /^[0-9a-f]{7,40}$/.test(c.sha);
+        $('refs').replaceChildren(...(f.code_refs || []).map(r => {
+          const a = document.createElement(linkable ? 'a' : 'span');
+          if (linkable) { a.href = `${c.repo}/blob/${c.sha}/${c.subdir ? c.subdir.replace(/^\/|\/$/g, '') + '/' : ''}${r.file}#L${r.line}`; a.target = '_blank'; a.rel = 'noopener'; }
+          a.textContent = `${r.file.split('/').pop()}:${r.line}`;
+          a.title = r.note || '';
+          return a;
+        }));
+      }
+      const imp = (d.improvements || [])[0];
+      set('rec', imp ? imp.action : (f && f.recommendation) || 'No action needed: no errors, spikes or regressions in this run.');
+      $('effort').hidden = !(imp && imp.effort);
+      if (imp && imp.effort) set('effort', 'Effort: ' + imp.effort);
+    })
+    .catch(() => { /* report site unreachable: the snapshot stays */ });
+})();
+
 aiReveal();

@@ -135,3 +135,19 @@ async function analyze(id, provider) {
   }
   el.classList.remove('shimmer');
 }
+
+// ---- popup that points visitors at the featured project: after a few seconds, never again for 3 days once dismissed/clicked ----
+(function featuredPromo() {
+  const el = document.getElementById('promo');
+  if (!el) return;
+  const KEY = 'promo-featured-seen';
+  const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) { /* private mode */ } };
+  let seen = 0;
+  try { seen = Number(localStorage.getItem(KEY)) || 0; } catch (e) { /* private mode */ }
+  if (Date.now() - seen < 3 * 864e5) return;
+  const close = () => { remember(); el.classList.remove('show'); setTimeout(() => { el.hidden = true; }, 400); };
+  document.getElementById('promo-x').addEventListener('click', close);
+  el.querySelector('.go').addEventListener('click', remember);
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !el.hidden) close(); });
+  setTimeout(() => { el.hidden = false; requestAnimationFrame(() => el.classList.add('show')); }, 4000);
+})();
