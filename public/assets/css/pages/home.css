@@ -236,15 +236,10 @@ footer{padding:50px 0 40px;text-align:center;color:var(--muted);font-size:.85rem
 /* the hero headline is two lines for every rotating word; reserve that before the web font loads */
 .hero h1{min-height:1.96em}
 
-/* promo popup for the featured project */
-.promo{position:fixed;right:20px;bottom:20px;z-index:60;width:min(330px,calc(100vw - 32px));padding:16px 18px 16px;border-radius:18px;background:rgba(10,12,26,.94);border:1px solid var(--card-b);box-shadow:0 18px 50px rgba(0,0,0,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s}
-.promo.show{opacity:1;transform:none}
-.promo[hidden]{display:none}
-.promo::before{content:'';position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:0 0 2px 2px;background:linear-gradient(90deg,#7c5cff,#22d3ee,#f472b6)}
-.promo h4{margin:6px 0 4px;font-size:1rem;line-height:1.3}
-.promo p{margin:0 0 12px;color:#b3b9d6;font-size:.84rem;line-height:1.45}
-.promo .go{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;background:linear-gradient(120deg,#7c5cff,#22d3ee);color:#05060f;font-weight:600;font-size:.85rem}
-.promo .x{position:absolute;top:6px;right:10px;background:none;border:0;color:var(--muted);font-size:1.4rem;line-height:1;cursor:pointer;padding:4px 6px}
-.promo .x:hover{color:#fff}
-@media(max-width:560px){.promo{left:12px;right:12px;bottom:12px;width:auto;padding:12px 14px}.promo p{display:none}.promo h4{margin-bottom:8px;padding-right:22px}}
-@media(prefers-reduced-motion:reduce){.promo{transition:none;transform:none}}
+/* currently-building card: featured project + one line for the other work */
+.build .bmain{flex:1 1 360px;min-width:0}
+.build .bact{display:flex;flex-direction:column;gap:10px;flex:none}
+.build .bmore{flex:1 1 100%;padding-top:16px;border-top:1px solid var(--card-b);color:var(--muted);font-size:.9rem}
+.build .bmore b{color:#fff;font-weight:600}
+.build .bmore a{color:var(--accent2);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:700px){.build{padding:26px 22px;gap:20px}.build .bact{flex-direction:row;flex-wrap:wrap;width:100%}}
