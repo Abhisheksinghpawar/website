@@ -196,19 +196,22 @@
     <div class="eyebrow">// under the hood</div>
     <h2 class="sec-title">Tech behind <span class="grad-text">this website</span>.</h2>
   </div>
-  <div class="marquee rv">
-    <div class="track" id="track">
-      <div class="glass chip"><img src="assets/img/logos/tech/firebase.png" alt="">Firebase</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/nvidia.png" alt="">Nvidia</div>
-      <div class="glass chip"><img src="assets/img/logos/ai/groq.jpg" alt="">Groq</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/claude.svg" alt="">Claude</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/cloudflare.png" alt="">Cloudflare</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/api-ninjas.png" alt="">API Ninjas</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/nodejs.png" alt="">Node.js</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/html5.png" alt="">HTML5</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/javascript.png" alt="">JavaScript</div>
-      <div class="glass chip"><img src="assets/img/logos/tech/google-analytics.png" alt="">Google Analytics</div>
+  <div class="wrap">
+    <div class="stack rv" id="stack">
+      <svg class="edges" id="edges" aria-hidden="true"></svg>
+      <button type="button" class="glass tn tn-browser" data-id="browser"><span class="ni"><img src="assets/img/logos/tech/html5.png" alt=""><img src="assets/img/logos/tech/javascript.png" alt=""></span><b>Your browser</b><small>HTML5 &middot; JavaScript</small></button>
+      <button type="button" class="glass tn tn-firebase" data-id="firebase"><span class="ni"><img src="assets/img/logos/tech/firebase.png" alt=""></span><b>Firebase Hosting</b><small>static pages</small></button>
+      <button type="button" class="glass tn tn-worker" data-id="worker"><span class="ni"><img src="assets/img/logos/tech/cloudflare.png" alt=""></span><b>Cloudflare Worker</b><small>the only server code</small></button>
+      <button type="button" class="glass tn tn-analytics" data-id="analytics"><span class="ni"><img src="assets/img/logos/tech/google-analytics.png" alt=""></span><b>Google Analytics</b><small>page views</small></button>
+      <button type="button" class="glass tn tn-groq" data-id="groq"><span class="ni"><img src="assets/img/logos/ai/groq.jpg" alt=""></span><b>Groq</b><small>live verdict</small></button>
+      <button type="button" class="glass tn tn-nvidia" data-id="nvidia"><span class="ni"><img src="assets/img/logos/tech/nvidia.png" alt=""></span><b>NVIDIA NIM</b><small>second opinion</small></button>
+      <button type="button" class="glass tn tn-ninjas" data-id="ninjas"><span class="ni"><img src="assets/img/logos/tech/api-ninjas.png" alt=""></span><b>API Ninjas</b><small>quote &amp; fact</small></button>
     </div>
+    <p class="scap" id="scap" aria-live="polite">Hover or tap a service to follow its path.</p>
+    <ul class="built">
+      <li><img src="assets/img/logos/tech/claude.svg" alt=""><b>Claude</b> built it with me</li>
+      <li><img src="assets/img/logos/tech/nodejs.png" alt=""><b>Node.js</b> link checker and Wrangler deploys</li>
+    </ul>
   </div>
 </section>
 

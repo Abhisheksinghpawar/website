@@ -4,7 +4,7 @@ document.querySelectorAll('#links a').forEach(a => a.addEventListener('click', (
 
 // duplicate marquee for seamless loop
 const track = document.getElementById('track');
-track.innerHTML += track.innerHTML;
+if (track) track.innerHTML += track.innerHTML;     // (the scrolling logo row was replaced by the request-path diagram)
 
 // rotating role text
 // scroll progress bar
@@ -135,3 +135,72 @@ async function analyze(id, provider) {
   }
   el.classList.remove('shimmer');
 }
+
+// ---- "Tech behind this website": hover / tap / focus a service to follow its request path ----
+(function techPath() {
+  const stack = document.getElementById('stack');
+  if (!stack) return;
+  const svg = document.getElementById('edges'), cap = document.getElementById('scap');
+  const NS = 'http://www.w3.org/2000/svg', DEFAULT = cap.textContent;
+  const edges = [['browser', 'firebase'], ['browser', 'worker'], ['worker', 'groq'], ['worker', 'nvidia'], ['worker', 'ninjas'], ['browser', 'analytics']];
+  const path = { browser: [0, 1, 2, 3, 4, 5], firebase: [0], worker: [1, 2, 3, 4], groq: [1, 2], nvidia: [1, 3], ninjas: [1, 4], analytics: [5] };
+  const says = {
+    browser: 'Your browser loads the static pages, measures its own load time, and asks the Worker for an AI verdict on it.',
+    firebase: 'Firebase Hosting serves the static pages. No build step and no server.',
+    worker: 'The Cloudflare Worker is the only server-side code. It keeps the Groq, NVIDIA and API Ninjas keys off the page.',
+    groq: 'Groq (gpt-oss-20b) writes the live verdict in the console at the top of this page.',
+    nvidia: 'NVIDIA NIM gives a second opinion on the same metrics.',
+    ninjas: 'API Ninjas supplies the quote and fact of the day on the Afterwork page.',
+    analytics: 'Google Analytics counts page views. It loads after the page is idle, so it never slows the page down.',
+  };
+  const node = id => stack.querySelector(`[data-id="${id}"]`);
+  const groups = edges.map(() => {
+    const g = document.createElementNS(NS, 'g'), p = document.createElementNS(NS, 'path'), d = document.createElementNS(NS, 'circle');
+    g.setAttribute('class', 'e'); d.setAttribute('r', '3'); g.append(p, d); svg.appendChild(g);
+    return g;
+  });
+  const rel = (el, box) => { const r = el.getBoundingClientRect(); return { l: r.left - box.left, r: r.right - box.left, t: r.top - box.top, b: r.bottom - box.top, cx: r.left + r.width / 2 - box.left, cy: r.top + r.height / 2 - box.top }; };
+  function layout() {
+    const box = stack.getBoundingClientRect(), vertical = box.width < 700;
+    svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+    edges.forEach(([a, b], i) => {
+      const A = rel(node(a), box), Bn = rel(node(b), box);
+      const [x1, y1, x2, y2] = vertical ? [A.cx, A.b, Bn.cx, Bn.t] : [A.r, A.cy, Bn.l, Bn.cy];
+      const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      groups[i].firstChild.setAttribute('d', vertical ? `M${x1} ${y1}C${x1} ${my} ${x2} ${my} ${x2} ${y2}` : `M${x1} ${y1}C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`);
+      groups[i].lastChild.setAttribute('cx', x2); groups[i].lastChild.setAttribute('cy', y2);
+    });
+  }
+  function hot(id) {
+    const on = new Set([id]);
+    path[id].forEach(i => edges[i].forEach(n => on.add(n)));
+    stack.classList.add('has-hot');
+    stack.querySelectorAll('.tn').forEach(n => n.classList.toggle('hot', on.has(n.dataset.id)));
+    groups.forEach((g, i) => g.classList.toggle('hot', path[id].includes(i)));
+    cap.textContent = says[id];
+  }
+  function clear() {
+    stack.classList.remove('has-hot');
+    stack.querySelectorAll('.tn.hot').forEach(n => n.classList.remove('hot'));
+    groups.forEach(g => g.classList.remove('hot'));
+    cap.textContent = DEFAULT;
+  }
+  stack.querySelectorAll('.tn').forEach(n => {
+    n.addEventListener('mouseenter', () => hot(n.dataset.id));
+    n.addEventListener('focus', () => hot(n.dataset.id));
+    n.addEventListener('click', () => hot(n.dataset.id));          // tap on touch screens
+    n.addEventListener('blur', clear);
+  });
+  stack.addEventListener('mouseleave', clear);
+  document.addEventListener('click', e => { if (!stack.contains(e.target)) clear(); });
+  new ResizeObserver(layout).observe(stack);
+  addEventListener('load', layout);
+  layout();
+  // once, when it scrolls into view: show one request travelling browser -> Worker -> Groq, then rest
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(es => {
+      if (es[0].isIntersecting) { io.disconnect(); setTimeout(() => { hot('groq'); setTimeout(() => { if (!stack.matches(':hover')) clear(); }, 2800); }, 500); }
+    }, { threshold: .6 });
+    io.observe(stack);
+  }
+})();
