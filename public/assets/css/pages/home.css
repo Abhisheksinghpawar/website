@@ -210,6 +210,7 @@ section+section::before{content:'';position:absolute;top:0;left:50%;transform:tr
 @keyframes scroll{to{transform:translateX(-50%)}}
 .chip{display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:16px;white-space:nowrap;font-weight:500}
 .chip img{height:28px;width:auto;border-radius:6px}
+.chip img[src*="api-ninjas"]{filter:brightness(0) invert(1);opacity:.9}   /* the logo is black on transparent: invisible on the dark chip */
 
 /* cta + footer */
 .cta-box{padding:48px 28px;text-align:center;position:relative;overflow:hidden;border-radius:28px}
